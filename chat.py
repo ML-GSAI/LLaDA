@@ -5,7 +5,7 @@ from transformers import AutoTokenizer, AutoModel
 
 
 def chat():
-    device = 'cuda'
+    device = 'mps'
     model = AutoModel.from_pretrained('GSAI-ML/LLaDA-8B-Instruct', trust_remote_code=True, torch_dtype=torch.bfloat16).to(device).eval()
     tokenizer = AutoTokenizer.from_pretrained('GSAI-ML/LLaDA-8B-Instruct', trust_remote_code=True)
 
@@ -29,7 +29,7 @@ def chat():
         else:
             prompt = torch.cat([prompt, input_ids[:, 1:]], dim=1)
 
-        out = generate(model, prompt, steps=steps, gen_length=gen_length, block_length=32, temperature=0., cfg_scale=0., remasking='low_confidence')
+        out = generate(model, prompt, steps=steps, gen_length=gen_length, block_length=32, temperature=0., cfg_scale=0., remasking='low_confidence', is_mps=True)
 
         answer = tokenizer.batch_decode(out[:, prompt.shape[1]:], skip_special_tokens=True)[0]
         print(f"Bot's reply: {answer}")
