@@ -1,7 +1,8 @@
 # Large Language Diffusion Models
 [![arXiv](https://img.shields.io/badge/arXiv-2502.09992-red.svg)](https://arxiv.org/abs/2502.09992)
-[![deploy](https://img.shields.io/badge/Huggingface%20-LLaDA_Base%20-FFEB3B)](https://huggingface.co/GSAI-ML/LLaDA-8B-Base)
-[![deploy](https://img.shields.io/badge/Huggingface%20-LLaDA_Instruct%20-FFEB3B)](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct)
+[![deploy](https://img.shields.io/badge/Hugging%20Face%20-LLaDA_Base%20-FFEB3B)](https://huggingface.co/GSAI-ML/LLaDA-8B-Base)
+[![deploy](https://img.shields.io/badge/Hugging%20Face%20-LLaDA_Instruct%20-FFEB3B)](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct)
+[![deploy](https://img.shields.io/badge/🤗%20Hugging%20Face%20-Spaces%20demo%20-blue)](https://huggingface.co/spaces/multimodalart/LLaDA)
 [![deploy](https://img.shields.io/badge/Zhihu-知乎-blue)](https://zhuanlan.zhihu.com/p/24214732238)
 
 We introduce LLaDA (<b>L</b>arge <b>La</b>nguage <b>D</b>iffusion with m<b>A</b>sking), a diffusion model with an unprecedented 8B scale, trained entirely from scratch, 
@@ -31,6 +32,12 @@ You can directly run `python chat.py` to have multi-round conversations with LLa
 
 In addition, please refer to our paper and [GUIDELINES.md](GUIDELINES.md) for more details about the inference methods.
 
+## Gradio demo 
+First, install [Gradio](https://www.gradio.app) `pip install gradio`, and then you can directly run `python app.py`
+
+<div style="display: flex; justify-content: center; flex-wrap: wrap;">
+    <img src="./imgs/example_gradio.gif" style="width: 80%" />
+</div>
 
 ## Pre-training and Supervised Fine-Tuning
 
