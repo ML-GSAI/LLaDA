@@ -78,6 +78,8 @@ class LLaDAEvalHarness(LM):
             self.device = torch.device(f'{self.accelerator.device}')
             self._rank = self.accelerator.local_process_index
             self._world_size = self.accelerator.num_processes
+        else: 
+            self.model = self.model.to(device)
 
         self.mask_id = mask_id
         self.tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
