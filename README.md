@@ -20,6 +20,7 @@ in Huggingface. Please first install `transformers==4.38.2` and employ the [tran
 
 ```angular2html
 from transformers import AutoModel, AutoTokenizer
+import torch
 
 tokenizer = AutoTokenizer.from_pretrained('GSAI-ML/LLaDA-8B-Base', trust_remote_code=True)
 model = AutoModel.from_pretrained('GSAI-ML/LLaDA-8B-Base', trust_remote_code=True, torch_dtype=torch.bfloat16)
