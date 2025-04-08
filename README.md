@@ -63,6 +63,19 @@ Please refer to Appendix B.5. of our [paper](https://arxiv.org/abs/2502.09992) f
 
 We provide the code for evaluation using the open-source library lm-evaluation-harness. To begin, please install `lm_eval==0.4.5` and refer to `evaluation/eval.sh` for the specific commands.
 
+## Quantization 
+
+We provide the code for quantization using [GPTQModel](https://github.com/ModelCloud/GPTQModel) in the `quantization` folder.
+- [LLaDA-8B-Base-GPTQ-4bit](https://huggingface.co/FunAGI/LLaDA-8B-Base-gptqmodel-4bit)
+- [LLaDA-8B-Instruct-GPTQ-4bit](https://huggingface.co/FunAGI/LLaDA-8B-Instruct-gptqmodel-4bit)
+
+Based on the published evaluation code, we have evaluated the quantized **base model**. The results are as follows: 
+
+| Dataset       | GPTQ-4bit | FP16   |
+|----------------|------------|--------|
+| MMLU            | 65.20        | 65.90  |
+| CMMLU         | 69.23        | 69.90  |
+| ARC-Challenge | 45.48        | 47.90 |
 
 ## FAQ
 Here, we address some common questions about LLaDA.
