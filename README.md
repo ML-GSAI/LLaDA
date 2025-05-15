@@ -14,8 +14,8 @@ rivaling LLaMA3 8B in performance.
 </div>
 
 ## News
-- [2024.05] We have provided evaluation code based on the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) for the LLaDA-Base.
-- [2024.02] We have uploaded our paper to [arXiv](https://arxiv.org/abs/2502.09992) and open-sourced [LLaDA-8B-Base](https://huggingface.co/GSAI-ML/LLaDA-8B-Base) and [LLaDA-8B-Instruct](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct).
+- [2025.05] We have provided evaluation code based on the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) for the LLaDA-Base.
+- [2025.02] We have uploaded our paper to [arXiv](https://arxiv.org/abs/2502.09992) and open-sourced [LLaDA-8B-Base](https://huggingface.co/GSAI-ML/LLaDA-8B-Base) and [LLaDA-8B-Instruct](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct).
 
 
 ## Inference
@@ -63,7 +63,7 @@ We use two evaluation methods: conditional likelihood estimation and conditional
 
 In our [paper](https://arxiv.org/abs/2502.09992), we implement conditional likelihood estimation using the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) library, while conditional generation is performed with an internal library, as lm-evaluation-harness lacks support for certain metrics (i.e., HumanEval-FIM). Please refer to Appendix B.5. of our [paper](https://arxiv.org/abs/2502.09992) for all evaluation details.
 
-**2024.05.04.** We now provide evaluation code based on the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) for the LLaDA-Base, including conditional likelihood estimation and conditional generation. However, for the Instruct model (both LLama3-Instruct and LLaDA-Instruct), we encountered some bugs. We are still debugging the issue. 
+**2025.05.04.** We now provide evaluation code based on the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) for the LLaDA-Base, including conditional likelihood estimation and conditional generation. However, for the Instruct model (both LLama3-Instruct and LLaDA-Instruct), we encountered some bugs. We are still debugging the issue. 
 
 Please refer to [EVAL.md](EVAL.md) for the usage of the evaluation code and the BUG details. Any help in resolving this bug would be sincerely appreciated.
 
