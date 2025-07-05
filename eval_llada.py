@@ -198,8 +198,8 @@ class LLaDAEvalHarness(LM):
             continuation = context[-n_spaces:] + continuation
             context = context[:-n_spaces]
 
-        whole_enc = self.tokenizer(context + continuation, return_tensors="pt")["input_ids"].squeeze(0)
-        context_enc = self.tokenizer(context, return_tensors="pt")["input_ids"].squeeze(0)
+        whole_enc = self.tokenizer(context + continuation)["input_ids"]
+        context_enc = self.tokenizer(context)["input_ids"]
 
         context_enc_len = len(context_enc)
         continuation_enc = whole_enc[context_enc_len:]
@@ -236,6 +236,9 @@ class LLaDAEvalHarness(LM):
                     f"Context + continuation length exceeds {self.max_length} tokens: "
                     f"{len(context)} + {len(continuation)}"
                 )
+                
+                context = torch.tensor(context, device=self.device)
+                continuation = torch.tensor(continuation, device=self.device)
 
                 logprob = self.get_loglikelihood(context, continuation)
                 isgreedy = self.suffix_greedy_prediction(context, continuation)
