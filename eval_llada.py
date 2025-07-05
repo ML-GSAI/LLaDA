@@ -78,7 +78,7 @@ class LLaDAEvalHarness(LM):
             self._world_size = self.accelerator.num_processes
         else: 
             self.device = torch.device(device)
-            
+
         self.model = self.model.to(device)
 
         self.mask_id = mask_id
@@ -198,8 +198,8 @@ class LLaDAEvalHarness(LM):
             continuation = context[-n_spaces:] + continuation
             context = context[:-n_spaces]
 
-        whole_enc = self.tokenizer(context + continuation)["input_ids"]
-        context_enc = self.tokenizer(context)["input_ids"]
+        whole_enc = self.tokenizer(context + continuation, return_tensors="pt")["input_ids"].squeeze(0)
+        context_enc = self.tokenizer(context, return_tensors="pt")["input_ids"].squeeze(0)
 
         context_enc_len = len(context_enc)
         continuation_enc = whole_enc[context_enc_len:]
