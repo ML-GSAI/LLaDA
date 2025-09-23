@@ -17,6 +17,19 @@ In addition, we provide ablation studies on the above five metrics with respect 
 |gen_length=512,steps=512,block_length=512|50.4|70.8|30.9|32.9|39.2|
 |gen_length=256,steps=256,block_length=256|45.0|70.0|30.3|32.9|40.2|
 
+For LLaDA-Instruct, we provide a comparison of nine generation metrics evaluated using both the open-source `opencompass` library and our internal evaluation toolkit. For the MBPP code generation benchmark, we employ a 3-shot prompting configuration.
+| Benchmark | Internal toolkit | `Opencompass` |
+|-----------|-------------|-------------------------------------|
+| mmlu      | 65.5     | 64.89                              |
+| mmlu_pro  | 37       | 36.58                              |
+| Hellaswag | 74.6     | 75.32                              |
+| ARC-C     | 88.5     | 89.15                              |
+| GSM8K     | 78.6     | 79.60                              |
+| math      | 26.6     | 26.34                              |
+| GPQA      | 31.8     | 32.32                              |
+| HumanEval | 47.6     | 48.78                              |
+| MBPP      | 34.2(4)     | 38.2(3)                               |
+
 
 ## Challenges encountered when reproducing the Instruct model with `lm-eval`
 To ensure that we was using `lm-eval` correctly, we first tested it on **LLaMA3-8B-Instruct**. The results are as follows:
