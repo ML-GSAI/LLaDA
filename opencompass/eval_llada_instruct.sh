@@ -1,0 +1,9 @@
+python run.py examples/llada_instruct_gen_gsm8k.py -w outputs/llada_instruct_gsm8k
+python run.py examples/llada_instruct_gen_math.py -w outputs/llada_instruct_math
+python run.py examples/llada_instruct_gen_mmlu.py -w outputs/llada_instruct_mmlu
+python run.py examples/llada_instruct_gen_mmlupro.py -w outputs/llada_instruct_mmlupro
+python run.py examples/llada_instruct_gen_hellaswag.py -w outputs/llada_instruct_hellaswag
+python run.py examples/llada_instruct_gen_arcc.py -w outputs/llada_instruct_arcc
+python run.py examples/llada_instruct_gen_gpqa.py -w outputs/llada_instruct_gpqa
+python run.py examples/llada_instruct_gen_humaneval.py -w outputs/llada_instruct_humaneval
+python run.py examples/llada_instruct_gen_mbpp.py -w outputs/llada_instruct_mbpp

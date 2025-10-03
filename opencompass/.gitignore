@@ -1,0 +1,135 @@
+.DS_Store
+output_*/
+outputs/
+scripts/
+icl_inference_output/
+.vscode/
+tmp/
+configs/eval_subjective_alignbench_test.py
+configs/openai_key.py
+configs/secrets.py
+configs/datasets/log.json
+configs/eval_debug*.py
+configs/viz_*.py
+configs/**/*_bkup.py
+opencompass/**/*_bkup.py
+data
+work_dirs
+outputs
+models/*
+configs/internal/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.ipynb
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+.idea
+
+# Auto generate documentation
+docs/en/_build/
+docs/zh_cn/_build/
+
+# .zip
+*.zip
+
+# sft config ignore list
+configs/sft_cfg/*B_*
+configs/sft_cfg/1B/*
+configs/sft_cfg/7B/*
+configs/sft_cfg/20B/*
+configs/sft_cfg/60B/*
+configs/sft_cfg/100B/*
+
+configs/cky/
+configs/_internal_legacy*
+# in case llama clone in the opencompass
+llama/
+
+# in case ilagent clone in the opencompass
+ilagent/
+
+# ignore the config file for criticbench evaluation
+configs/sft_cfg/criticbench_eval/*
+
+# path of turbomind's model after runing `lmdeploy.serve.turbomind.deploy`
+turbomind/
+
+# cibench output
+*.db
+*.pth
+*.pt
+*.onnx
+*.gz
+*.gz.*
+*.png
+*.txt
+*.jpg
+*.json
+*.jsonl
+*.csv
+*.npy
+*.c
+
+# aliyun
+core.*
