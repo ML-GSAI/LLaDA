@@ -1,0 +1,29 @@
+from mmengine.config import read_base
+with read_base():
+    from opencompass.configs.datasets.humaneval.humaneval_gen_base import \
+        humaneval_datasets
+    from opencompass.configs.models.dllm.llada_base_8b import \
+        models as llada_base_8b_models
+datasets = humaneval_datasets
+models = llada_base_8b_models
+
+eval_cfg = {'gen_blocksize': 256, 'gen_length': 256, 'gen_steps': 256}
+for model in models:
+    model.update(eval_cfg)
+from opencompass.partitioners import NumWorkerPartitioner
+from opencompass.runners import LocalRunner
+from opencompass.tasks import OpenICLInferTask
+infer = dict(
+    partitioner=dict(
+        type=NumWorkerPartitioner,
+        num_worker=8,   
+        num_split=None,  
+        min_task_size=16,
+    ),
+    runner=dict(
+        type=LocalRunner,
+        max_num_workers=64,
+        task=dict(type=OpenICLInferTask),
+        retry=5
+    ),
+)
