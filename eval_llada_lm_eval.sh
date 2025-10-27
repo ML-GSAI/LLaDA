@@ -8,6 +8,7 @@ export HF_DATASETS_TRUST_REMOTE_CODE=true
 
 
 # conditional likelihood estimation benchmarks
+# cfg=0 indicates that classifier-free guidance is not used
 accelerate launch eval_llada.py --tasks gpqa_main_n_shot --num_fewshot 5 --model llada_dist --batch_size 8 --model_args model_path='GSAI-ML/LLaDA-8B-Base',cfg=0.5,is_check_greedy=False,mc_num=128
 
 accelerate launch eval_llada.py --tasks truthfulqa_mc2 --num_fewshot 0 --model llada_dist --batch_size 8 --model_args model_path='GSAI-ML/LLaDA-8B-Base',cfg=2.0,is_check_greedy=False,mc_num=128
