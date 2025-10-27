@@ -1,16 +1,14 @@
 from mmengine.config import read_base
 with read_base():
-    from opencompass.configs.datasets.mmlu_pro.mmlu_pro_gen import \
-        mmlu_pro_datasets
-    from opencompass.configs.models.hf_llama.hf_llama3_8b_instruct import \
-        models as hf_llama3_8b_instruct_models
-    from opencompass.configs.summarizers.groups.mmlu_pro import \
-        mmlu_pro_summary_groups
-datasets = mmlu_pro_datasets
-models = hf_llama3_8b_instruct_models
-summarizer = dict(
-    summary_groups=sum([v for k, v in locals().items() if k.endswith('_summary_groups')], []),
-)
+    from opencompass.configs.datasets.gsm8k.gsm8k_gen import \
+        gsm8k_datasets
+    from opencompass.configs.models.dllm.llada_instruct_8b import \
+        models as llada_instruct_8b_models
+datasets = gsm8k_datasets
+models = llada_instruct_8b_models
+eval_cfg = {'gen_blocksize': 512, 'gen_length': 512, 'gen_steps': 512, 'batch_size':1, 'batch_size_':1, 'diff_confidence_eos_eot_inf': True, 'diff_logits_eos_inf': False}
+for model in models:
+    model.update(eval_cfg)
 from opencompass.partitioners import NumWorkerPartitioner
 from opencompass.runners import LocalRunner
 from opencompass.tasks import OpenICLInferTask

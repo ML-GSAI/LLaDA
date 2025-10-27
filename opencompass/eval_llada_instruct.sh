@@ -1,33 +1,34 @@
+pip install -e .
 # llada arxiv paper setting for llada instruct model
-python run.py examples/llada_instruct_gen_gsm8k.py -w outputs/llada_instruct_gsm8k
-python run.py examples/llada_instruct_gen_math.py -w outputs/llada_instruct_math
-python run.py examples/llada_instruct_gen_mmlu.py -w outputs/llada_instruct_mmlu
-python run.py examples/llada_instruct_gen_mmlupro.py -w outputs/llada_instruct_mmlupro
-python run.py examples/llada_instruct_gen_hellaswag.py -w outputs/llada_instruct_hellaswag
-python run.py examples/llada_instruct_gen_arcc.py -w outputs/llada_instruct_arcc
-python run.py examples/llada_instruct_gen_gpqa.py -w outputs/llada_instruct_gpqa
-python run.py examples/llada_instruct_gen_humaneval.py -w outputs/llada_instruct_humaneval
-python run.py examples/llada_instruct_gen_mbpp.py -w outputs/llada_instruct_mbpp
+python run.py examples/llada_instruct_gen_gsm8k_length512_block512_confidence.py -w outputs/llada_instruct_gsm8k_length512_block512_confidence
+python run.py examples/llada_instruct_gen_math_length512_block512_confidence.py -w outputs/llada_instruct_math_length512_block512_confidence
+python run.py examples/llada_instruct_gen_mmlu_length3_block3.py -w outputs/llada_instruct_mmlu_length3_block3
+python run.py examples/llada_instruct_gen_mmlupro_length256_block256.py -w outputs/llada_instruct_mmlupro_length256_block256
+python run.py examples/llada_instruct_gen_hellaswag_length3_block3.py -w outputs/llada_instruct_hellaswag_length3_block3
+python run.py examples/llada_instruct_gen_arcc_length512_block512.py -w outputs/llada_instruct_arcc_length512_block512
+python run.py examples/llada_instruct_gen_gpqa_length128_block64.py -w outputs/llada_instruct_gpqa_length128_block64
+python run.py examples/llada_instruct_gen_humaneval_length512_block32.py -w outputs/llada_instruct_humaneval_length512_block32
+python run.py examples/llada_instruct_gen_mbpp_length512_block32.py -w outputs/llada_instruct_mbpp_length512_block32
 
 # llada arxiv paper setting for llada base model
-python run.py examples/llada_base_gen_gsm8k.py -w outputs/llada_base_gsm8k
-python run.py examples/llada_base_gen_math.py -w outputs/llada_base_math
-python run.py examples/llada_base_gen_humaneval.py -w outputs/llada_base_humaneval
-python run.py examples/llada_base_gen_mbpp.py -w outputs/llada_base_mbpp
-python run.py examples/llada_base_gen_bbh.py -w outputs/llada_base_bbh
+python run.py examples/llada_base_gen_gsm8k_length256_block256.py -w outputs/llada_base_gsm8k_length256_block256
+python run.py examples/llada_base_gen_math_length256_block256.py -w outputs/llada_base_math_length256_block256
+python run.py examples/llada_base_gen_humaneval_length256_block256.py -w outputs/llada_base_humaneval_length256_block256
+python run.py examples/llada_base_gen_mbpp_length256_block256.py -w outputs/llada_base_mbpp_length256_block256
+python run.py examples/llada_base_gen_bbh_length256_block256.py -w outputs/llada_base_bbh_length256_block256
 
 # llada 1.5 paper setting for llada instruct model
-python run.py examples/llada_gen_gsm8k_15.py -w outputs/llada_instruct_gsm8k_15
-python run.py examples/llada_gen_math_15.py -w outputs/llada_instruct_math_15
-python run.py examples/llada_gen_gpqa_15.py -w outputs/llada_instruct_gpqa_15
-python run.py examples/llada_gen_humaneval_15.py -w outputs/llada_instruct_humaneval_15
-python run.py examples/llada_gen_mbpp_15.py -w outputs/llada_instruct_mbpp_15
-python run.py examples/llada_gen_ifeval_15.py -w outputs/llada_instruct_ifeval_15
+python run.py examples/llada_instruct_gen_gsm8k_length256_block8.py -w outputs/llada_instruct_gen_gsm8k_length256_block8
+python run.py examples/llada_instruct_gen_math_length512_block64.py -w outputs/llada_instruct_gen_math_length512_block64
+python run.py examples/llada_instruct_gen_gpqa_length64_block64_confidence.py -w outputs/llada_instruct_gen_gpqa_length64_block64_confidence
+python run.py examples/llada_instruct_gen_humaneval_length512_block512_logits.py -w outputs/llada_instruct_gen_humaneval_length512_block512_logits
+python run.py examples/llada_instruct_gen_mbpp_length256_block256_confidence.py -w outputs/llada_instruct_gen_mbpp_length256_block256_confidence
+python run.py examples/llada_instruct_gen_ifeval_length512_block512_confidence.py -w outputs/llada_instruct_gen_ifeval_length512_block512_confidence
 
 # llada 1.5 paper setting for llada 1.5 model
-python run.py examples/llada_15_gen_gsm8k.py -w outputs/llada_15_gsm8k
-python run.py examples/llada_15_gen_math.py -w outputs/llada_15_math
-python run.py examples/llada_15_gen_gpqa.py -w outputs/llada_15_gpqa
-python run.py examples/llada_15_gen_humaneval.py -w outputs/llada_15_humaneval
-python run.py examples/llada_15_gen_mbpp.py -w outputs/llada_15_mbpp
-python run.py examples/llada_15_gen_ifeval.py -w outputs/llada_15_ifeval
+python run.py examples/llada_1p5_gen_gsm8k_length256_block16_confidence.py -w outputs/llada_1p5_gen_gsm8k_length256_block16_confidence
+python run.py examples/llada_1p5_gen_math_length1024_block128_confidence.py -w outputs/llada_1p5_gen_math_length1024_block128_confidence
+python run.py examples/llada_1p5_gen_gpqa_length256_block16.py -w outputs/llada_1p5_gen_gpqa_length256_block16
+python run.py examples/llada_1p5_gen_humaneval_length512_block32_confidence.py -w outputs/llada_1p5_gen_humaneval_length512_block32_confidence
+python run.py examples/llada_1p5_gen_mbpp_length512_block32_confidence.py -w outputs/llada_1p5_gen_mbpp_length512_block32_confidence
+python run.py examples/llada_1p5_gen_ifeval_length256_block16_confidence.py -w outputs/llada_1p5_gen_ifeval_length256_block16_confidence
