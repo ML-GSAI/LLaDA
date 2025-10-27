@@ -1,0 +1,48 @@
+cd opencompass
+pip install -e .
+
+
+# For HumanEval evaluation, install the additional dependency:
+git clone https://github.com/open-compass/human-eval.git
+cd human-eval && pip install -e .
+cd ..
+
+
+# For Math evaluation, pip install the additional dependency:
+pip install math_verify latex2sympy2_extended
+
+
+# LLaDA-8B-Base
+python run.py examples/llada_base_gen_gsm8k_length256_block256.py -w outputs/llada_base_gsm8k_length256_block256
+python run.py examples/llada_base_gen_math_length256_block256.py -w outputs/llada_base_math_length256_block256
+python run.py examples/llada_base_gen_humaneval_length256_block256.py -w outputs/llada_base_humaneval_length256_block256
+python run.py examples/llada_base_gen_mbpp_length256_block256.py -w outputs/llada_base_mbpp_length256_block256
+python run.py examples/llada_base_gen_bbh_length256_block256.py -w outputs/llada_base_bbh_length256_block256
+
+
+
+# LLaDA-8B-Instruct
+python run.py examples/llada_instruct_gen_mmlu_length3_block3.py -w outputs/llada_instruct_mmlu_length3_block3
+python run.py examples/llada_instruct_gen_mmlupro_length256_block256.py -w outputs/llada_instruct_mmlupro_length256_block256
+python run.py examples/llada_instruct_gen_hellaswag_length3_block3.py -w outputs/llada_instruct_hellaswag_length3_block3
+python run.py examples/llada_instruct_gen_arcc_length512_block512.py -w outputs/llada_instruct_arcc_length512_block512
+python run.py examples/llada_instruct_gen_gsm8k_length512_block512_confidence.py -w outputs/llada_instruct_gsm8k_length512_block512_confidence
+python run.py examples/llada_instruct_gen_math_length512_block512_confidence.py -w outputs/llada_instruct_math_length512_block512_confidence
+python run.py examples/llada_instruct_gen_gpqa_length64_block64_confidence.py -w outputs/llada_instruct_gen_gpqa_length64_block64_confidence
+python run.py examples/llada_instruct_gen_humaneval_length512_block512_logits.py -w outputs/llada_instruct_gen_humaneval_length512_block512_logits
+python run.py examples/llada_instruct_gen_mbpp_length256_block256_confidence.py -w outputs/llada_instruct_gen_mbpp_length256_block256_confidence
+python run.py examples/llada_instruct_gen_ifeval_length512_block512_confidence.py -w outputs/llada_instruct_gen_ifeval_length512_block512_confidence
+
+
+python run.py examples/llada_instruct_gen_gsm8k_length256_block8.py -w outputs/llada_instruct_gen_gsm8k_length256_block8
+python run.py examples/llada_instruct_gen_math_length512_block64.py -w outputs/llada_instruct_gen_math_length512_block64
+
+
+
+# LLaDA 1.5
+python run.py examples/llada_1p5_gen_gsm8k_length256_block16_confidence.py -w outputs/llada_1p5_gen_gsm8k_length256_block16_confidence
+python run.py examples/llada_1p5_gen_math_length1024_block128_confidence.py -w outputs/llada_1p5_gen_math_length1024_block128_confidence
+python run.py examples/llada_1p5_gen_gpqa_length256_block16.py -w outputs/llada_1p5_gen_gpqa_length256_block16
+python run.py examples/llada_1p5_gen_humaneval_length512_block32_confidence.py -w outputs/llada_1p5_gen_humaneval_length512_block32_confidence
+python run.py examples/llada_1p5_gen_mbpp_length512_block32_confidence.py -w outputs/llada_1p5_gen_mbpp_length512_block32_confidence
+python run.py examples/llada_1p5_gen_ifeval_length256_block16_confidence.py -w outputs/llada_1p5_gen_ifeval_length256_block16_confidence
