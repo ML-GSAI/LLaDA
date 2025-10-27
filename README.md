@@ -7,11 +7,20 @@
 [![deploy](https://img.shields.io/badge/Zhihu2-知乎2-blue)](https://www.zhihu.com/question/1908479621466396378/answer/1910672718174589774?share_code=1kreOq5gzOtnM&utm_psn=1910708245535912148&utm_source=wechat_timeline&utm_medium=social&s_r=0)
 
 ## News
-- [2025.09.11] We introduce [LLaDA-MoE-7B-A1B-Base](https://huggingface.co/inclusionAI/LLaDA-MoE-7B-A1B-Base) and [LLaDA-MoE-7B-A1B-Instruct](https://huggingface.co/inclusionAI/LLaDA-MoE-7B-A1B-Instruct), the first diffusion language model pretrained from scratch with MoE architecture. LLaDA-MoE-7B-A1B-Instruct use only ~1B active parameters at inference while surpassing LLaDA 1.5(an 8B dense model), and comparable to Qwen2.5-3B-Instruct.
-- [2025.05.25] We introduce [LLaDA 1.5](https://ml-gsai.github.io/LLaDA-1.5-Demo/), which incorporates VRPO to reduce gradient variance and enhance preference alignment in LLaDA.
+### New works
+- [2025.02.14] We have uploaded LLaDA paper to [arXiv](https://arxiv.org/abs/2502.09992) and open-sourced [LLaDA-8B-Base](https://huggingface.co/GSAI-ML/LLaDA-8B-Base) and [LLaDA-8B-Instruct](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct).
+
 - [2025.05.23] We introduce [LLaDA-V](https://ml-gsai.github.io/LLaDA-V-demo/), a competitive diffusion-based vision-language model, outperforming other diffusion MLLMs.
-- [2025.05.04] We have provided evaluation code based on the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) for the LLaDA-Base.
-- [2025.02.14] We have uploaded our paper to [arXiv](https://arxiv.org/abs/2502.09992) and open-sourced [LLaDA-8B-Base](https://huggingface.co/GSAI-ML/LLaDA-8B-Base) and [LLaDA-8B-Instruct](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct).
+
+- [2025.05.25] We introduce [LLaDA 1.5](https://ml-gsai.github.io/LLaDA-1.5-Demo/), which incorporates VRPO to reduce gradient variance and enhance preference alignment in LLaDA.
+
+- [2025.09.11] We introduce [LLaDA-MoE-7B-A1B-Base](https://huggingface.co/inclusionAI/LLaDA-MoE-7B-A1B-Base) and [LLaDA-MoE-7B-A1B-Instruct](https://huggingface.co/inclusionAI/LLaDA-MoE-7B-A1B-Instruct), the first diffusion language model pretrained from scratch with MoE architecture. LLaDA-MoE-7B-A1B-Instruct uses only ~1B active parameters at inference while surpassing LLaDA 1.5(an 8B dense model), and comparable to Qwen2.5-3B-Instruct.
+
+
+### New features in this repo
+- [2025.05.04] We have provided evaluation code based on the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) for the LLaDA-8B-Base.
+
+- [2025.10.27] We have provided all the evaluation code for [LLaDA-8B-Base](https://huggingface.co/GSAI-ML/LLaDA-8B-Base), [LLaDA-8B-Instruct](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct) and [LLaDA 1.5](https://ml-gsai.github.io/LLaDA-1.5-Demo/).
 
   
 ## Introduction
@@ -40,7 +49,6 @@ and `generate.py` respectively, for conditional likelihood evaluation and condit
 
 You can directly run `python chat.py` to have multi-round conversations with LLaDA-8B-Instruct.
 
-In addition, please refer to our paper and [GUIDELINES.md](GUIDELINES.md) for more details about the inference methods.
 
 ## Gradio demo 
 Thank you very much to [apolinário](https://github.com/apolinario) for helping us create this amazing demo!
@@ -64,14 +72,7 @@ You can also refer to [SMDM](https://github.com/ML-GSAI/SMDM), which has a simil
 and has open-sourced the training framework.
 
 ## Evaluation
-
-We use two evaluation methods: conditional likelihood estimation and conditional generation. For the base model, conditional likelihood estimation is applied to specific metrics and conditional generation to the rest. For the Instruct model, conditional generation is used for all metrics.
-
-In our [paper](https://arxiv.org/abs/2502.09992), we implement conditional likelihood estimation using the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) library, while conditional generation is performed with an internal library, as lm-evaluation-harness lacks support for certain metrics (i.e., HumanEval-FIM). Please refer to Appendix B.5. of our [paper](https://arxiv.org/abs/2502.09992) for all evaluation details.
-
-**2025.05.04.** We now provide evaluation code based on the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) for the LLaDA-Base, including conditional likelihood estimation and conditional generation. However, for the Instruct model (both LLama3-Instruct and LLaDA-Instruct), we encountered some bugs. We are still debugging the issue. 
-
-Please refer to [EVAL.md](EVAL.md) for the usage of the evaluation code and the BUG details. Any help in resolving this bug would be sincerely appreciated.
+Please refer to [EVAL.md](EVAL.md) for instructions on using the evaluation code.
 
 ## FAQ
 Here, we address some common questions about LLaDA.
@@ -123,8 +124,7 @@ more resources and sufficient motivation to optimize efficiency.
 Recall the development of diffusion models for images, from [DDPM](https://arxiv.org/abs/2006.11239) 
 to the [Consistency model](https://arxiv.org/pdf/2410.11081), where sampling speed accelerated nearly 
 1000 times over the course of 4 years. **We believe there is significant room for optimization in LLaDA's 
-sampling efficiency as well**. Current solutions, including semi-autoregressive sampling (as 
-detailed in [GUIDELINES.md](GUIDELINES.md)), can mitigate the fixed context length issue, and 
+sampling efficiency as well**. Current solutions, including [block diffusion](https://arxiv.org/abs/2503.09573), can mitigate the fixed context length issue, and 
 [consistency distillation](https://arxiv.org/pdf/2502.05415) can reduce the number of sampling steps. In
 addition, some cache methods (e.g., [Fast-dllm](https://github.com/NVlabs/Fast-dLLM), [dllm-cache](https://github.com/maomaocun/dLLM-cache))
 can also be adapted by LLaDA.
