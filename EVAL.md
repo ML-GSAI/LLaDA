@@ -126,7 +126,7 @@ models = [
 ]
 
 ```
-### Acknowledgments
+## Acknowledgments
 Thanks [lm-eval](https://github.com/EleutherAI/lm-evaluation-harness) and [OpenCompass](https://github.com/open-compass/opencompass)
 for their great work!
 
