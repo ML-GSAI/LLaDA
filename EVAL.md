@@ -124,8 +124,21 @@ models = [
         run_cfg=dict(num_gpus=1),
     )
 ]
-
 ```
+
+## Reversal curse
+We downloaded a [text file](https://wenku.baidu.com/view/f13866185fbfc77da369b1b3?wkts=1760409102730) containing a large collection of classical Chinese poetic lines from Baidu Wenku.
+Using regular expressions, we extracted pairs of consecutive poetic lines (i.e., couplets) and stored them in a file named `data/poem_data.json`.
+
+We provide the evaluation command as follows:
+```
+# generate the subsequent line
+python eval_reverse.py  --type ftb --eos_inf
+
+# generate the preceding line
+python eval_reverse.py  --type btf --eos_inf
+```
+
 ## Acknowledgments
 Thanks [lm-eval](https://github.com/EleutherAI/lm-evaluation-harness) and [OpenCompass](https://github.com/open-compass/opencompass)
 for their great work!
