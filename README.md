@@ -20,7 +20,7 @@
 ### New features in this repo
 - [2025.05.04] We have provided evaluation code based on the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) for the LLaDA-8B-Base.
 
-- [2025.10.27] We have provided all the evaluation code for [LLaDA-8B-Base](https://huggingface.co/GSAI-ML/LLaDA-8B-Base), [LLaDA-8B-Instruct](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct) and [LLaDA 1.5](https://ml-gsai.github.io/LLaDA-1.5-Demo/).
+- [2025.10.27] We have provided batch inference support, along with all evaluation code for [LLaDA-8B-Base](https://huggingface.co/GSAI-ML/LLaDA-8B-Base), [LLaDA-8B-Instruct](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct) and [LLaDA 1.5](https://ml-gsai.github.io/LLaDA-1.5-Demo/).
 
   
 ## Introduction
