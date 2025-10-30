@@ -76,7 +76,7 @@ we report the results with **pure diffusion sampling without any autoregressive 
 | **logits\_eos\_inf**   | False| False    | False     | False | False | False | False| True       | False|
 | **confidence\_eos\_eot\_inf** | False| False| False | False | True  | True  | True | False      | True |
 | **Internal toolkit**   | 65.5 | 37.0     | 74.6      | 88.5  | 69.4  | 31.9  | 33.3 | 49.4       | 41.0 |
-| **OpenCompass**        | 65.4 | 36.6     | 75.3      | 89.2  |   -   |   -   | 32.3 | 47.0       | 39.6 |
+| **OpenCompass**        | 65.4 | 36.6     | 75.3      | 89.2  |  68.8 |   29.6   | 32.3 | 47.0       | 39.6 |
 
 Please refer to Appendix B.4 of [LLaDA paper](https://arxiv.org/pdf/2502.09992) for the explanation of the sampling setting.
 
