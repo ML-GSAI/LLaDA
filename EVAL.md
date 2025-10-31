@@ -5,7 +5,7 @@ In this file, we provide the code for the evaluation of [LLaDA-8B-Base](https://
 
 ## Benchmarks
 For **LLaDA-8B-Base**, we employ conditional likelihood estimation and conditional generation for evaluation following the 
-widely adopted evaluation process in LLMs. Please refer to Appendix B.6 of or [paper](https://arxiv.org/pdf/2502.09992)
+widely adopted evaluation process in LLMs. Please refer to Appendix B.6 of our [paper](https://arxiv.org/pdf/2502.09992)
 for details.
 
 | Evaluation Method of LLaDA-8B-Base | MMLU | BBH | ARC-C | Hellaswag | TruthfulQA | WinoGrande | PIQA | GSM8K | Math | GPQA | HumanEval | HumanEval-FIM | MBPP | CMMLU | C-Eval |
@@ -39,7 +39,7 @@ For **the ppl tasks of LLaDA-8B-Base**, the evaluation results are as follows:
 | **w/ CFG**     | **47.9** | **72.5** | **46.4**    | **74.8**    | **26.1** | **74.4** |  –   | – | – |
 
 In the Tab.1 of [LLaDA paper](https://arxiv.org/pdf/2502.09992), we only report results w/o CFG to ensure a fair comparison
-with autoregressive model. 
+with autoregressive models. 
 
 
 For **the gen tasks of LLaDA-8B-Base**, the evaluation result are as follows:
