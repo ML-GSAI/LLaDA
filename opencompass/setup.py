@@ -1,3 +1,4 @@
+import os
 from setuptools import find_packages, setup
 from setuptools.command.install import install
 
@@ -12,8 +13,12 @@ class DownloadNLTK(install):
 
 
 def readme():
-    with open('README.md', encoding='utf-8') as f:
+    with open(
+        os.path.join(os.path.dirname(__file__), "..", "README.md"), 
+        encoding='utf-8'
+    ) as f:
         content = f.read()
+    
     return content
 
 
