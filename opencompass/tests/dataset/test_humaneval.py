@@ -1,12 +1,12 @@
 import unittest
 
-from opencompass.datasets.humaneval import humaneval_postprocess
+from opencompass.datasets.humaneval import humaneval_internal_v1_postprocess
 
 
 def run_humaneval_check(completion):
     program = [
         'def get_fraction(x: float) -> float:',
-        humaneval_postprocess(completion),
+        humaneval_internal_v1_postprocess(completion),
         '',
         'assert get_fraction(1.28) == 0.28',
         'assert get_fraction(1.0) == 0.0',
