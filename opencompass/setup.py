@@ -111,8 +111,6 @@ def do_setup():
         version=get_version(),
         description='A comprehensive toolkit for large model evaluation',
         url='https://github.com/open-compass/opencompass',
-        long_description=readme(),
-        long_description_content_type='text/markdown',
         maintainer='OpenCompass Authors',
         cmdclass={'download_nltk': DownloadNLTK},
         setup_requires=['nltk==3.8'],
