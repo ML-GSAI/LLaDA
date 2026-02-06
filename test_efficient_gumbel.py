@@ -110,6 +110,50 @@ def test_performance(batch_size, seq_len, vocab_size, temperature=0.7, device='c
         print(f"VRAM Saved: {saved:.2f} MB")
 
 
+def sample_gumbel_chunked_debug(logits, temperature):
+    """
+    A 'Debug' version of the efficient function that returns the floats
+    instead of the argmax, allowing us to verify the appraoch.
+    """
+    if temperature == 0:
+        return logits
+
+    output_floats = torch.empty_like(logits, dtype=torch.float64)
+
+    for i in range(logits.shape[0]):
+        logit_slice = logits[i].to(torch.float64)
+        noise = torch.rand_like(logit_slice, dtype=torch.float64)
+        gumbel_noise = (-torch.log(noise)) ** temperature
+
+        # Store the float result instead of argmaxing
+        output_floats[i] = logit_slice.exp() / gumbel_noise
+
+    return output_floats
+
+
+def test_bit_exactness_cpu(batch_size=4, seq_len=32, vocab_size=100, temperature=1.0):
+    print(f"\n>>> [Logit match check CPU] Batch={batch_size}, Temp={temperature}")
+
+    device = 'cpu'
+    logits = torch.randn(batch_size, seq_len, vocab_size, device=device, dtype=torch.float32)
+
+    torch.manual_seed(42)
+    noisy_logits_orig = add_gumbel_noise_original(logits, temperature)
+
+    torch.manual_seed(42)
+    noisy_logits_chunked = sample_gumbel_chunked_debug(logits, temperature)
+
+    diff = (noisy_logits_orig - noisy_logits_chunked).abs()
+    max_diff = diff.max().item()
+
+    print(f"   Max Difference: {max_diff}")
+
+    if max_diff == 0.0:
+        print("SUCCESS: The floating point values are bit-wise identical.")
+    else:
+        print(f"FAILURE: Max difference is {max_diff}. Math is not identical.")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--batch_size", type=int, default=8)
@@ -129,4 +173,7 @@ if __name__ == "__main__":
 
     # Show the algorithms are identical with CPU RNG 
     
-    test_logic_strict_cpu(2, 32, 100)
+    test_logic_strict_cpu(8, 32, 100, temperature=1)
+    test_logic_strict_cpu(8, 32, 100, temperature=10)
+    test_bit_exactness_cpu(8, 32, 100, temperature=1)
+    test_bit_exactness_cpu(8, 32, 100, temperature=10)
