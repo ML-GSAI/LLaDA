@@ -2,19 +2,21 @@
 >>> [Distribution Check: GPU] Batch=8, Temp=1.0
    Sampled Mean Index: 490.88
    Expected Mean Index: 500.00
-✅ SUCCESS: GPU output distribution looks statistically valid.
+SUCCESS: GPU output distribution looks statistically valid.
 
 >>> [Performance Test] Batch=8, Seq=128, Vocab=128000
-Original:  Time = 0.1186s | Peak VRAM = 5250.00 MB
-Efficient: Time = 0.1040s | Peak VRAM = 2006.01 MB
+Original:  Time = 0.1846s | Peak VRAM = 5250.00 MB
+Efficient: Time = 0.1567s | Peak VRAM = 2006.01 MB
 VRAM Saved: 3243.99 MB
 
 >>> Batch=32 (High VRAM)
 
 >>> [Performance Test] Batch=32, Seq=128, Vocab=128000
-Original:  Time = 0.5923s | Peak VRAM = 21000.00 MB
-Efficient: Time = 0.5052s | Peak VRAM = 5756.03 MB
+Original:  Time = 0.4210s | Peak VRAM = 21000.00 MB
+Efficient: Time = 0.6718s | Peak VRAM = 5756.03 MB
 VRAM Saved: 15243.97 MB
 
 >>> [Logic Check: CPU] Batch=2, Temp=1.0
-✅ SUCCESS: CPU outputs are bit-wise identical. Logic is correct.
+Original:  Time = 0.0025s
+Efficient:  Time = 0.0003s
+SUCCESS: CPU outputs are identical. Logic is correct.

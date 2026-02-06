@@ -24,11 +24,15 @@ def test_logic_strict_cpu(batch_size, seq_len, vocab_size, temperature=1.0):
     logits = torch.randn(batch_size, seq_len, vocab_size, device=device, dtype=torch.float32)  # float32 for CPU speed
 
     torch.manual_seed(42)
+    start_t = time.time()
     noisy_logits_orig = add_gumbel_noise_original(logits, temperature)
     indices_orig = torch.argmax(noisy_logits_orig, dim=-1)
+    print (f'Original:  Time = {time.time() - start_t:.4f}s')
 
     torch.manual_seed(42)
+    start_t = time.time()
     indices_eff = sample_gumbel_chunked(logits, temperature)
+    print (f'Efficient:  Time = {time.time() - start_t:.4f}s')
     mismatch = (indices_orig != indices_eff).sum().item()
     if mismatch == 0:
         print("SUCCESS: CPU outputs are identical. Logic is correct.")
