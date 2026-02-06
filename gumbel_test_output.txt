@@ -5,18 +5,31 @@
 SUCCESS: GPU output distribution looks statistically valid.
 
 >>> [Performance Test] Batch=8, Seq=128, Vocab=128000
-Original:  Time = 0.1846s | Peak VRAM = 5250.00 MB
-Efficient: Time = 0.1567s | Peak VRAM = 2006.01 MB
+Original:  Time = 0.3060s | Peak VRAM = 5250.00 MB
+Efficient: Time = 0.1930s | Peak VRAM = 2006.01 MB
 VRAM Saved: 3243.99 MB
 
 >>> Batch=32 (High VRAM)
 
 >>> [Performance Test] Batch=32, Seq=128, Vocab=128000
-Original:  Time = 0.4210s | Peak VRAM = 21000.00 MB
-Efficient: Time = 0.6718s | Peak VRAM = 5756.03 MB
+Original:  Time = 0.3961s | Peak VRAM = 21000.00 MB
+Efficient: Time = 0.6998s | Peak VRAM = 5756.03 MB
 VRAM Saved: 15243.97 MB
 
->>> [Logic Check: CPU] Batch=2, Temp=1.0
-Original:  Time = 0.0025s
-Efficient:  Time = 0.0003s
+>>> [Logic Check: CPU] Batch=8, Temp=1
+Original:  Time = 0.0041s
+Efficient:  Time = 0.0009s
 SUCCESS: CPU outputs are identical. Logic is correct.
+
+>>> [Logic Check: CPU] Batch=8, Temp=10
+Original:  Time = 0.0009s
+Efficient:  Time = 0.0011s
+SUCCESS: CPU outputs are identical. Logic is correct.
+
+>>> [Logit match check CPU] Batch=8, Temp=1
+   Max Difference: 0.0
+SUCCESS: The floating point values are bit-wise identical.
+
+>>> [Logit match check CPU] Batch=8, Temp=10
+   Max Difference: 0.0
+SUCCESS: The floating point values are bit-wise identical.
