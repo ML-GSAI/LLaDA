@@ -2,6 +2,8 @@
 [![arXiv](https://img.shields.io/badge/Paper-arXiv-red.svg)](https://arxiv.org/abs/2502.09992)
 [![deploy](https://img.shields.io/badge/Hugging%20Face-LLaDA_Base-FFEB3B)](https://huggingface.co/GSAI-ML/LLaDA-8B-Base)
 [![deploy](https://img.shields.io/badge/Hugging%20Face-LLaDA_Instruct-FFEB3B)](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct)
+[![deploy](https://img.shields.io/badge/Hugging%20Face-iLLaDA_Base-FFEB3B)](https://huggingface.co/GSAI-ML/iLLaDA-8B-Base)
+[![deploy](https://img.shields.io/badge/Hugging%20Face-iLLaDA_Instruct-FFEB3B)](https://huggingface.co/GSAI-ML/iLLaDA-8B-Instruct)
 [![deploy](https://img.shields.io/badge/Hugging%20Face-Demo-blue)](https://huggingface.co/spaces/multimodalart/LLaDA)
 [![deploy](https://img.shields.io/badge/Zhihu1-知乎1-blue)](https://zhuanlan.zhihu.com/p/24214732238)
 [![deploy](https://img.shields.io/badge/Zhihu2-知乎2-blue)](https://www.zhihu.com/question/1908479621466396378/answer/1910672718174589774?share_code=1kreOq5gzOtnM&utm_psn=1910708245535912148&utm_source=wechat_timeline&utm_medium=social&s_r=0)
@@ -16,11 +18,22 @@
 
 - [2025.09.11] We introduce [LLaDA-MoE-7B-A1B-Base](https://huggingface.co/inclusionAI/LLaDA-MoE-7B-A1B-Base) and [LLaDA-MoE-7B-A1B-Instruct](https://huggingface.co/inclusionAI/LLaDA-MoE-7B-A1B-Instruct), the first diffusion language model pretrained from scratch with MoE architecture. LLaDA-MoE-7B-A1B-Instruct uses only ~1B active parameters at inference while surpassing LLaDA 1.5(an 8B dense model), and comparable to Qwen2.5-3B-Instruct.
 
+- [2026.06.24] We release [iLLaDA-8B-Base](https://huggingface.co/GSAI-ML/iLLaDA-8B-Base) and [iLLaDA-8B-Instruct](https://huggingface.co/GSAI-ML/iLLaDA-8B-Instruct), improving upon LLaDA in both benchmark performance and generation efficiency. By setting `mask_id=5`, iLLaDA can directly reuse the existing LLaDA inference code.
+
 
 ### New features in this repo
 - [2025.05.04] We have provided evaluation code based on the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) for the LLaDA-8B-Base.
 
 - [2025.10.27] We have provided batch inference support, along with all evaluation code for [LLaDA-8B-Base](https://huggingface.co/GSAI-ML/LLaDA-8B-Base), [LLaDA-8B-Instruct](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct) and [LLaDA 1.5](https://ml-gsai.github.io/LLaDA-1.5-Demo/).
+
+
+## TODO
+[ ] Release the evaluation code of iLLaDA.
+[ ] Integrate the vLLM inference engine.
+
+
+## LICENSE
+LLaDA-8B-Base and LLaDA-8B-Instruct are under MIT LICENSE, and iLLaDA-8B-Base and iLLaDA-8B-Instruct are under Apache license 2.0.
 
   
 ## Introduction
