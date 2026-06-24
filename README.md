@@ -32,10 +32,6 @@
 
 [ ] Integrate the vLLM inference engine.
 
-
-## LICENSE
-LLaDA-8B-Base and LLaDA-8B-Instruct are under MIT LICENSE, and iLLaDA-8B-Base and iLLaDA-8B-Instruct are under Apache license 2.0.
-
   
 ## Introduction
 We introduce LLaDA (<b>L</b>arge <b>La</b>nguage <b>D</b>iffusion with m<b>A</b>sking), a diffusion model with an unprecedented 8B scale, trained entirely from scratch, 
@@ -187,6 +183,10 @@ same model size and training data, masked diffusion models can achieve downstrea
 on par with those of autoregressive models. Additionally, SMDM presents a simple, **unsupervised 
 classifier-free guidance** method that greatly improves downstream benchmark performance, which has 
 been adopted by LLaDA.
+
+
+## LICENSE
+LLaDA-8B-Base and LLaDA-8B-Instruct are under MIT LICENSE, and iLLaDA-8B-Base and iLLaDA-8B-Instruct are under Apache license 2.0.
 
 
 ## Citation
