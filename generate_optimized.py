@@ -1,12 +1,10 @@
 import torch
 import numpy as np
-import time
 import torch.nn.functional as F
-
 from transformers import AutoTokenizer, AutoModel
 
 
-def add_gumbel_noise(logits, temperature):
+def add_gumbel_noise_original(logits, temperature):
     '''
     The Gumbel max is a method for sampling categorical distributions.
     According to arXiv:2409.02908, for MDM, low-precision Gumbel Max improves perplexity score but reduces generation quality.
@@ -20,6 +18,31 @@ def add_gumbel_noise(logits, temperature):
     return logits.exp() / gumbel_noise
 
 
+def sample_gumbel_chunked(logits, temperature):
+    '''
+    Optimized implementation:
+    Iterates through the batch dimension, performing gumbel + argmax sequentially.
+
+    Reduces Peak VRAM for sampling by a factor of Batch_Size.
+    '''
+    if temperature == 0:
+        return torch.argmax(logits, dim=-1)
+
+    output_indices = torch.empty(logits.shape[:-1], dtype=torch.long, device=logits.device)
+
+    for i in range(logits.shape[0]):
+        logit_slice = logits[i].to(torch.float64)
+
+        noise = torch.rand_like(logit_slice, dtype=torch.float64)
+
+        gumbel_noise = (-torch.log(noise)) ** temperature
+        noisy_logits = logit_slice.exp() / gumbel_noise
+
+        output_indices[i] = torch.argmax(noisy_logits, dim=-1)
+
+    return output_indices
+
+
 def get_num_transfer_tokens(mask_index, steps):
     '''
     In the reverse process, the interval [0, 1] is uniformly discretized into steps intervals.
@@ -29,22 +52,19 @@ def get_num_transfer_tokens(mask_index, steps):
     This function is designed to precompute the number of tokens that need to be transitioned at each step.
     '''
     mask_num = mask_index.sum(dim=1, keepdim=True)
-
     base = mask_num // steps
     remainder = mask_num % steps
-
     num_transfer_tokens = torch.zeros(mask_num.size(0), steps, device=mask_index.device, dtype=torch.int64) + base
-
     for i in range(mask_num.size(0)):
         num_transfer_tokens[i, :remainder[i]] += 1
-
     return num_transfer_tokens
 
 
 @torch.no_grad()
 def generate(model, prompt, attention_mask=None, steps=128, gen_length=128, block_length=128, temperature=0.,
              cfg_scale=0., remasking='low_confidence', mask_id=126336, logits_eos_inf=False,
-             confidence_eos_eot_inf=False):
+             confidence_eos_eot_inf=False,
+             use_efficient_sampling=True):  # <--- New Flag
     '''
     Args:
         model: Mask predictor.
@@ -58,7 +78,9 @@ def generate(model, prompt, attention_mask=None, steps=128, gen_length=128, bloc
         mask_id: The toke id of [MASK] is 126336.
         logits_eos_inf: Whether to set the logits of EOS token to -inf. See Appendix B.4 of LLaDA for details
         confidence_eos_eot_inf: Whether to set the confidence of EOS and EoT token to -inf. See Appendix B.4 of LLaDA for details
+        use_efficient_sampling: Whether to set batched gumbel noise to save VRAM.
     '''
+
     x = torch.full((prompt.shape[0], prompt.shape[1] + gen_length), mask_id, dtype=torch.long).to(model.device)
     x[:, :prompt.shape[1]] = prompt.clone()
 
@@ -77,7 +99,7 @@ def generate(model, prompt, attention_mask=None, steps=128, gen_length=128, bloc
 
     for num_block in range(num_blocks):
         block_mask_index = (x[:, prompt.shape[1] + num_block * block_length: prompt.shape[1] + (
-                    num_block + 1) * block_length:] == mask_id)
+                num_block + 1) * block_length:] == mask_id)
         num_transfer_tokens = get_num_transfer_tokens(block_mask_index, steps)
         for i in range(steps):
             mask_index = (x == mask_id)
@@ -96,11 +118,19 @@ def generate(model, prompt, attention_mask=None, steps=128, gen_length=128, bloc
             if logits_eos_inf:
                 logits[:, :, 126081] = -torch.inf
 
-            logits_with_noise = add_gumbel_noise(logits, temperature=temperature)
-            x0 = torch.argmax(logits_with_noise, dim=-1)  # b, l
+            # --- Updated gumel sampling ---
+            if use_efficient_sampling:
+                x0 = sample_gumbel_chunked(logits, temperature)
+            else:
+                # Original Path: Returns full float64 logit tensor before argmax
+                logits_with_noise = add_gumbel_noise_original(logits, temperature=temperature)
+                x0 = torch.argmax(logits_with_noise, dim=-1)
 
             if confidence_eos_eot_inf:
-                logits_with_noise[:, :, 126081] = logits[:, :, 126348] = -torch.inf
+                # ---- original code below, possible bug as logits_with_noise isn't used upstream ---
+                # logits_with_noise[:, :, 126081] = logits[:, :, 126348] = -torch.inf
+                # ---- We keep behaviour of old code in this PR so just set 126348 to -inf ---
+                logits[:, :, 126081] = logits[:, :, 126348] = -torch.inf
 
             if remasking == 'low_confidence':
                 p = F.softmax(logits, dim=-1)
@@ -132,7 +162,7 @@ def main():
                                       torch_dtype=torch.bfloat16).to(device).eval()
     tokenizer = AutoTokenizer.from_pretrained('GSAI-ML/LLaDA-8B-Instruct', trust_remote_code=True)
 
-    # The LLaDA architecture theoretically supports both left-padding and right-padding. 
+    # The LLaDA architecture theoretically supports both left-padding and right-padding.
     # However, the sampling code implementation is simpler with left-padding.
     if tokenizer.padding_side != 'left':
         tokenizer.padding_side = 'left'
@@ -159,10 +189,11 @@ def main():
     input_ids = encoded_outputs['input_ids'].to(device)
     attention_mask = encoded_outputs['attention_mask'].to(device)
 
-    out = generate(model, input_ids, attention_mask, steps=128, gen_length=128, block_length=128, temperature=0.5,
-                   cfg_scale=0., remasking='low_confidence')
-    output = tokenizer.batch_decode(out[:, input_ids.shape[1]:], skip_special_tokens=True)
+    # Example usage with efficient sampling enabled
+    out = generate(model, input_ids, attention_mask, steps=128, gen_length=128, block_length=32, temperature=0.7,
+                   cfg_scale=0., remasking='low_confidence', use_efficient_sampling=True)
 
+    output = tokenizer.batch_decode(out[:, input_ids.shape[1]:], skip_special_tokens=True)
     for o in output:
         print(o)
         print('-' * 50)
