@@ -1,5 +1,6 @@
 # Large Language Diffusion Models
-[![arXiv](https://img.shields.io/badge/Paper-arXiv-red.svg)](https://arxiv.org/abs/2502.09992)
+[![LLaDA](https://img.shields.io/badge/Paper-arXiv-red.svg)](https://arxiv.org/abs/2502.09992)
+[![iLLaDA](https://img.shields.io/badge/Paper-arXiv-red.svg)](https://arxiv.org/abs/2606.25331)
 [![deploy](https://img.shields.io/badge/Hugging%20Face-LLaDA_Base-FFEB3B)](https://huggingface.co/GSAI-ML/LLaDA-8B-Base)
 [![deploy](https://img.shields.io/badge/Hugging%20Face-LLaDA_Instruct-FFEB3B)](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct)
 [![deploy](https://img.shields.io/badge/Hugging%20Face-iLLaDA_Base-FFEB3B)](https://huggingface.co/GSAI-ML/iLLaDA-8B-Base)
