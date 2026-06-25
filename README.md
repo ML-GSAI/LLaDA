@@ -87,7 +87,7 @@ and has open-sourced the training framework.
 ## Evaluation
 Please refer to [EVAL.md](EVAL.md) for instructions on using the evaluation code.
 
-## FAQ
+## FAQ for LLaDA
 Here, we address some common questions about LLaDA.
 
 ### 0. How do I train my own LLaDA?
