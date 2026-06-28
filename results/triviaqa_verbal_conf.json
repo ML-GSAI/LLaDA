@@ -1,0 +1,1520 @@
+{
+  "args": {
+    "model_name": "GSAI-ML/LLaDA-8B-Instruct",
+    "n_examples": 100,
+    "steps": 64,
+    "gen_length": 32,
+    "vc_gen_length": 64,
+    "output": "results/triviaqa_verbal_conf.json"
+  },
+  "accuracy": 0.22,
+  "n_correct": 22,
+  "n_total": 100,
+  "vc_parse_rate": 1.0,
+  "eval_results": {
+    "p_true": {
+      "auroc": 0.8205128205128206,
+      "ece": 0.35243713378906244
+    },
+    "vc_conf": {
+      "auroc": 0.5512820512820513,
+      "ece": 0.076
+    }
+  },
+  "samples": [
+    {
+      "idx": 0,
+      "question": "Who was the man behind The Chipmunks?",
+      "answer": "David Sev.",
+      "vc_text": "Answer: David Seville\nConfidence: 100%",
+      "aliases": [
+        "David Seville",
+        "David Seville"
+      ],
+      "correct": 0,
+      "p_true": 0.05029296875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 1,
+      "question": "Which Lloyd Webber musical premiered in the US on 10th December 1993?",
+      "answer": "Cats",
+      "vc_text": "Answer: Cats\nConfidence: 100%",
+      "aliases": [
+        "Sunset Blvd",
+        "West Sunset Boulevard",
+        "Sunset Boulevard"
+      ],
+      "correct": 0,
+      "p_true": 0.53125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 2,
+      "question": "Who was the next British Prime Minister after Arthur Balfour?",
+      "answer": "David Lloyd George",
+      "vc_text": "Answer: David Lloyd George\nConfidence: 100%",
+      "aliases": [
+        "Sir Henry Campbell-Bannerman",
+        "Campbell-Bannerman",
+        "Campbell Bannerman"
+      ],
+      "correct": 0,
+      "p_true": 0.98046875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 3,
+      "question": "Who had a 70s No 1 hit with Kiss You All Over?",
+      "answer": "Tom Jones.",
+      "vc_text": "Answer: The Ronettes\nConfidence: 100%",
+      "aliases": [
+        "Internal exile",
+        "Exiles",
+        "Transported for life"
+      ],
+      "correct": 0,
+      "p_true": 0.46875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 4,
+      "question": "What claimed the life of singer Kathleen Ferrier?",
+      "answer": "Breast cancer.",
+      "vc_text": "Answer: Lung cancer\nConfidence: 100%",
+      "aliases": [
+        "Cancer pathology",
+        "Deaths by cancer",
+        "Anti-cancer"
+      ],
+      "correct": 1,
+      "p_true": 0.9375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 5,
+      "question": "Rita Coolidge sang the title song for which Bond film?",
+      "answer": "Dr. No",
+      "vc_text": "Answer: Dr. No\nConfidence: 100%",
+      "aliases": [
+        "Kamal kahn",
+        "List of Bond girls in Octopussy",
+        "Magda (James Bond)"
+      ],
+      "correct": 0,
+      "p_true": 0.63671875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 6,
+      "question": "What was the last US state to reintroduce alcohol after prohibition?",
+      "answer": "Oregon.",
+      "vc_text": "Answer: Vermont\nConfidence: 100%",
+      "aliases": [
+        "Utah (State)",
+        "Forty-Fifth State",
+        "Sports in Utah"
+      ],
+      "correct": 0,
+      "p_true": 0.546875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 7,
+      "question": "Which actress was voted Miss Greenwich Village in 1942?",
+      "answer": "Grace Kelly.",
+      "vc_text": "Answer: Audrey Hepburn\nConfidence: 100%",
+      "aliases": [
+        "Bacall",
+        "Lauren Becal",
+        "Lauren Bacall"
+      ],
+      "correct": 0,
+      "p_true": 0.53125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 8,
+      "question": "What is the Japanese share index called?",
+      "answer": "Nikkei.",
+      "vc_text": "Answer: Nikkei\nConfidence: 100%",
+      "aliases": [
+        "Nikkei",
+        "Nikkei (disambiguation)",
+        "Nikkei"
+      ],
+      "correct": 1,
+      "p_true": 1.0,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 9,
+      "question": "What was the name of Michael Jackson's autobiography written in 1988?",
+      "answer": "Michael.",
+      "vc_text": "Answer: Michael\nConfidence: 100%",
+      "aliases": [
+        "Walk on the Moon",
+        "Walk on the moon",
+        "Moonwalk (disambiguation)"
+      ],
+      "correct": 0,
+      "p_true": 0.0634765625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 10,
+      "question": "In which decade did stereo records first go on sale?",
+      "answer": "1950s",
+      "vc_text": "Answer: 1950s\nConfidence: 100%",
+      "aliases": [
+        "1930\u2019s",
+        "Thirties",
+        "1930s literature"
+      ],
+      "correct": 0,
+      "p_true": 0.0673828125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 11,
+      "question": "In what year's Olympics were electric timing devices and a public-address system used for the first time?",
+      "answer": "1936 Berlin Olympics.",
+      "vc_text": "Answer: 1936\nConfidence: 100%",
+      "aliases": [
+        "In 1912, in Stockholm",
+        "In 1912, in Stockholm"
+      ],
+      "correct": 0,
+      "p_true": 0.95703125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 12,
+      "question": "Which volcano in Tanzania is the highest mountain in Africa?",
+      "answer": "Kilimanjaro",
+      "vc_text": "Answer: Kilimanjaro\nConfidence: 100%",
+      "aliases": [
+        "Mawensi",
+        "Mt. Kilimanjaro",
+        "Kibo (volcano)"
+      ],
+      "correct": 1,
+      "p_true": 0.99609375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 13,
+      "question": "The flag of Libya is a plain rectangle of which color?",
+      "answer": "Green.",
+      "vc_text": "Answer: Green\nConfidence: 100%",
+      "aliases": [
+        "Greenishly",
+        "Avacado (color)",
+        "Green (color)"
+      ],
+      "correct": 1,
+      "p_true": 0.333984375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 14,
+      "question": "Of which African country is Niamey the capital?",
+      "answer": "Niger",
+      "vc_text": "Answer: Niger\nConfidence: 100%",
+      "aliases": [
+        "Niger Republic",
+        "Nigerois",
+        "Republic Of Niger"
+      ],
+      "correct": 1,
+      "p_true": 0.9921875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 15,
+      "question": "Who was the director of the CIA from 1976-81?",
+      "answer": "John Casey.",
+      "vc_text": "Answer: William Casey \nConfidence: 100%",
+      "aliases": [
+        "George Bush",
+        "George bush",
+        "Goerge Bush"
+      ],
+      "correct": 0,
+      "p_true": 0.70703125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 16,
+      "question": "Which musical featured the song The Street Where You Live?",
+      "answer": "Fame",
+      "vc_text": "Answer: West Side Story\nConfidence: 100%",
+      "aliases": [
+        "My Fair Lady (2010 film)",
+        "Enry Iggins",
+        "Why Can't the English%3F"
+      ],
+      "correct": 0,
+      "p_true": 0.453125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 17,
+      "question": "\"Who was the target of the failed \"\"Bomb Plot\"\" of 1944?\"",
+      "answer": "Winston Churchill.",
+      "vc_text": "Answer: King George VI\nConfidence: 100%",
+      "aliases": [
+        "Hitlerian",
+        "Adolph Schicklgruber",
+        "HitlerAdolf"
+      ],
+      "correct": 0,
+      "p_true": 0.07568359375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 18,
+      "question": "Who had an 80s No 1 hit with Hold On To The Nights?",
+      "answer": "Tom Petty.",
+      "vc_text": "Answer: The Knack\nConfidence: 100%",
+      "aliases": [
+        "Richard Noel Marx",
+        "Richard Marx",
+        "Richard Marx"
+      ],
+      "correct": 0,
+      "p_true": 0.609375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 19,
+      "question": "Who directed the classic 30s western Stagecoach?",
+      "answer": "John Ford.",
+      "vc_text": "Answer: John Ford\nConfidence: 100%",
+      "aliases": [
+        "John Ford (1895-1973)",
+        "Sean O'Feeney",
+        "John Ford (film director)"
+      ],
+      "correct": 1,
+      "p_true": 0.2451171875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 20,
+      "question": "Dave Gilmore and Roger Waters were in which rock group?",
+      "answer": "Pink Floyd",
+      "vc_text": "Answer: Pink Floyd\nConfidence: 100%",
+      "aliases": [
+        "Grey Floyd",
+        "Pink Floyd trivia",
+        "The Screaming Ab Dabs"
+      ],
+      "correct": 1,
+      "p_true": 0.255859375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 21,
+      "question": "Which highway was Revisited in a classic 60s album by Bob Dylan?",
+      "answer": "Highway 61",
+      "vc_text": "Answer: Highway 61\nConfidence: 100%",
+      "aliases": [
+        "61",
+        "sixty-one",
+        "61"
+      ],
+      "correct": 1,
+      "p_true": 0.94140625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 22,
+      "question": "Which was the only eastern bloc country to participate in the 1984 LA Olympics?",
+      "answer": "Romania",
+      "vc_text": "Answer: Yugoslavia\nConfidence: 100%",
+      "aliases": [
+        "ISO 3166-1:RO",
+        "Romanian state",
+        "ROMANIA"
+      ],
+      "correct": 1,
+      "p_true": 0.90625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 23,
+      "question": "Which 90s sci fi series with James Belushi was based on Bruce Wagner's comic strip of the same name?",
+      "answer": "Freak",
+      "vc_text": "Answer: The Tick\nConfidence: 100%",
+      "aliases": [
+        "Wild Palms",
+        "Wild Palms"
+      ],
+      "correct": 0,
+      "p_true": 0.8359375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 24,
+      "question": "If I Were A Rich Man Was a big hit from which stage show?",
+      "answer": "Fame.",
+      "vc_text": "Answer: The Tonight Show\nConfidence: 100%",
+      "aliases": [
+        "Fiddler on a Roof",
+        "Fiddler on the roof",
+        "Sprintze"
+      ],
+      "correct": 0,
+      "p_true": 0.9140625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 25,
+      "question": "Men Against the Sea and Pitcairn's Island were two sequels to what famous novel?",
+      "answer": "Men Against the Sea and Pitcairn's Island were two sequels to the famous novel \"The Men of the Sea\" by Robert Louis Stevenson.",
+      "vc_text": "Answer: Men of the Sea\nConfidence: 100%",
+      "aliases": [
+        "HMS Bounty mutineers",
+        "Mutiny on the Bounty",
+        "Mutiny on Bounty"
+      ],
+      "correct": 0,
+      "p_true": 0.97265625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 26,
+      "question": "What was Truman Capote's last name before he was adopted by his stepfather?",
+      "answer": "Collins.",
+      "vc_text": "Answer: Capote\nConfidence: 100%",
+      "aliases": [
+        "Per\u017fons",
+        "Person",
+        "Person (philosophical)"
+      ],
+      "correct": 0,
+      "p_true": 0.2119140625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 27,
+      "question": "In Lewis Carroll's poem The Hunting of the Snark, what did the elusive, troublesome snark turn into to fool hunters?",
+      "answer": "A mouse.",
+      "vc_text": "Answer: A mouse.\nConfidence: 100%",
+      "aliases": [
+        "Boojum (disambiguation)",
+        "A boojum",
+        "Boojum"
+      ],
+      "correct": 0,
+      "p_true": 0.255859375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 28,
+      "question": "In the Bible, who did the sun and moon stand still before?",
+      "answer": "Moses",
+      "vc_text": "Answer: Joshua\nConfidence: 100%",
+      "aliases": [
+        "Joshua of ephraim",
+        "Y'hosheya",
+        "Yehoshea"
+      ],
+      "correct": 0,
+      "p_true": 0.4375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 29,
+      "question": "What Michelle Pfeiffer movie got a boost from the Coolio song Gangsta's Paradise?",
+      "answer": "Fame.",
+      "vc_text": "Answer: Dirty Dancing\nConfidence: 100%",
+      "aliases": [
+        "Dangerous Minds (film)",
+        "My Posse Don't Do Homework",
+        "Dangerous Minds"
+      ],
+      "correct": 0,
+      "p_true": 0.5625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 30,
+      "question": "What was President Gerald Ford's middle name?",
+      "answer": "James.",
+      "vc_text": "Answer: Lynch\nConfidence: 100%",
+      "aliases": [
+        "Rudolph (disambiguation)",
+        "Rudolph",
+        "Rudolf"
+      ],
+      "correct": 0,
+      "p_true": 0.5625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 31,
+      "question": "Art Garfunkel trained for which profession although he didn't qualify?",
+      "answer": "Lawyer",
+      "vc_text": "Answer: Musician\nConfidence: 95%",
+      "aliases": [
+        "Master Builder (occupation)",
+        "Master builder (occupation)",
+        "Registered Architect"
+      ],
+      "correct": 0,
+      "p_true": 0.1728515625,
+      "vc_conf": 0.95,
+      "vc_parseable": true
+    },
+    {
+      "idx": 32,
+      "question": "Who was the last inmate of Spandau jail in Berlin?",
+      "answer": "Adolf Hitler.",
+      "vc_text": "Answer: Adolf Hitler\nConfidence: 100%",
+      "aliases": [
+        "Hess, Rudolf",
+        "Rudolf hess",
+        "Rudolf W. Hess"
+      ],
+      "correct": 0,
+      "p_true": 0.26953125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 33,
+      "question": "What was Eddie Murphy's first movie?",
+      "answer": "Raw Deal.",
+      "vc_text": "Answer: \"Raw Deal\"\nConfidence: 100%",
+      "aliases": [
+        "48 time",
+        "48 Hours",
+        "forty-eight  time"
+      ],
+      "correct": 0,
+      "p_true": 0.69140625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 34,
+      "question": "In the 80s who wrote the novel Empire of The Sun?",
+      "answer": "Frank Herbert.",
+      "vc_text": "Answer: Ken Follett\nConfidence: 100%",
+      "aliases": [
+        "JG Ballard",
+        "J.G. Ballard",
+        "James Graham Ballard"
+      ],
+      "correct": 0,
+      "p_true": 0.453125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 35,
+      "question": "Kagoshima international airport is in which country?",
+      "answer": "Japan",
+      "vc_text": "Answer: Japan\nConfidence: 100%",
+      "aliases": [
+        "\u65e5\u672c\u570b",
+        "State of Japan",
+        "Ja-pan"
+      ],
+      "correct": 1,
+      "p_true": 0.99609375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 36,
+      "question": "In which sport could the Pacers take on the Pistons?",
+      "answer": "Basketball",
+      "vc_text": "Answer: Basketball\nConfidence: 100%",
+      "aliases": [
+        "Basketball",
+        "Basketball gear",
+        "Bball"
+      ],
+      "correct": 1,
+      "p_true": 0.9921875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 37,
+      "question": "Kim Carnes' nine weeks at No 1 with Bette Davis Eyes was interrupted for one week by which song?",
+      "answer": "Private Eyes.",
+      "vc_text": "Answer: Blue Eyes\nConfidence: 100%",
+      "aliases": [
+        "Stars on 45 (Single)",
+        "Stars On 45 Medley",
+        "Stars on 45 medley"
+      ],
+      "correct": 0,
+      "p_true": 0.546875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 38,
+      "question": "Where in Canada is the Lion's Gate bridge?",
+      "answer": "Toronto, Ontario.",
+      "vc_text": "Answer: The Lion's Gate bridge is located in Vancouver, Canada.\nConfidence: 100%",
+      "aliases": [
+        "Vancouver, Canada",
+        "Vancouver (Canada)",
+        "Corpus Christi Elementary School (Canada)"
+      ],
+      "correct": 0,
+      "p_true": 0.015869140625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 39,
+      "question": "What was Walter Matthau's first movie?",
+      "answer": "The Big Sleep.",
+      "vc_text": "Answer: \"The Apartment\"\nConfidence: 100%",
+      "aliases": [
+        "The Kentuckian",
+        "The Kentuckian"
+      ],
+      "correct": 0,
+      "p_true": 0.09033203125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 40,
+      "question": "Otis Barton was a pioneer in exploring where?",
+      "answer": "Antarctica",
+      "vc_text": "Answer: Antarctica\nConfidence: 100%",
+      "aliases": [
+        "Underwater",
+        "Under water",
+        "Underwater life"
+      ],
+      "correct": 0,
+      "p_true": 0.6796875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 41,
+      "question": "Where in England was actor Nigel Hawthorne born?",
+      "answer": "Manchester.",
+      "vc_text": "Answer: London\nConfidence: 100%",
+      "aliases": [
+        "Cofantre",
+        "Coventry (city)",
+        "Coventry, Warwickshire"
+      ],
+      "correct": 0,
+      "p_true": 0.7890625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 42,
+      "question": "What mythological beast has the head of a man, the body of a lion, and the tail and feet of a dragon?",
+      "answer": "A chimera.",
+      "vc_text": "Answer: Chimaera\nConfidence: 100%",
+      "aliases": [
+        "A manticore",
+        "The Manticore",
+        "A manticore"
+      ],
+      "correct": 0,
+      "p_true": 0.953125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 43,
+      "question": "In Greek mythology, who were Arges, Brontes and Steropes?",
+      "answer": "Arges, Brontes, and Steropes were the three sons of Nereus, the personification of the sea, in Greek mythology.",
+      "vc_text": "Answer: Arges, Brontes, and Steropes were three giants in Greek mythology.\nConfidence: 95%",
+      "aliases": [
+        "Cyclopes (disambiguation)",
+        "Cyclopes",
+        "Cyclopes"
+      ],
+      "correct": 0,
+      "p_true": 0.9921875,
+      "vc_conf": 0.95,
+      "vc_parseable": true
+    },
+    {
+      "idx": 44,
+      "question": "Which musician founded the Red Hot Peppers?",
+      "answer": "Reid.",
+      "vc_text": "Answer: Frank Zappa\nConfidence: 100%",
+      "aliases": [
+        "Ferdinand Joseph La Menthe",
+        "Louise Monette",
+        "Ferdinand Morton"
+      ],
+      "correct": 0,
+      "p_true": 0.010986328125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 45,
+      "question": "Where did the Shinning Path terrorists operate?",
+      "answer": "Peru.",
+      "vc_text": "Answer: The Shining Path terrorists operated in Peru.\nConfidence: 100%",
+      "aliases": [
+        "Lower Peru",
+        "Name of Peru",
+        "Republic of Peru"
+      ],
+      "correct": 1,
+      "p_true": 0.96875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 46,
+      "question": "How old was Jimi Hendrix when he died?",
+      "answer": "Jimi Hendrix was 27 years old when he died.",
+      "vc_text": "Answer: Jimi Hendrix was 27 years old when he died.\nConfidence: 100%",
+      "aliases": [
+        "27",
+        "twenty-seven",
+        "27"
+      ],
+      "correct": 1,
+      "p_true": 0.7890625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 47,
+      "question": "Which Brit broke the land speed record in 1990 in Thrust 2?",
+      "answer": "Richard Noble.",
+      "vc_text": "Answer: Richard Noble \nConfidence: 100%",
+      "aliases": [
+        "Richard Noble",
+        "Richard Noble"
+      ],
+      "correct": 1,
+      "p_true": 0.8359375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 48,
+      "question": "In which state was Gene Vincent born?",
+      "answer": "California",
+      "vc_text": "Answer: California\nConfidence: 100%",
+      "aliases": [
+        "US-VA",
+        "State of Virginia",
+        "Virginia, USA"
+      ],
+      "correct": 0,
+      "p_true": 0.36328125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 49,
+      "question": "How was the European Recovery Program in the 1940s more commonly known?",
+      "answer": "The Marshall Plan.",
+      "vc_text": "Answer: The European Recovery Program in the 1940s was more commonly known as the Marshall Plan.\nConfidence: 100%",
+      "aliases": [
+        "European Recovery Programme",
+        "The marshal plan",
+        "Marshall Aid"
+      ],
+      "correct": 1,
+      "p_true": 1.0,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 50,
+      "question": "Brandon Lee died during the making of which movie?",
+      "answer": "The Rock.",
+      "vc_text": "Answer: The Dark Knight\nConfidence: 100%",
+      "aliases": [
+        "The Crow: Dead Time",
+        "The Crow (2016 film)",
+        "The Crow"
+      ],
+      "correct": 0,
+      "p_true": 0.65234375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 51,
+      "question": "Who had a 70s No 1 hit with Let's Do It Again?",
+      "answer": "Tom Jones.",
+      "vc_text": "Answer: The Carpenters\nConfidence: 100%",
+      "aliases": [
+        "The Staple Singers",
+        "Staple Singers",
+        "The Staples Singers"
+      ],
+      "correct": 0,
+      "p_true": 0.578125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 52,
+      "question": "Who had a Too Legit To Quit Tour?",
+      "answer": "Eminem",
+      "vc_text": "Answer: Kanye West\nConfidence: 100%",
+      "aliases": [
+        "M. C. Hammer",
+        "Hammer (rapper)",
+        "Family Affair(MC Hammer album)"
+      ],
+      "correct": 0,
+      "p_true": 0.6640625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 53,
+      "question": "\"According to Rudyard Kipling what were the \"\"two imposters\"\" to meet and treat the same day?\"",
+      "answer": "Love and war.",
+      "vc_text": "Answer: Love and War\nConfidence: 100%",
+      "aliases": [
+        "Triumph and Disaster",
+        "Triumph and Disaster"
+      ],
+      "correct": 0,
+      "p_true": 0.88671875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 54,
+      "question": "Who is the most successful UK solo artist in the USA?",
+      "answer": "Taylor Swift.",
+      "vc_text": "Answer: David Bowie\nConfidence: 95%",
+      "aliases": [
+        "Sir Elton",
+        "Rockaday Johnny",
+        "Elthon John"
+      ],
+      "correct": 0,
+      "p_true": 0.06005859375,
+      "vc_conf": 0.95,
+      "vc_parseable": true
+    },
+    {
+      "idx": 55,
+      "question": "Which country does the airline TAAG come from?",
+      "answer": "Turkey",
+      "vc_text": "Answer: Turkey\nConfidence: 100%",
+      "aliases": [
+        "Angola",
+        "Angloa",
+        "Etymology of Angola"
+      ],
+      "correct": 0,
+      "p_true": 0.294921875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 56,
+      "question": "Which US No 1 single came from Diana Ross's platinum album Diana?",
+      "answer": "\"Private Eyes\"",
+      "vc_text": "Answer: \"Endless Love\"\nConfidence: 100%",
+      "aliases": [
+        "Upside Down (Diana Ross song)",
+        "Up side down",
+        "Upside Down"
+      ],
+      "correct": 0,
+      "p_true": 0.63671875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 57,
+      "question": "River Phoenix died during the making of which movie?",
+      "answer": "Avatar.",
+      "vc_text": "Answer: The Mission\nConfidence: 100%",
+      "aliases": [
+        "Dark Blood (film)",
+        "Dark Blood",
+        "Dark Blood"
+      ],
+      "correct": 0,
+      "p_true": 0.765625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 58,
+      "question": "Which artist David was born in Bradford UK?",
+      "answer": "David Bowie",
+      "vc_text": "Answer: David Guetta\nConfidence: 95%",
+      "aliases": [
+        "Hockney",
+        "David Hockney",
+        "Hockney"
+      ],
+      "correct": 0,
+      "p_true": 0.88671875,
+      "vc_conf": 0.95,
+      "vc_parseable": true
+    },
+    {
+      "idx": 59,
+      "question": "What is Mel Gibson's middle name?",
+      "answer": "Mel Gibson's middle name is Mel.",
+      "vc_text": "Answer: Mel\nConfidence: 100%",
+      "aliases": [
+        "St Colm",
+        "Saint Colm Cille",
+        "Calum Cille"
+      ],
+      "correct": 0,
+      "p_true": 0.2451171875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 60,
+      "question": "Richard Daley was mayor of which city for 21 years?",
+      "answer": "Chicago",
+      "vc_text": "Answer: Chicago\nConfidence: 100%",
+      "aliases": [
+        "Chi-Beria",
+        "Sayre language academy",
+        "Chicago"
+      ],
+      "correct": 1,
+      "p_true": 0.99609375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 61,
+      "question": "\"In which movie did Garbo say, \"\"I want to be alone\"\".\"",
+      "answer": "The Blue Angel.",
+      "vc_text": "Answer: The Blue Angel\nConfidence: 100%",
+      "aliases": [
+        "The grand hotel",
+        "Grand H\u00f4tel",
+        "Grand hotel"
+      ],
+      "correct": 0,
+      "p_true": 0.3203125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 62,
+      "question": "What is Osbert Lancaster best known for producing?",
+      "answer": "Movie posters.",
+      "vc_text": "Answer: Movie posters\nConfidence: 95%",
+      "aliases": [
+        "Cartoonish",
+        "Cartoons",
+        "American cartoon"
+      ],
+      "correct": 0,
+      "p_true": 0.89453125,
+      "vc_conf": 0.95,
+      "vc_parseable": true
+    },
+    {
+      "idx": 63,
+      "question": "Who was the defending champion when Martina Navratilova first won Wimbledon singles?",
+      "answer": "Chris Evert",
+      "vc_text": "Answer: Chris Evert\nConfidence: 100%",
+      "aliases": [
+        "Virginia Wade",
+        "Sarah Virginia Wade",
+        "Virginia Wade"
+      ],
+      "correct": 0,
+      "p_true": 0.140625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 64,
+      "question": "Who was the first US-born winner of golf's British Open?",
+      "answer": "Arnold Palmer.",
+      "vc_text": "Answer: Gary Player\nConfidence: 100%",
+      "aliases": [
+        "Walter Hagen",
+        "Hagen, Walter",
+        "Walter Charles Hagen"
+      ],
+      "correct": 0,
+      "p_true": 0.859375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 65,
+      "question": "In which country is the Sky Train Rail bridge?",
+      "answer": "Japan.",
+      "vc_text": "Answer: Japan\nConfidence: 100%",
+      "aliases": [
+        "Canada",
+        "Canad\u00e1",
+        "The Dominion of Canada"
+      ],
+      "correct": 0,
+      "p_true": 0.80859375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 66,
+      "question": "What was the Paramount Film Company originally called?",
+      "answer": "Paramount Pictures.",
+      "vc_text": "Answer: American Film Manufacturing Company\nConfidence: 100%",
+      "aliases": [
+        "Raleigh Studios",
+        "Famous Players Film Company",
+        "The Famous Players"
+      ],
+      "correct": 0,
+      "p_true": 0.1328125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 67,
+      "question": "Who was the first person after Scott to reach the South Pole overland?",
+      "answer": "Shackleton.",
+      "vc_text": "Answer: Ernest Shackleton\nConfidence: 100%",
+      "aliases": [
+        "Sir Edmund Hillary",
+        "Edmund Hilary",
+        "Sir Ed"
+      ],
+      "correct": 0,
+      "p_true": 0.6640625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 68,
+      "question": "Which journalist first told the world about the My Lai massacre?",
+      "answer": "John McCain.",
+      "vc_text": "Answer: Seymour Hersh\nConfidence: 100%",
+      "aliases": [
+        "Seymour Hersch",
+        "The Dark Side of Camelot",
+        "Seymour M. Hersh"
+      ],
+      "correct": 0,
+      "p_true": 0.00860595703125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 69,
+      "question": "What is the name of Terence and Shirley Conran's dress designer son?",
+      "answer": "Jonathan Conran",
+      "vc_text": "Answer: Jasper Conran\nConfidence: 100%",
+      "aliases": [
+        "Jaspis",
+        "Bruneau jasper",
+        "Egyptian jasper"
+      ],
+      "correct": 0,
+      "p_true": 0.73046875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 70,
+      "question": "Which drink did The Spice Girls promote?",
+      "answer": "Fanta.",
+      "vc_text": "Answer: Coca-Cola\nConfidence: 100%",
+      "aliases": [
+        "Pep.si",
+        "Pepsey",
+        "Pepsi Convoy"
+      ],
+      "correct": 0,
+      "p_true": 0.765625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 71,
+      "question": "Who was the youngest brother in the Beach Boys?",
+      "answer": "Dennis Wilson",
+      "vc_text": "Answer: Dennis Wilson\nConfidence: 100%",
+      "aliases": [
+        "Carl Wilson",
+        "Carl Wilson discography",
+        "Wilson, Carl Dean"
+      ],
+      "correct": 0,
+      "p_true": 0.46875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 72,
+      "question": "Who first hosted Family Feud?",
+      "answer": "Bob Stewart.",
+      "vc_text": "Answer: Bob Barker \nConfidence: 100%",
+      "aliases": [
+        "Dick Dawson",
+        "Richard Dawson",
+        "Dickie Dawson"
+      ],
+      "correct": 0,
+      "p_true": 0.36328125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 73,
+      "question": "What did the Lone Ranger's title Kemo Sabe mean in Apache?",
+      "answer": "I know that.",
+      "vc_text": "Answer: \"I know\"\nConfidence: 100%",
+      "aliases": [
+        "L\u00e8ine bh\u00e0n",
+        "White shirt",
+        "White Shirt"
+      ],
+      "correct": 0,
+      "p_true": 0.2333984375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 74,
+      "question": "Who or what was Gentle Ben in the 60s TV series?",
+      "answer": "Gentle Ben was a fictional character in the 1960s TV series \"The Twilight Zone,\" played by actor William H. Macy.",
+      "vc_text": "Answer: Gentle Ben was a fictional character.\nConfidence: 95%",
+      "aliases": [
+        "Ursine",
+        "Ursoidea",
+        "Honey pig"
+      ],
+      "correct": 0,
+      "p_true": 0.9453125,
+      "vc_conf": 0.95,
+      "vc_parseable": true
+    },
+    {
+      "idx": 75,
+      "question": "Which 70s show was based on the British show Till Death Us Do Part?",
+      "answer": "The Odd Couple",
+      "vc_text": "Answer: The Odd Couple\nConfidence: 100%",
+      "aliases": [
+        "All In The Family",
+        "All in the family",
+        "Justice For All (TV pilot)"
+      ],
+      "correct": 0,
+      "p_true": 0.07568359375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 76,
+      "question": "On what date in 1969 did Neil Armstrong first set foot on the Moon?",
+      "answer": "July 20, 1969.",
+      "vc_text": "Answer: July 20, 1969\nConfidence: 100%",
+      "aliases": [
+        "July 20",
+        "20 July",
+        "July 20th"
+      ],
+      "correct": 1,
+      "p_true": 0.96875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 77,
+      "question": "Bandar Seri Begawan International airport is in which country?",
+      "answer": "Brunei",
+      "vc_text": "Answer: Brunei\nConfidence: 100%",
+      "aliases": [
+        "Abode of Peace",
+        "BRUNEI",
+        "Health in Brunei"
+      ],
+      "correct": 1,
+      "p_true": 0.99609375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 78,
+      "question": "What was the profession of Paul Strand (1890 - 1976)?",
+      "answer": "Film director.",
+      "vc_text": "Answer: Paul Strand was a British actor.\nConfidence: 100%",
+      "aliases": [
+        "Photographist",
+        "Photographer",
+        "Freelance photographer"
+      ],
+      "correct": 0,
+      "p_true": 0.91015625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 79,
+      "question": "Who had a 60s No 1 with Downtown?",
+      "answer": "The Shadows.",
+      "vc_text": "Answer: Elvis Presley\nConfidence: 100%",
+      "aliases": [
+        "Petula Clark",
+        "Petula Clarke",
+        "Pet clark"
+      ],
+      "correct": 0,
+      "p_true": 0.546875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 80,
+      "question": "Who was born first, Kiefer Sutherland or Christian Slater?",
+      "answer": "Christian Slater was born first.",
+      "vc_text": "Answer: Christian Slater\nConfidence: 100%",
+      "aliases": [
+        "Kiefer sutherlund",
+        "Keefer Sutherland",
+        "Promised Land (1987)"
+      ],
+      "correct": 0,
+      "p_true": 0.5,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 81,
+      "question": "To the nearest two, how many tennis Grand Slam titles did Jimmy Connors win?",
+      "answer": "2",
+      "vc_text": "Answer: 7\nConfidence: 100%",
+      "aliases": [
+        "10",
+        "ten",
+        "10"
+      ],
+      "correct": 0,
+      "p_true": 0.28125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 82,
+      "question": "Who was the Georgia Peach?",
+      "answer": "Tomlin.",
+      "vc_text": "Answer: Georgia Gibbs\nConfidence: 100%",
+      "aliases": [
+        "Cobb, Ty",
+        "Ty Cobb",
+        "The Georgia Peach"
+      ],
+      "correct": 0,
+      "p_true": 0.0849609375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 83,
+      "question": "Who set fire to his guitar at the Monterey Pop festival in 19676?",
+      "answer": "Jimi Hendrix",
+      "vc_text": "Answer: Jimmy Hendrix\nConfidence: 100%",
+      "aliases": [
+        "Hendrix",
+        "Lithofayne Pridgeon",
+        "Jimi hendrix"
+      ],
+      "correct": 1,
+      "p_true": 0.9296875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 84,
+      "question": "Della Street was whose secretary?",
+      "answer": "Tom Sawyer.",
+      "vc_text": "Answer: Harry Dresden\nConfidence: 100%",
+      "aliases": [
+        "Perry Mason (film)",
+        "Perry mason",
+        "Perry Mason: The Case of the Defiant Daughter"
+      ],
+      "correct": 0,
+      "p_true": 0.349609375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 85,
+      "question": "In music, who was Sweet and Innocent and Too Young?",
+      "answer": "Tom Petty.",
+      "vc_text": "Answer: The Smiths\nConfidence: 100%",
+      "aliases": [
+        "Donny Osmond",
+        "Donny & Marie in Las Vegas",
+        "Donald Clark Osmond"
+      ],
+      "correct": 0,
+      "p_true": 0.515625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 86,
+      "question": "Who is featured on Puff Daddy's Can't Hold Me Down?",
+      "answer": "Mariah Carey",
+      "vc_text": "Answer: Mariah Carey\nConfidence: 100%",
+      "aliases": [
+        "Mase",
+        "MA$E",
+        "Ma$e"
+      ],
+      "correct": 0,
+      "p_true": 0.77734375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 87,
+      "question": "What had Edmond Hillary worked at before taking up mountain climbing?",
+      "answer": "A hospital.",
+      "vc_text": "Answer: Royal Navy\nConfidence: 95%",
+      "aliases": [
+        "Bee keeper",
+        "Bee culture",
+        "Beekeeping suit"
+      ],
+      "correct": 0,
+      "p_true": 0.53125,
+      "vc_conf": 0.95,
+      "vc_parseable": true
+    },
+    {
+      "idx": 88,
+      "question": "In which American state is the Isabella Stewart Gardner Museum?",
+      "answer": "Massachusetts",
+      "vc_text": "Answer: Massachusetts\nConfidence: 100%",
+      "aliases": [
+        "Masachusetts",
+        "Masshole Commonwealth",
+        "Massachusetts (state)"
+      ],
+      "correct": 1,
+      "p_true": 0.875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 89,
+      "question": "Benina international airport is in which country?",
+      "answer": "Nigeria",
+      "vc_text": "Answer: Nigeria\nConfidence: 100%",
+      "aliases": [
+        "Free Democratic Libya",
+        "LIBYA",
+        "Islamic Republic of Libya"
+      ],
+      "correct": 0,
+      "p_true": 0.88671875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 90,
+      "question": "Beloved in 1999 was whose first movie since The Color Purple in 1985?",
+      "answer": "Toni Morrison",
+      "vc_text": "Answer: Oprah Winfrey\nConfidence: 100%",
+      "aliases": [
+        "Oprah",
+        "Ophra",
+        "Oprah Winfrey"
+      ],
+      "correct": 0,
+      "p_true": 0.515625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 91,
+      "question": "Which Star Trek star directed Three Men and a Baby?",
+      "answer": "Leon Nimoy",
+      "vc_text": "Answer: William Shatner\nConfidence: 100%",
+      "aliases": [
+        "Leonard nimoy",
+        "Leonard Nimoy",
+        "LEONARD NIMOY"
+      ],
+      "correct": 0,
+      "p_true": 0.2021484375,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 92,
+      "question": "Which sitcom star appeared on the big screening The Object of My Affection?",
+      "answer": "Matthew Perry.",
+      "vc_text": "Answer: Tina Fey\nConfidence: 100%",
+      "aliases": [
+        "Jennifer Anniston",
+        "Jen Aniston",
+        "Jennifer Aniston"
+      ],
+      "correct": 0,
+      "p_true": 0.71875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 93,
+      "question": "\"Which character did Julia \"\"Roberts play in Steven Spielberg's Hook?\"",
+      "answer": "Peter Pan",
+      "vc_text": "Answer: Wendy Darling\nConfidence: 100%",
+      "aliases": [
+        "Pixie dust",
+        "Tinkerbell",
+        "Tinker Bell"
+      ],
+      "correct": 0,
+      "p_true": 0.015869140625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 94,
+      "question": "Which US president did Anthony Hopkins play in a film whose title was simply his name?",
+      "answer": "John Adams.",
+      "vc_text": "Answer: Abraham Lincoln\nConfidence: 100%",
+      "aliases": [
+        "I'm not a crook",
+        "Richard nixon",
+        "Nixson"
+      ],
+      "correct": 0,
+      "p_true": 0.765625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 95,
+      "question": "Which movie was a biopic about the life of David Helfgott?",
+      "answer": "David.",
+      "vc_text": "Answer: The Iron Lady\nConfidence: 95%",
+      "aliases": [
+        "Shine",
+        "Shine (album)",
+        "Shine (EP)"
+      ],
+      "correct": 0,
+      "p_true": 0.0849609375,
+      "vc_conf": 0.95,
+      "vc_parseable": true
+    },
+    {
+      "idx": 96,
+      "question": "Which film director guested as the FBI Director in The Silence of the Lambs?",
+      "answer": "Thomas Harris.",
+      "vc_text": "Answer: Jonathan Demme\nConfidence: 100%",
+      "aliases": [
+        "The Doorway (film)",
+        "Roger William Corman",
+        "Roger Corman"
+      ],
+      "correct": 0,
+      "p_true": 0.1259765625,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 97,
+      "question": "In which sci fi classic did the space ship Nostromo first appear?",
+      "answer": "Alien.",
+      "vc_text": "Answer: Alien\nConfidence: 100%",
+      "aliases": [
+        "Alien (disambiguation)",
+        "The Alien",
+        "Alien (Alien)"
+      ],
+      "correct": 1,
+      "p_true": 0.9453125,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 98,
+      "question": "Nigel Hawthorne was Oscar nominated for The Madness of which King?",
+      "answer": "George VI",
+      "vc_text": "Answer: George VI\nConfidence: 100%",
+      "aliases": [
+        "Gheevarghese",
+        "Vargheese",
+        "Ghevargheese"
+      ],
+      "correct": 1,
+      "p_true": 0.11279296875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    },
+    {
+      "idx": 99,
+      "question": "Which Swedish actress won the Best Supporting Actress Oscar for Murder on the Orient Express?",
+      "answer": "Mgrid Bergman",
+      "vc_text": "Answer: Ingrid Bergman\nConfidence: 100%",
+      "aliases": [
+        "Ingrid Bergmann",
+        "Isotta Ingrid Rossellini",
+        "Ingrid Rossellini"
+      ],
+      "correct": 0,
+      "p_true": 0.2451171875,
+      "vc_conf": 1.0,
+      "vc_parseable": true
+    }
+  ]
+}
