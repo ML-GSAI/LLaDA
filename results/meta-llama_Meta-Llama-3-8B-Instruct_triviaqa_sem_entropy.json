@@ -1,0 +1,4016 @@
+{
+  "args": {
+    "model_name": "meta-llama/Meta-Llama-3-8B-Instruct",
+    "model_family": "auto",
+    "nli_model": "cross-encoder/nli-deberta-v3-small",
+    "n_examples": 200,
+    "k_samples": 5,
+    "steps": 32,
+    "gen_length": 32,
+    "temperature": 1.0,
+    "mask_id": 126336,
+    "traj_results": "results/meta-llama_Meta-Llama-3-8B-Instruct_triviaqa_traj_uq.json",
+    "output": "results/meta-llama_Meta-Llama-3-8B-Instruct_triviaqa_sem_entropy.json"
+  },
+  "accuracy": 0.525,
+  "n_correct": 105,
+  "n_total": 200,
+  "eval_results": {
+    "sem_entropy": {
+      "auroc": 0.822155388471178,
+      "ece": 0.10022161808464167
+    },
+    "self_consistency": {
+      "auroc": 0.8053634085213033,
+      "ece": 0.1866567460317461
+    }
+  },
+  "samples": [
+    {
+      "idx": 0,
+      "question": "Who was the man behind The Chipmunks?",
+      "generations": [
+        "Ross Bagdasarian Sr.",
+        "Ross Bagdasarian Sr.",
+        "Ross Bagdasarian Sr. (also known as David Seville).",
+        "Ross Bagdasarian Sr. (also known as David Seville).",
+        "Ross Bagdasarian Sr. (also known as David Seville)"
+      ],
+      "aliases": [
+        "David Seville",
+        "David Seville"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.6730116670092565,
+      "n_clusters": 2,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 1,
+      "question": "Which Lloyd Webber musical premiered in the US on 10th December 1993?",
+      "generations": [
+        "Phantom of the Opera",
+        "The Answer is: Sunset Boulevard.",
+        "Jekyll & Hyde",
+        "The Phantom of the Opera.",
+        "Sunset Boulevard."
+      ],
+      "aliases": [
+        "Sunset Blvd",
+        "West Sunset Boulevard",
+        "Sunset Boulevard"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 2,
+      "question": "Who was the next British Prime Minister after Arthur Balfour?",
+      "generations": [
+        "Sir Henry Campbell-Bannerman",
+        "Sir Henry Campbell-Bannerman",
+        "Sir Henry Campbell-Bannerman.",
+        "Sir Henry Campbell-Bannerman.",
+        "Herbert Henry Asquith."
+      ],
+      "aliases": [
+        "Sir Henry Campbell-Bannerman",
+        "Campbell-Bannerman",
+        "Campbell Bannerman"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 3,
+      "question": "Who had a 70s No 1 hit with Kiss You All Over?",
+      "generations": [
+        "Exile",
+        "Anchor",
+        "Exile",
+        "Exile.",
+        "Exlanda Wiley with the group Peter Frampton"
+      ],
+      "aliases": [
+        "Internal exile",
+        "Exiles",
+        "Transported for life"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 4,
+      "question": "What claimed the life of singer Kathleen Ferrier?",
+      "generations": [
+        "Breast cancer.",
+        "Breast cancer.",
+        "Ovarian cancer.",
+        "Tuberculosis.",
+        "Cancer."
+      ],
+      "aliases": [
+        "Cancer pathology",
+        "Deaths by cancer",
+        "Anti-cancer"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 5,
+      "question": "Rita Coolidge sang the title song for which Bond film?",
+      "generations": [
+        "The Spy Who Loved Me (1977)",
+        "\"All time High\" from \"Octopussy\" (1983).",
+        "\"All Time High\" for \"Octopussy\" (1983)",
+        "\"All Time High\" for the 1983 film \"Octopussy\".",
+        "The Spy Who Loved Me (1977)"
+      ],
+      "aliases": [
+        "Kamal kahn",
+        "List of Bond girls in Octopussy",
+        "Magda (James Bond)"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.6730116670092565,
+      "n_clusters": 2,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 6,
+      "question": "What was the last US state to reintroduce alcohol after prohibition?",
+      "generations": [
+        "Mississippi, on December 14, 2000.",
+        "Mississippi was the last state to repeal its prohibition on alcohol, doing so on November 8, 1966.",
+        "Mississippi, on July 1, 1966.",
+        "Mississippi.",
+        "Mississippi: December 29, 1966"
+      ],
+      "aliases": [
+        "Utah (State)",
+        "Forty-Fifth State",
+        "Sports in Utah"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 7,
+      "question": "Which actress was voted Miss Greenwich Village in 1942?",
+      "generations": [
+        "Ethel Merman.",
+        "Audrey Hepburn was voted Miss Greenwich Village in 1942.",
+        "Marilyn Monroe.",
+        "Barbra Streisand.",
+        "Joanne Woodward"
+      ],
+      "aliases": [
+        "Bacall",
+        "Lauren Becal",
+        "Lauren Bacall"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 8,
+      "question": "What is the Japanese share index called?",
+      "generations": [
+        "The Japanese share index is called the Nikkei 225.",
+        "Nikkei 225",
+        "Nikkei 225.",
+        "Nikkei 225",
+        "The Japanese share index is called the Nikkei 225."
+      ],
+      "aliases": [
+        "Nikkei",
+        "Nikkei (disambiguation)",
+        "Nikkei"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.6730116670092565,
+      "n_clusters": 2,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 9,
+      "question": "What was the name of Michael Jackson's autobiography written in 1988?",
+      "generations": [
+        "\"Dancing the Dream: My Life as a Jackson Brother\"",
+        "Answer: \"Moonwalk\"",
+        "\"Dancing the Dream\"",
+        "\"The Magic, The Memories, The Music: Global Legends Remember Michael Jackson\"",
+        "\"Dancing the Dream\""
+      ],
+      "aliases": [
+        "Walk on the Moon",
+        "Walk on the moon",
+        "Moonwalk (disambiguation)"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 10,
+      "question": "In which decade did stereo records first go on sale?",
+      "generations": [
+        "1958",
+        "1958",
+        "The 1950s. Stereo records were first released in the late 1950s.",
+        "1958",
+        "1958"
+      ],
+      "aliases": [
+        "1930\u2019s",
+        "Thirties",
+        "1930s literature"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 11,
+      "question": "In what year's Olympics were electric timing devices and a public-address system used for the first time?",
+      "generations": [
+        "1936",
+        "1936 Olympics",
+        "1936",
+        "1936",
+        "1936"
+      ],
+      "aliases": [
+        "In 1912, in Stockholm",
+        "In 1912, in Stockholm"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 12,
+      "question": "Which volcano in Tanzania is the highest mountain in Africa?",
+      "generations": [
+        "Mount Kilimanjaro",
+        "Kilimanjaro.",
+        "Kilimanjaro",
+        "Answer: Mount Kilimanjaro",
+        "Kilimanjaro."
+      ],
+      "aliases": [
+        "Mawensi",
+        "Mt. Kilimanjaro",
+        "Kibo (volcano)"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.6730116670092565,
+      "n_clusters": 2,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 13,
+      "question": "The flag of Libya is a plain rectangle of which color?",
+      "generations": [
+        "The flag of Libya is a plain rectangle of green.",
+        "Green.",
+        "Green.",
+        "Green.",
+        "Answer: Green."
+      ],
+      "aliases": [
+        "Greenishly",
+        "Avacado (color)",
+        "Green (color)"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 14,
+      "question": "Of which African country is Niamey the capital?",
+      "generations": [
+        "Niger.",
+        "Niger",
+        "Niger.",
+        "Niger",
+        "Niger."
+      ],
+      "aliases": [
+        "Niger Republic",
+        "Nigerois",
+        "Republic Of Niger"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 15,
+      "question": "Who was the director of the CIA from 1976-81?",
+      "generations": [
+        "Stansfield Turner",
+        "Stansfield Turner.",
+        "Stansfield Turner",
+        "Stansfield Turner",
+        "Stansfield Turner"
+      ],
+      "aliases": [
+        "George Bush",
+        "George bush",
+        "Goerge Bush"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 16,
+      "question": "Which musical featured the song The Street Where You Live?",
+      "generations": [
+        "My Fair Lady",
+        "My Fair Lady",
+        "My Fair Lady",
+        "My Fair Lady",
+        "My Fair Lady"
+      ],
+      "aliases": [
+        "My Fair Lady (2010 film)",
+        "Enry Iggins",
+        "Why Can't the English%3F"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 17,
+      "question": "\"Who was the target of the failed \"\"Bomb Plot\"\" of 1944?\"",
+      "generations": [
+        "Adolf Hitler",
+        "Hermann G\u00f6ring, the Commander-in-Chief of the German Air Force.",
+        "Adolf Hitler",
+        "Adolf Hitler",
+        "Adolf Hitler"
+      ],
+      "aliases": [
+        "Hitlerian",
+        "Adolph Schicklgruber",
+        "HitlerAdolf"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 18,
+      "question": "Who had an 80s No 1 hit with Hold On To The Nights?",
+      "generations": [
+        "Richard Marx",
+        "Richard Marx",
+        "Richard Marx",
+        "Richard Marx",
+        "Richard Marx"
+      ],
+      "aliases": [
+        "Richard Noel Marx",
+        "Richard Marx",
+        "Richard Marx"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 19,
+      "question": "Who directed the classic 30s western Stagecoach?",
+      "generations": [
+        "John Ford.",
+        "John Ford.",
+        "John Ford.",
+        "John Ford.",
+        "John Ford."
+      ],
+      "aliases": [
+        "John Ford (1895-1973)",
+        "Sean O'Feeney",
+        "John Ford (film director)"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 20,
+      "question": "Dave Gilmore and Roger Waters were in which rock group?",
+      "generations": [
+        "Pink Floyd",
+        "Pink Floyd.",
+        "Pink Floyd",
+        "Pink Floyd",
+        "Pink Floyd."
+      ],
+      "aliases": [
+        "Grey Floyd",
+        "Pink Floyd trivia",
+        "The Screaming Ab Dabs"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 21,
+      "question": "Which highway was Revisited in a classic 60s album by Bob Dylan?",
+      "generations": [
+        "Highway 61.",
+        "\"Highway 61\".",
+        "The Highway 61.",
+        "The answer is: Route 61.",
+        "The answer is: Route 66!"
+      ],
+      "aliases": [
+        "61",
+        "sixty-one",
+        "61"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 22,
+      "question": "Which was the only eastern bloc country to participate in the 1984 LA Olympics?",
+      "generations": [
+        "Romania.",
+        "Romania",
+        "Romania",
+        "Romania",
+        "Romania."
+      ],
+      "aliases": [
+        "ISO 3166-1:RO",
+        "Romanian state",
+        "ROMANIA"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 23,
+      "question": "Which 90s sci fi series with James Belushi was based on Bruce Wagner's comic strip of the same name?",
+      "generations": [
+        "Naked Noon",
+        "Oliveira",
+        "\"Wild Palms\"",
+        "\"Mr. Sterling\"",
+        "\"Over the Top\""
+      ],
+      "aliases": [
+        "Wild Palms",
+        "Wild Palms"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 24,
+      "question": "If I Were A Rich Man Was a big hit from which stage show?",
+      "generations": [
+        "Fiddler on the Roof",
+        "Fiddler on the Roof",
+        "Fiddler on the Roof.",
+        "Fiddler on the Roof",
+        "Fiddler on the Roof"
+      ],
+      "aliases": [
+        "Fiddler on a Roof",
+        "Fiddler on the roof",
+        "Sprintze"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 25,
+      "question": "Men Against the Sea and Pitcairn's Island were two sequels to what famous novel?",
+      "generations": [
+        "Mutiny on the Bounty",
+        "Mutiny on the Bounty",
+        "Mutiny on the Bounty",
+        "Moby-Dick",
+        "Mutiny on the Bounty."
+      ],
+      "aliases": [
+        "HMS Bounty mutineers",
+        "Mutiny on the Bounty",
+        "Mutiny on Bounty"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 26,
+      "question": "What was Truman Capote's last name before he was adopted by his stepfather?",
+      "generations": [
+        "Lessing.",
+        "Lane. Truman Capote's last name before he was adopted by his stepfather was Lawrence.",
+        "Answer: Capote's last name before he was adopted by his stepfather was Furman. His biological father was Archey LeRoy Capote, and Truman",
+        "Lane.",
+        "Lane. Truman Capote's first name was actually Farley, but he was born Joseph Lee Capote. He was adopted by Archibald \"Arch\""
+      ],
+      "aliases": [
+        "Per\u017fons",
+        "Person",
+        "Person (philosophical)"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 27,
+      "question": "In Lewis Carroll's poem The Hunting of the Snark, what did the elusive, troublesome snark turn into to fool hunters?",
+      "generations": [
+        "A delightful question!\n\nAccording to Lewis Carroll's poem, the elusive Snark turned into a Boojum.",
+        "According to the poem, the Snark transforms into a Barn.",
+        "A Jabberwock-like question!\n\nAccording to Lewis Carroll's poem \"The Hunting of the Snark\", the Snark transforms into a bonnet, revealing",
+        "According to the poem \"The Hunting of the Snark\" by Lewis Carroll, the Snark transforms into a \"Bosom- Friend\" to deceive the",
+        "According to the poem, the Snark turned into \"a Boojum\"."
+      ],
+      "aliases": [
+        "Boojum (disambiguation)",
+        "A boojum",
+        "Boojum"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 28,
+      "question": "In the Bible, who did the sun and moon stand still before?",
+      "generations": [
+        "Joshua (Joshua 10:12-14).",
+        "Joshua. (Joshua 10:12-14)",
+        "Joshua.",
+        "Joshua.",
+        "According to the Bible, in Joshua 10:12-14, the sun and moon stood still before Joshua, as he commanded, to give the Israelites"
+      ],
+      "aliases": [
+        "Joshua of ephraim",
+        "Y'hosheya",
+        "Yehoshea"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 29,
+      "question": "What Michelle Pfeiffer movie got a boost from the Coolio song Gangsta's Paradise?",
+      "generations": [
+        "Dangerous Minds (1995)",
+        "Dangerous Minds (1995)",
+        "Dangerous Minds (1995)",
+        "Dangerous Minds (1995)",
+        "The movie is \" Dangerous Minds\" (1995)."
+      ],
+      "aliases": [
+        "Dangerous Minds (film)",
+        "My Posse Don't Do Homework",
+        "Dangerous Minds"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 30,
+      "question": "What was President Gerald Ford's middle name?",
+      "generations": [
+        "Elliot",
+        "Rudolph",
+        "Rudolph",
+        "Elliot",
+        "Rudolph"
+      ],
+      "aliases": [
+        "Rudolph (disambiguation)",
+        "Rudolph",
+        "Rudolf"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.6730116670092565,
+      "n_clusters": 2,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 31,
+      "question": "Art Garfunkel trained for which profession although he didn't qualify?",
+      "generations": [
+        "Architecture",
+        "Ophthalmologist.",
+        "Ophthalmologist",
+        "Doctor (medicine).",
+        "Ophthalmologist."
+      ],
+      "aliases": [
+        "Master Builder (occupation)",
+        "Master builder (occupation)",
+        "Registered Architect"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 32,
+      "question": "Who was the last inmate of Spandau jail in Berlin?",
+      "generations": [
+        "Albert Speer (1937-1954)",
+        "Alfred Ernst Rosenberg (1893-1946), a former Nazi Party minister and one of Adolf Hitler's closest advisors.",
+        "Aleksei Vasilevich Korzhenevskiy, a Soviet spy and former member of the GRU, was the last inmate of Spand",
+        "Alfred Huber.",
+        "Albrecht Schoenhals."
+      ],
+      "aliases": [
+        "Hess, Rudolf",
+        "Rudolf hess",
+        "Rudolf W. Hess"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 33,
+      "question": "What was Eddie Murphy's first movie?",
+      "generations": [
+        "Eddie Murphy's first movie was \"48 Hrs.\" (1982).",
+        "Eddie Murphy's first movie was 48 HRS (1982).",
+        "Eddie Murphy's first movie was \"48 Hrs.\" (1982).",
+        "Eddie Murphy's first movie was \"48 Hrs.\" (1982), an action-comedy film where he starred alongside Nick Nolte.",
+        "Eddie Murphy's first movie was \"48 Hrs.\" (1982)."
+      ],
+      "aliases": [
+        "48 time",
+        "48 Hours",
+        "forty-eight  time"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 34,
+      "question": "In the 80s who wrote the novel Empire of The Sun?",
+      "generations": [
+        "J.G. Ballard.",
+        "J.G. Ballard",
+        "J.G. Ballard",
+        "J.G. Ballard",
+        "J.G. Ballard"
+      ],
+      "aliases": [
+        "JG Ballard",
+        "J.G. Ballard",
+        "James Graham Ballard"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 35,
+      "question": "Kagoshima international airport is in which country?",
+      "generations": [
+        "Japan",
+        "Japan",
+        "Japan",
+        "Japan",
+        "Japan"
+      ],
+      "aliases": [
+        "\u65e5\u672c\u570b",
+        "State of Japan",
+        "Ja-pan"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 36,
+      "question": "In which sport could the Pacers take on the Pistons?",
+      "generations": [
+        "Basketball.",
+        "Basketball",
+        "Basketball.",
+        "Basketball",
+        "Basketball"
+      ],
+      "aliases": [
+        "Basketball",
+        "Basketball gear",
+        "Bball"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 37,
+      "question": "Kim Carnes' nine weeks at No 1 with Bette Davis Eyes was interrupted for one week by which song?",
+      "generations": [
+        "\"The Tide Is High\" by Blondie.",
+        "\"The Tide Is High\" by Blondie.",
+        "\"Calling Occupants of Interplanetary Craft\" by Klaatu.",
+        "\"Woman in Love\" by Barbra Streisand.",
+        "\"In the Air Tonight\" by Phil Collins."
+      ],
+      "aliases": [
+        "Stars on 45 (Single)",
+        "Stars On 45 Medley",
+        "Stars on 45 medley"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 38,
+      "question": "Where in Canada is the Lion's Gate bridge?",
+      "generations": [
+        "Vancouver, British Columbia.",
+        "Vancouver, British Columbia.",
+        "The Lion's Gate Bridge is in Vancouver, British Columbia, Canada.",
+        "The Lion's Gate Bridge is located in Vancouver, British Columbia, Canada.",
+        "Vancouver, British Columbia."
+      ],
+      "aliases": [
+        "Vancouver, Canada",
+        "Vancouver (Canada)",
+        "Corpus Christi Elementary School (Canada)"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.6730116670092565,
+      "n_clusters": 2,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 39,
+      "question": "What was Walter Matthau's first movie?",
+      "generations": [
+        "Walter Matthau's first movie was \"Crosscut\" (1953).",
+        "Captain Calamity (1958)",
+        "\"Between the Devil and the Deep Blue Sea\" (1945)",
+        "Walter Matthau's first movie was \"The Kentuckian\" (1955).",
+        "Walter Matthau's first movie was \"Crosscut\" (1953)."
+      ],
+      "aliases": [
+        "The Kentuckian",
+        "The Kentuckian"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 40,
+      "question": "Otis Barton was a pioneer in exploring where?",
+      "generations": [
+        "The underwater cave system in the Bahamas.",
+        "The underwater world!",
+        "Cavities of the human body.",
+        "The deep sea.",
+        "The deep ocean."
+      ],
+      "aliases": [
+        "Underwater",
+        "Under water",
+        "Underwater life"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 41,
+      "question": "Where in England was actor Nigel Hawthorne born?",
+      "generations": [
+        "Newhaven, East Sussex, England.",
+        "Havant, Hampshire, England.",
+        "Nigel Hawthorne was born in Coventry, Warwickshire, England.",
+        "Nigel Hawthorne was born in Coventry, Warwickshire, England.",
+        "Nigel Hawthorne was born in York, England."
+      ],
+      "aliases": [
+        "Cofantre",
+        "Coventry (city)",
+        "Coventry, Warwickshire"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 42,
+      "question": "What mythological beast has the head of a man, the body of a lion, and the tail and feet of a dragon?",
+      "generations": [
+        "The Minotaur.",
+        "The Sphinx.",
+        "A Chimera",
+        "The Chimera.",
+        "The Sphinx."
+      ],
+      "aliases": [
+        "A manticore",
+        "The Manticore",
+        "A manticore"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 43,
+      "question": "In Greek mythology, who were Arges, Brontes and Steropes?",
+      "generations": [
+        "The Cyclopes: Arges, Brontes, and Steropes were three Cyclopes who helped Hephaestus forge the thunderbolts of",
+        "The Cyclopes: Arges (bright), Brontes (thunder), and Steropes (sparks) were three of the five Cyclopes",
+        "The Cyclopes: Arges, Brontes, and Steropes were three Cyclopes who forged Zeus' thunderbolts in Greek mythology.",
+        "The Cyclopes.",
+        "The Cyclopes."
+      ],
+      "aliases": [
+        "Cyclopes (disambiguation)",
+        "Cyclopes",
+        "Cyclopes"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 44,
+      "question": "Which musician founded the Red Hot Peppers?",
+      "generations": [
+        "Jelly Roll Morton",
+        "Sidney Bechet",
+        "King Oliver",
+        "Jelly Roll Morton.",
+        "Jelly Roll Morton"
+      ],
+      "aliases": [
+        "Ferdinand Joseph La Menthe",
+        "Louise Monette",
+        "Ferdinand Morton"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 45,
+      "question": "Where did the Shinning Path terrorists operate?",
+      "generations": [
+        "Peru",
+        "Peru",
+        "Peru",
+        "Peru",
+        "Peru."
+      ],
+      "aliases": [
+        "Lower Peru",
+        "Name of Peru",
+        "Republic of Peru"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 46,
+      "question": "How old was Jimi Hendrix when he died?",
+      "generations": [
+        "27",
+        "27",
+        "27",
+        "27",
+        "27"
+      ],
+      "aliases": [
+        "27",
+        "twenty-seven",
+        "27"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 47,
+      "question": "Which Brit broke the land speed record in 1990 in Thrust 2?",
+      "generations": [
+        "Richard Noble.",
+        "Richard Noble",
+        "Richard Noble",
+        "Richard Noble",
+        "Andy Green"
+      ],
+      "aliases": [
+        "Richard Noble",
+        "Richard Noble"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 48,
+      "question": "In which state was Gene Vincent born?",
+      "generations": [
+        "Gene Vincent was born in Wynyard, Tasmania, Australia.",
+        "Gene Vincent was born in Cardiff, Wales, United Kingdom.",
+        "Gene Vincent was born in Poodle Street, Norfolk, England.",
+        "England",
+        "Minnesota, USA"
+      ],
+      "aliases": [
+        "US-VA",
+        "State of Virginia",
+        "Virginia, USA"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 49,
+      "question": "How was the European Recovery Program in the 1940s more commonly known?",
+      "generations": [
+        "The European Recovery Program in the 1940s was more commonly known as the Marshall Plan.",
+        "Marshall Plan.",
+        "The European Recovery Program in the 1940s was more commonly known as the Marshall Plan.",
+        "The European Recovery Program in the 1940s was more commonly known as the Marshall Plan.",
+        "Marshall Plan."
+      ],
+      "aliases": [
+        "European Recovery Programme",
+        "The marshal plan",
+        "Marshall Aid"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.6730116670092565,
+      "n_clusters": 2,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 50,
+      "question": "Brandon Lee died during the making of which movie?",
+      "generations": [
+        "The Crow (1994)",
+        "The Crow (1994)",
+        "The Crow (1994)",
+        "The Crow (1994)",
+        "The Crow"
+      ],
+      "aliases": [
+        "The Crow: Dead Time",
+        "The Crow (2016 film)",
+        "The Crow"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 51,
+      "question": "Who had a 70s No 1 hit with Let's Do It Again?",
+      "generations": [
+        "Marvin Gaye and Tammi Terrell had a 1970 No. 1 hit with \"It's a Shame (Part 1 of Let's",
+        "Stevie Wonder.",
+        "The Staple Singers",
+        "The Staple Singers",
+        "Stevie Wonder"
+      ],
+      "aliases": [
+        "The Staple Singers",
+        "Staple Singers",
+        "The Staples Singers"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 52,
+      "question": "Who had a Too Legit To Quit Tour?",
+      "generations": [
+        "Too Legit to Quit Tour was a concert tour by Hammer in 1991.",
+        "MC Hammer",
+        "MC Hammer",
+        "MC Hammer.",
+        "BMC!"
+      ],
+      "aliases": [
+        "M. C. Hammer",
+        "Hammer (rapper)",
+        "Family Affair(MC Hammer album)"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 53,
+      "question": "\"According to Rudyard Kipling what were the \"\"two imposters\"\" to meet and treat the same day?\"",
+      "generations": [
+        "According to Rudyard Kipling, the \"two imposters\" that were to meet and treat the same day are Man (who is an imposter when",
+        "According to Rudyard Kipling, the \"two imposters\" to meet and treat the same day are Morning and Evening.",
+        "According to Rudyard Kipling's poem \"If\", the two imposters are Man and his Nemesis.",
+        "Man and Boy.",
+        "According to Rudyard Kipling, the two imposters referred to in his poem \"If\" are \"Man! You're a Man!\""
+      ],
+      "aliases": [
+        "Triumph and Disaster",
+        "Triumph and Disaster"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 54,
+      "question": "Who is the most successful UK solo artist in the USA?",
+      "generations": [
+        "Elton John",
+        "Elton John.",
+        "Elton John",
+        "Elton John",
+        "According to the Recording Industry Association of America (RIAA), Elvis Costello is the most successful UK solo artist in the USA, with over 30 million records"
+      ],
+      "aliases": [
+        "Sir Elton",
+        "Rockaday Johnny",
+        "Elthon John"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 55,
+      "question": "Which country does the airline TAAG come from?",
+      "generations": [
+        "Angola",
+        "Angola",
+        "Angola",
+        "Angola.",
+        "Angola"
+      ],
+      "aliases": [
+        "Angola",
+        "Angloa",
+        "Etymology of Angola"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 56,
+      "question": "Which US No 1 single came from Diana Ross's platinum album Diana?",
+      "generations": [
+        "\"I'm Coming Out\"",
+        "\"I'm Coming Out\"",
+        "\"I'm Coming Out\"",
+        "\"I'm Coming Out\"",
+        "\"I'm Coming Out\""
+      ],
+      "aliases": [
+        "Upside Down (Diana Ross song)",
+        "Up side down",
+        "Upside Down"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 57,
+      "question": "River Phoenix died during the making of which movie?",
+      "generations": [
+        "River Phoenix died during the making of \"Dark City\" in 1993.",
+        "Riding in Cars with Boys",
+        "Documentary film \"The Dark Wind\" (1991)",
+        "\"Darkness\"",
+        "\"Darkness\"\n\nNote: River Phoenix died on October 31, 1993, outside a nightclub in Los Angeles. He was not filming a movie at"
+      ],
+      "aliases": [
+        "Dark Blood (film)",
+        "Dark Blood",
+        "Dark Blood"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 58,
+      "question": "Which artist David was born in Bradford UK?",
+      "generations": [
+        "Hockney, David was born in Bradford, UK.",
+        "Salvador Dal\u00ed, the Spanish surrealist artist, was born in Figueres, Spain, not Bradford, UK.",
+        "The answer is Bryan David (1896-1973), the British artist known for his etchings of landscapes and cityscapes.",
+        "Amedeo Constantino Antonio Micallef, better known as David Hockey, was born in Eccles, Lancashire, UK (not Bradford)",
+        "Stuart David (born 1962), a musician and author."
+      ],
+      "aliases": [
+        "Hockney",
+        "David Hockney",
+        "Hockney"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 59,
+      "question": "What is Mel Gibson's middle name?",
+      "generations": [
+        "Paul",
+        "Paul",
+        "Lauritz",
+        "Paul",
+        "Paul"
+      ],
+      "aliases": [
+        "St Colm",
+        "Saint Colm Cille",
+        "Calum Cille"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 60,
+      "question": "Richard Daley was mayor of which city for 21 years?",
+      "generations": [
+        "Chicago",
+        "Richard Daley was mayor of Chicago for 21 years.",
+        "Chicago.",
+        "Richard J. Daley was the mayor of Chicago for 21 years (1955-1976).",
+        "Chicago."
+      ],
+      "aliases": [
+        "Chi-Beria",
+        "Sayre language academy",
+        "Chicago"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 61,
+      "question": "\"In which movie did Garbo say, \"\"I want to be alone\"\".\"",
+      "generations": [
+        "\"Ninotchka\" (1939)",
+        "Anna Karenina (1935)",
+        "\"Grand Hotel\" (1932)",
+        "\"Anna Karenina\" (1935)",
+        "\"Ninotchka\" (1939)"
+      ],
+      "aliases": [
+        "The grand hotel",
+        "Grand H\u00f4tel",
+        "Grand hotel"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 62,
+      "question": "What is Osbert Lancaster best known for producing?",
+      "generations": [
+        "Satirical cartoons and humorous writings about architecture and design.",
+        "Osbert Lancaster is best known for producing Punch cartoons, being a prominent cartoonist and caricaturist for the magazine.",
+        "Osbert Lancaster was best known for producing humorous drawings and cartoons that often poked fun at British society and culture.",
+        "Osbert Lancaster is best known for producing humorous cartoons and satirical illustrations, particularly in the popular British publication \"Punch\" magazine.",
+        "Satirical cartoons and watercolor illustrations, particularly his humorous depictions of British society and architecture."
+      ],
+      "aliases": [
+        "Cartoonish",
+        "Cartoons",
+        "American cartoon"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 63,
+      "question": "Who was the defending champion when Martina Navratilova first won Wimbledon singles?",
+      "generations": [
+        "Chris Evert-Lloyd.",
+        "Chris Evert-Lloyd.",
+        "Chris Evert-Lloyd",
+        "Chris Evert-Lloyd",
+        "Chris Evert-Lloyd."
+      ],
+      "aliases": [
+        "Virginia Wade",
+        "Sarah Virginia Wade",
+        "Virginia Wade"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 64,
+      "question": "Who was the first US-born winner of golf's British Open?",
+      "generations": [
+        "John McDermott (1912)",
+        "Francis Ouimet in 1920.",
+        "Ben Hogan (1953)",
+        "Harry Cooper.",
+        "Francis Ouimet (1913)"
+      ],
+      "aliases": [
+        "Walter Hagen",
+        "Hagen, Walter",
+        "Walter Charles Hagen"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 65,
+      "question": "In which country is the Sky Train Rail bridge?",
+      "generations": [
+        "India",
+        "India (Gujarat)",
+        "Norway.",
+        "India (Gujarat state)",
+        "Kenya"
+      ],
+      "aliases": [
+        "Canada",
+        "Canad\u00e1",
+        "The Dominion of Canada"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 66,
+      "question": "What was the Paramount Film Company originally called?",
+      "generations": [
+        "The Paramount Film Company was originally called the Famous Players Film Company.",
+        "The Paramount Film Company was originally called the Famous Players Film Company.",
+        "The Paramount Film Company was originally called the Famous Players Film Company.",
+        "The Paramount Film Company was originally called the Famous Players Film Company.",
+        "The Paramount Film Company was originally called the Famous Players Film Company."
+      ],
+      "aliases": [
+        "Raleigh Studios",
+        "Famous Players Film Company",
+        "The Famous Players"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 67,
+      "question": "Who was the first person after Scott to reach the South Pole overland?",
+      "generations": [
+        "Roald Amundsen.",
+        "Roald Amundsen (Norwegian explorer)",
+        "Amundsen.",
+        "Roald Amundsen.",
+        "Roald Amundsen (December 14, 1911)"
+      ],
+      "aliases": [
+        "Sir Edmund Hillary",
+        "Edmund Hilary",
+        "Sir Ed"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 68,
+      "question": "Which journalist first told the world about the My Lai massacre?",
+      "generations": [
+        "Ronald Ridenhour",
+        "The journalist who first told the world about the My Lai massacre was Seymour Hersh.",
+        "Harry Chapin.",
+        "Ronald L. Haeberle, a US Army photographer, first revealed the My Lai massacre to the world in 1969, after documenting the",
+        "Ronald Ridenhour"
+      ],
+      "aliases": [
+        "Seymour Hersch",
+        "The Dark Side of Camelot",
+        "Seymour M. Hersh"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 69,
+      "question": "What is the name of Terence and Shirley Conran's dress designer son?",
+      "generations": [
+        "Nicholas Cole",
+        "Stella McCartney",
+        "Matthew Williamson.",
+        "Nicholas Haslam.",
+        "Stella McCartney."
+      ],
+      "aliases": [
+        "Jaspis",
+        "Bruneau jasper",
+        "Egyptian jasper"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 70,
+      "question": "Which drink did The Spice Girls promote?",
+      "generations": [
+        "Pepsi.",
+        "Pepsi",
+        "Pepsi",
+        "Pepsi",
+        "Pepsi!"
+      ],
+      "aliases": [
+        "Pep.si",
+        "Pepsey",
+        "Pepsi Convoy"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 71,
+      "question": "Who was the youngest brother in the Beach Boys?",
+      "generations": [
+        "Carnie Wilson's half-brother, Ricky Fataar.",
+        "Carl Wilson",
+        "Carnie Wilson (born March 29, 1968)",
+        "Carl Wilson.",
+        "Carnie Wilson (who was not a brother, but a later member of the group)"
+      ],
+      "aliases": [
+        "Carl Wilson",
+        "Carl Wilson discography",
+        "Wilson, Carl Dean"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 72,
+      "question": "Who first hosted Family Feud?",
+      "generations": [
+        "Richard Dawson",
+        "Richard Dawson",
+        "Richard Dawson",
+        "Richard Dawson",
+        "Richard Dawson"
+      ],
+      "aliases": [
+        "Dick Dawson",
+        "Richard Dawson",
+        "Dickie Dawson"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 73,
+      "question": "What did the Lone Ranger's title Kemo Sabe mean in Apache?",
+      "generations": [
+        "Friend",
+        "\"Folding Woman\" or \"True Friend\".",
+        "\"Gray Wolf\"",
+        "\"Old Friend\"",
+        "\"Friendly One\"."
+      ],
+      "aliases": [
+        "L\u00e8ine bh\u00e0n",
+        "White shirt",
+        "White Shirt"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 74,
+      "question": "Who or what was Gentle Ben in the 60s TV series?",
+      "generations": [
+        "Gentle Ben was a TV character, a giant teddy bear who was the loyal companion of a young boy named Mark Henderson, a 10-year-old",
+        "A classic!",
+        "A classic!",
+        "In the 1960s TV series \"Gentle Ben\", Gentle Ben refers to a friendly and massive bear, a 1,200-pound Kodiak",
+        "Ben, the giant golden bear."
+      ],
+      "aliases": [
+        "Ursine",
+        "Ursoidea",
+        "Honey pig"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 75,
+      "question": "Which 70s show was based on the British show Till Death Us Do Part?",
+      "generations": [
+        "All in the Family",
+        "Married... with Children.",
+        "Married... with Children.",
+        "Married... with Children",
+        "\"The Jeffersons\" was based on the British show \"Till Death Us Do Part\"."
+      ],
+      "aliases": [
+        "All In The Family",
+        "All in the family",
+        "Justice For All (TV pilot)"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 76,
+      "question": "On what date in 1969 did Neil Armstrong first set foot on the Moon?",
+      "generations": [
+        "July 20, 1969",
+        "July 20, 1969",
+        "July 20, 1969",
+        "July 20, 1969.",
+        "July 20, 1969."
+      ],
+      "aliases": [
+        "July 20",
+        "20 July",
+        "July 20th"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 77,
+      "question": "Bandar Seri Begawan International airport is in which country?",
+      "generations": [
+        "Brunei",
+        "Brunei.",
+        "Brunei",
+        "Brunei",
+        "Brunei"
+      ],
+      "aliases": [
+        "Abode of Peace",
+        "BRUNEI",
+        "Health in Brunei"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 78,
+      "question": "What was the profession of Paul Strand (1890 - 1976)?",
+      "generations": [
+        "Photographer and filmmaker.",
+        "Photographer and filmmaker.",
+        "Photographer",
+        "Photographer and filmmaker.",
+        "Paul Strand was a photographer and filmmaker."
+      ],
+      "aliases": [
+        "Photographist",
+        "Photographer",
+        "Freelance photographer"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 79,
+      "question": "Who had a 60s No 1 with Downtown?",
+      "generations": [
+        "Petula Clark.",
+        "Petula Clark.",
+        "Petula Clark",
+        "Petula Clark.",
+        "Petula Clark."
+      ],
+      "aliases": [
+        "Petula Clark",
+        "Petula Clarke",
+        "Pet clark"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 80,
+      "question": "Who was born first, Kiefer Sutherland or Christian Slater?",
+      "generations": [
+        "Kiefer Sutherland was born on December 21, 1966, and Christian Slater was born on August 18, 1969.",
+        "Kiefer Sutherland was born first, on December 21, 1966. Christian Slater was born on August 18, 1969.",
+        "Kiefer Sutherland was born on December 21, 1966, and Christian Slater was born on August 18, 1969, so K",
+        "Kiefer Sutherland was born first (December 21, 1966) than Christian Slater (August 18, 1969).",
+        "Kiefer Sutherland (December 21, 1966) was born before Christian Slater (August 18, 1969)."
+      ],
+      "aliases": [
+        "Kiefer sutherlund",
+        "Keefer Sutherland",
+        "Promised Land (1987)"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 81,
+      "question": "To the nearest two, how many tennis Grand Slam titles did Jimmy Connors win?",
+      "generations": [
+        "8",
+        "8",
+        "8",
+        "8",
+        "8"
+      ],
+      "aliases": [
+        "10",
+        "ten",
+        "10"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 82,
+      "question": "Who was the Georgia Peach?",
+      "generations": [
+        "Jack Turner",
+        "Jackie Robinson was nicknamed \"The Georgia Peach\".",
+        "Ty Cobb",
+        "Hank Aaron",
+        "Jackie Robinson"
+      ],
+      "aliases": [
+        "Cobb, Ty",
+        "Ty Cobb",
+        "The Georgia Peach"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 83,
+      "question": "Who set fire to his guitar at the Monterey Pop festival in 19676?",
+      "generations": [
+        "Jimi Hendrix.",
+        "Jimi Hendrix.",
+        "Jimi Hendrix.",
+        "Jimi Hendrix.",
+        "Jimi Hendrix"
+      ],
+      "aliases": [
+        "Hendrix",
+        "Lithofayne Pridgeon",
+        "Jimi hendrix"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 84,
+      "question": "Della Street was whose secretary?",
+      "generations": [
+        "Perry Mason's secretary.",
+        "Perry Mason's.",
+        "Perry Mason's secretary.",
+        "Perry Mason's secretary",
+        "Perry Mason."
+      ],
+      "aliases": [
+        "Perry Mason (film)",
+        "Perry mason",
+        "Perry Mason: The Case of the Defiant Daughter"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.6730116670092565,
+      "n_clusters": 2,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 85,
+      "question": "In music, who was Sweet and Innocent and Too Young?",
+      "generations": [
+        "Annette Funicello!",
+        "Debby Boone was Sweet and Innocent and Too Young!",
+        "Annette Funicello!",
+        "Cilla Black.",
+        "Annette Funicello!"
+      ],
+      "aliases": [
+        "Donny Osmond",
+        "Donny & Marie in Las Vegas",
+        "Donald Clark Osmond"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 86,
+      "question": "Who is featured on Puff Daddy's Can't Hold Me Down?",
+      "generations": [
+        "Christina Aguilera.",
+        "Kimberly \"Lil' Kim\" Jones",
+        "Christina Aguilera",
+        "Jennifer Lopez",
+        "Christina Aguilera"
+      ],
+      "aliases": [
+        "Mase",
+        "MA$E",
+        "Ma$e"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 87,
+      "question": "What had Edmond Hillary worked at before taking up mountain climbing?",
+      "generations": [
+        "Edmond Hillary worked as a geographer before taking up mountain climbing.",
+        "Edmond Hillary worked as a general practitioner (doctor) before taking up mountain climbing.",
+        "Geographer",
+        "Before taking up mountain climbing, Edmond Hillary worked as a doctor in New Zealand.",
+        "Edmond Hillary worked as a ophthalmologist (eye doctor) before taking up mountain climbing."
+      ],
+      "aliases": [
+        "Bee keeper",
+        "Bee culture",
+        "Beekeeping suit"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 88,
+      "question": "In which American state is the Isabella Stewart Gardner Museum?",
+      "generations": [
+        "Massachusetts",
+        "Massachusetts",
+        "Massachusetts.",
+        "Massachusetts",
+        "Massachusetts"
+      ],
+      "aliases": [
+        "Masachusetts",
+        "Masshole Commonwealth",
+        "Massachusetts (state)"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 89,
+      "question": "Benina international airport is in which country?",
+      "generations": [
+        "Libya.",
+        "Libya",
+        "Libya.",
+        "Libya",
+        "Libya"
+      ],
+      "aliases": [
+        "Free Democratic Libya",
+        "LIBYA",
+        "Islamic Republic of Libya"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 90,
+      "question": "Beloved in 1999 was whose first movie since The Color Purple in 1985?",
+      "generations": [
+        "Angela Bassett's.",
+        "Answer: Toni Morrison's, also known as Beloved, was Spike Lee's first movie since The Color Purple in 1985.",
+        "Answer: Angela Bassett's",
+        "Beloved in 1999 was Angela Bassett's first movie since The Color Purple in 1985.",
+        "Angela Bassett's first movie since The Color Purple in 1985 was Beloved in 1999."
+      ],
+      "aliases": [
+        "Oprah",
+        "Ophra",
+        "Oprah Winfrey"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 91,
+      "question": "Which Star Trek star directed Three Men and a Baby?",
+      "generations": [
+        "Leonard Nimoy.",
+        "Leonard Nimoy.",
+        "Leonard Nimoy.",
+        "Leonard Nimoy!",
+        "Leonard Nimoy!"
+      ],
+      "aliases": [
+        "Leonard nimoy",
+        "Leonard Nimoy",
+        "LEONARD NIMOY"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 92,
+      "question": "Which sitcom star appeared on the big screening The Object of My Affection?",
+      "generations": [
+        "Jennifer Aniston.",
+        "Jennifer Aniston.",
+        "Jennifer Aniston.",
+        "Paul Rudd",
+        "Jennifer Aniston."
+      ],
+      "aliases": [
+        "Jennifer Anniston",
+        "Jen Aniston",
+        "Jennifer Aniston"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 93,
+      "question": "\"Which character did Julia \"\"Roberts play in Steven Spielberg's Hook?\"",
+      "generations": [
+        "Tinkerbell.",
+        "Tinkerbell.",
+        "Tinkerbell.",
+        "Tinker Bell.",
+        "Tinker Bell"
+      ],
+      "aliases": [
+        "Pixie dust",
+        "Tinkerbell",
+        "Tinker Bell"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 94,
+      "question": "Which US president did Anthony Hopkins play in a film whose title was simply his name?",
+      "generations": [
+        "Nixon.",
+        "Nixon.",
+        "Nixon.",
+        "Nixon.",
+        "Nixon (1995)"
+      ],
+      "aliases": [
+        "I'm not a crook",
+        "Richard nixon",
+        "Nixson"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 95,
+      "question": "Which movie was a biopic about the life of David Helfgott?",
+      "generations": [
+        "Schindler's List",
+        "Shine (1996)",
+        "Shine (1996)",
+        "Shine (1996)",
+        "Shine (1996)"
+      ],
+      "aliases": [
+        "Shine",
+        "Shine (album)",
+        "Shine (EP)"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 96,
+      "question": "Which film director guested as the FBI Director in The Silence of the Lambs?",
+      "generations": [
+        "Jonathan Demme.",
+        "Jonathan Demme.",
+        "Jonathan Demme",
+        "Clyde Vaughn.",
+        "Clint Eastwood."
+      ],
+      "aliases": [
+        "The Doorway (film)",
+        "Roger William Corman",
+        "Roger Corman"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 97,
+      "question": "In which sci fi classic did the space ship Nostromo first appear?",
+      "generations": [
+        "Alien (1979)",
+        "Alien (1979)",
+        "Alien (1979)",
+        "Alien (1979)",
+        "Alien (1979)"
+      ],
+      "aliases": [
+        "Alien (disambiguation)",
+        "The Alien",
+        "Alien (Alien)"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 98,
+      "question": "Nigel Hawthorne was Oscar nominated for The Madness of which King?",
+      "generations": [
+        "King George III",
+        "King George III",
+        "King George III",
+        "The Madness of King George.",
+        "\"King George III\""
+      ],
+      "aliases": [
+        "Gheevarghese",
+        "Vargheese",
+        "Ghevargheese"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 99,
+      "question": "Which Swedish actress won the Best Supporting Actress Oscar for Murder on the Orient Express?",
+      "generations": [
+        "Pen\u00e9lope Cruz",
+        "Penelope Ann Miller.",
+        "Pen\u00e9lope Cruz, not Swedish, won the award for Best Supporting Actress in Vicky Cristina Barcelona (2008) and Nine (2009), but not",
+        "Pen\u00e9lope Cruz, not a Swedish actress but a Spanish actress.",
+        "Judith Dench won the Best Supporting Actress Oscar for Murder on the Orient Express."
+      ],
+      "aliases": [
+        "Ingrid Bergmann",
+        "Isotta Ingrid Rossellini",
+        "Ingrid Rossellini"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 100,
+      "question": "Which Oscar-nominated film had You Sexy Thing as its theme song?",
+      "generations": [
+        "The Oscar-nominated film with \"You Sexy Thing\" as its theme song is \"Boogie Nights\" (1997).",
+        "The Full Monty (1997)",
+        "The film is \"Bridget Jones's Diary\" (2001).",
+        "The Full Monty (1997)",
+        "Down and Out in Beverly Hills (1986)"
+      ],
+      "aliases": [
+        "Full Monty",
+        "The Full Monty (film)",
+        "The Full Monty (soundtrack)"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 101,
+      "question": "Which Joan's career revived in Whatever Happened to Baby Jane?",
+      "generations": [
+        "Bette Davis.",
+        "Vivien Leigh.",
+        "Joan Crawford.",
+        "Joan Crawford.",
+        "Joan Crawford."
+      ],
+      "aliases": [
+        "Crawford (disambiguation)",
+        "Crawford village",
+        "Crawford"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 102,
+      "question": "Which much-loved actor won the Best Actor Oscar for The Philadelphia Story?",
+      "generations": [
+        "Clark Gable",
+        "None, James Stewart didn't win the Oscar for The Philadelphia Story. Cary Grant starred in this film, not James Stewart.",
+        "Cary Grant",
+        "Jimmy Stewart.",
+        "Cary Grant did not win the Best Actor Oscar for The Philadelphia Story. Grant starred in the film, but it was released before the Academy Awards existed. Jimmy"
+      ],
+      "aliases": [
+        "James Stewart (actor)",
+        "Jimmy Stuart",
+        "James stewart (actor)"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 103,
+      "question": "Which legendary dancer was Oscar-nominated for The Towering Inferno?",
+      "generations": [
+        "Charo.",
+        "Charlize Theron did not appear in The Towering Inferno. The film was released in 1974, and Charlize Theron was born in",
+        "Charlene Montgomery.",
+        "Sally Rand.",
+        "Patty Andrews (of the Andrews Sisters)"
+      ],
+      "aliases": [
+        "Fred Astair",
+        "Fred Austerlitz",
+        "Frederick Austerlitz Astaire"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 104,
+      "question": "What was the name of the brothel in The Best Little Whorehouse in Texas?",
+      "generations": [
+        "The Golden Arrow.",
+        "The Melvin P. Thorpe Place.",
+        "The Diamond Lil.",
+        "Melvin P. Thorpe's place!",
+        "The Chicken Ranch."
+      ],
+      "aliases": [
+        "Chicken Ranch",
+        "Chicken Ranch (disambiguation)",
+        "The Chicken Ranch"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 105,
+      "question": "Who was the male star of the movie The Man of La Mancha?",
+      "generations": [
+        "Peter O'Toole",
+        "Peter O'Toole",
+        "Peter O'Toole",
+        "Peter O'Toole",
+        "Peter O'Toole."
+      ],
+      "aliases": [
+        "Peter o toole",
+        "Peter O' Toole",
+        "Peter Seamus Lorcan O'Toole"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 106,
+      "question": "What relation is Joey Richardson to Vanessa Redgrave?",
+      "generations": [
+        "Joey Richardson is the daughter of Vanessa Redgrave.",
+        "Joey Richardson is Vanessa Redgrave's daughter.",
+        "Joey Richardson is the daughter of Vanessa Redgrave.",
+        "Niece.",
+        "Joey Richardson is Vanessa Redgrave's daughter."
+      ],
+      "aliases": [
+        "Daughterhood",
+        "Daughter",
+        "Daughters"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 107,
+      "question": "Melanie Molitor is the mom of which tennis world NO 1?",
+      "generations": [
+        "Mariana Simunati\u0107.",
+        "Mirka Federer.",
+        "Monica Seles.",
+        "Steffi Graf",
+        "MiryanaSharapova"
+      ],
+      "aliases": [
+        "The Swiss Miss",
+        "Martina hingis",
+        "Martina Hingisov\u00e1"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 108,
+      "question": "Marc Dutroux hit the headlines over a 'house of horrors' in which country?",
+      "generations": [
+        "Belgium",
+        "Belgium",
+        "Belgium",
+        "Belgium",
+        "Belgium"
+      ],
+      "aliases": [
+        "Belguim",
+        "Koenigreich Belgien",
+        "Belgium/Belgie"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 109,
+      "question": "On which date in 1945 did Hitler take cyanide then shoot himself?",
+      "generations": [
+        "April 30, 1945",
+        "April 30",
+        "April 30, 1945",
+        "April 30, 1945",
+        "April 30, 1945"
+      ],
+      "aliases": [
+        "Apr 30",
+        "April 30, 2007",
+        "April 30"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 110,
+      "question": "In which river is the Boulder Dam?",
+      "generations": [
+        "The Colorado River.",
+        "Colorado River.",
+        "Colorado River",
+        "Colorado River.",
+        "Colorado River"
+      ],
+      "aliases": [
+        "Colorado (State)",
+        "Colorful Colorado",
+        "Special districts of Colorado"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 111,
+      "question": "Which sports event was first held at Worcester, Massachusetts in 1927?",
+      "generations": [
+        "The answer is: Little League Baseball World Series.",
+        "The answer is: The first NCAA Division I Men's Gymnastics Championship.",
+        "The sport event that was first held at Worcester, Massachusetts in 1927 is the NCAA Men's Division I Basketball Championship, also known as March Madness.",
+        "Answer: The Davis Cup.",
+        "The answer is the NCAA Men's Division I Basketball Championship, also known as March Madness. It was first held at the Boston Garden in Worcester, Massachusetts in"
+      ],
+      "aliases": [
+        "Ryder Cup Matches",
+        "Rider cup",
+        "The Ryder Cup"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 112,
+      "question": "In which European city is the Belvederen Gallery?",
+      "generations": [
+        "Vienna.",
+        "Vienna, Austria",
+        "Vienna.",
+        "Vienna.",
+        "Vienna."
+      ],
+      "aliases": [
+        "Capital of Austria",
+        "Wien",
+        "Architecture of Vienna"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 113,
+      "question": "How old was Woody Herman when he founded his own orchestra?",
+      "generations": [
+        "25",
+        "25",
+        "Woody Herman founded his own orchestra in 1939, at the age of 23.",
+        "Woody Herman founded his first band at the age of 17 in 1936.",
+        "30"
+      ],
+      "aliases": [
+        "13",
+        "thirteen",
+        "13"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 114,
+      "question": "For which movie did Katharine Hepburn win her second Oscar?",
+      "generations": [
+        "The movie is \"Guess Who's Coming to Dinner\" (1967).",
+        "\"Morning Glory\" (1933)",
+        "\"Lady Windermere's Fan\" (1935)",
+        "\"Morning Glory\" (1933)",
+        "\"Guess Who's Coming to Dinner\" (1967)"
+      ],
+      "aliases": [
+        "Guess Who's Coming To Dinner",
+        "Guess who's Coming to Dinner",
+        "Guess Who's Coming to Dinner%3F"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 115,
+      "question": "Who had a 60s No 1 hit with This Diamond Ring?",
+      "generations": [
+        "Gary Lewis and the Playboys.",
+        "Gary Lewis and the Playboys",
+        "Gary Lewis and the Playboys",
+        "Gary Lewis and the Playboys.",
+        "Gary Lewis & the Playboys"
+      ],
+      "aliases": [
+        "Dave Gonzalez (Gary Lewis & the Playboys)",
+        "Gary Lewis & the Playboys",
+        "Gary Lewis and The Playboys"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 116,
+      "question": "The world was first aware of the Chernobyl disaster after detectors were triggered at a nuclear plant in which country?",
+      "generations": [
+        "Sweden",
+        "Lithuania.",
+        "Sweden",
+        "Sweden.",
+        "Sweden."
+      ],
+      "aliases": [
+        "Swedish sin",
+        "Swea Region",
+        "Sverige"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 117,
+      "question": "In which country was the first permanent bungee jumping site situated?",
+      "generations": [
+        "Bhutan",
+        "New Zealand",
+        "New Zealand.",
+        "Ecuador. Specifically, the first permanent bungee jumping site was established in Mindo, Ecuador in 1979.",
+        "New Zealand"
+      ],
+      "aliases": [
+        "N Z",
+        "Nouvelle-Zelande",
+        "Kiwiland"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 118,
+      "question": "Who succeeded Brezhnev as Soviet premier?",
+      "generations": [
+        "Andropov",
+        "Andropov",
+        "Andropov",
+        "Andropov",
+        "Yuri Andropov succeeded Leonid Brezhnev as Soviet premier in 1982."
+      ],
+      "aliases": [
+        "Yuri V. Andropov",
+        "Yuri Andropov",
+        "Yuriy Andropov"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 119,
+      "question": "In the late 60s Owen Finlay MacLaren pioneered what useful item for parents of small chldren?",
+      "generations": [
+        "Baby carriers or baby slings.",
+        "Playpens",
+        "Pacifiers.",
+        "Pram liners.",
+        "Answer: The baby monitor."
+      ],
+      "aliases": [
+        "Baby Buggy",
+        "Baby buggy",
+        "Baby Buggy"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 120,
+      "question": "In which city's shipyard was Solidarity set up?",
+      "generations": [
+        "Gda\u0144sk",
+        "Gdansk, Poland",
+        "Gdansk",
+        "Gdansk.",
+        "Gda\u0144sk"
+      ],
+      "aliases": [
+        "D\u00e0nzica",
+        "Baltic Sea/Gdanzk",
+        "Danzig/Gda\u0144sk"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 121,
+      "question": "Which female singer was born on exactly the same day as impressionist Rich Little?",
+      "generations": [
+        "The answer is LeAnn Rimes.",
+        "I'm glad you asked! According to my knowledge, the answer is Olivia Newton-John, who was born on September 26, 1948, exactly",
+        "Barbra Streisand, October 24, 1942.",
+        "Dolly Parton and Rich Little were both born on December 17, 1946.",
+        "C\u00e9line Dion, born on March 30, 1968."
+      ],
+      "aliases": [
+        "Anna Bullock",
+        "Tina Turner's",
+        "Tina Turner"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 122,
+      "question": "What is Harrison Ford's real name?",
+      "generations": [
+        "Allen Ford (born February 18, 1942)",
+        "Harrison Ford's real name is Henry Walton Ford.",
+        "Harrison Ford's real name is Harrison Ford Bischoff.",
+        "Harrison Ford's real name is Harry Desmond Ford. However, he was born Harrison Ford and has always gone by that name professionally.",
+        "Harrison Ford's real name is Henry Jones Jr."
+      ],
+      "aliases": [
+        "Harrison Ford (actor)",
+        "Harrison ford",
+        "Harrison Ford"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 123,
+      "question": "Who's home runs record did Mark McGwire break in the 1998 season?",
+      "generations": [
+        "Roger Clemens.",
+        "Roger Clemens.",
+        "Roger Clemens",
+        "Roger Clemens'",
+        "Roger Clemens'"
+      ],
+      "aliases": [
+        "Roger Eugene Maras",
+        "Roger marris",
+        "Roger Eugene Maris"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 124,
+      "question": "Who won baseball's first World Series of the 80s?",
+      "generations": [
+        "Philadelphia Phillies",
+        "The Philadelphia Phillies won baseball's first World Series of the 1980s in 1980, defeating the Kansas City Royals 4 games to 2.",
+        "The Philadelphia Phillies won baseball's first World Series of the 80s in 1980.",
+        "Cincinnati Reds",
+        "The Philadelphia Phillies won baseball's first World Series of the 80s in 1980."
+      ],
+      "aliases": [
+        "The Phills",
+        "Philadelphia Blue Jays",
+        "Philadelphia Phyllis"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 125,
+      "question": "What was Pete Sampras seeded when he won his first US Open?",
+      "generations": [
+        "3",
+        "Seeded third.",
+        "3",
+        "9th",
+        "16th"
+      ],
+      "aliases": [
+        "twelve",
+        "12",
+        "12"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 126,
+      "question": "\"Which boxer famously said,\"\" If I can't beat this bum take my name off the record books?\"\"\"",
+      "generations": [
+        "Ali.",
+        "Joe Louis.",
+        "Rocky Marciano.",
+        "Rocky Marciano.",
+        "Joe Frazier."
+      ],
+      "aliases": [
+        "Rocco Marchegiano",
+        "Rocky Marciano",
+        "The Brockton Blockbuster"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 127,
+      "question": "Where did Jonathan Edwards set his 1995 triple jump world record?",
+      "generations": [
+        "Jonathan Edwards did not set a world record in 1995. His indoor triple jump world record of 17.98m was set on February 9,",
+        "Jonathan Edwards is a British athlete, but he did not set a triple jump world record in 1995. His world record of 18.29 meters was",
+        "I think there may be a mistake here!\n\nJonathan Edwards is a British athlete who set a world record in the triple jump, but I believe you meant to ask",
+        "Sorry! Jonathan Edwards did not set a triple jump world record in 1995. He did set a world record in triple jump at the 1995 World",
+        "I think there may be a problem here!\n\nJonathan Edwards is a British athlete who set a world record in the triple jump, but it was in 1995"
+      ],
+      "aliases": [
+        "Swedish sin",
+        "Swea Region",
+        "Sverige"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 128,
+      "question": "In baseball, where do the Orioles come from?",
+      "generations": [
+        "The Orioles are based in Baltimore, Maryland.",
+        "Baltimore",
+        "Baltimore.",
+        "Baltimore.",
+        "Baltimore."
+      ],
+      "aliases": [
+        "Ballermore, Murdaland",
+        "Baltimore, Maryland, US",
+        "B.More"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 129,
+      "question": "The Naismith Award is presented in which sport?",
+      "generations": [
+        "Basketball.",
+        "Basketball",
+        "Basketball",
+        "Basketball",
+        "Basketball."
+      ],
+      "aliases": [
+        "Basketball",
+        "Basketball gear",
+        "Bball"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 130,
+      "question": "Which cartoon and film character is the nickname of super athlete Michael Johnson?",
+      "generations": [
+        "The character is The Fastest Man Alive, not a specific cartoon or film character with a nickname. Michael Johnson is a retired track and field athlete known for his",
+        "The Flying Flintstone!",
+        "The character is \"The Fastest Man Alive.\"",
+        "The answer is The Fastest Man Alive.",
+        "The cartoon and film character associated with the nickname of super athlete Michael Johnson is \"The Fastest Man in the World\"."
+      ],
+      "aliases": [
+        "Stalmannen",
+        "Supaaman",
+        "Jordan Elliot"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 131,
+      "question": "For which team did Babe Ruth blast his last Major League home run?",
+      "generations": [
+        "The Boston Braves.",
+        "The Boston Braves.",
+        "The Boston Braves.",
+        "The Boston Braves.",
+        "The Boston Braves."
+      ],
+      "aliases": [
+        "Boston Braves (disambiguation)",
+        "Boston Braves",
+        "Boston Braves"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 132,
+      "question": "What was Warren Beatty's first movie?",
+      "generations": [
+        "\"His Girl Friday\" (1940)",
+        "\"Prince of Players\" (1955)",
+        "Warren Beatty's first movie was \"Fury of Sordough Sam\", a 1948 film short.",
+        "Warner Bros. studio guard (1937)",
+        "\"Parrish\" (1967)"
+      ],
+      "aliases": [
+        "Splendor in the Grass",
+        "Splendor in the Grass"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 133,
+      "question": "Which future Hollywood star got her break as Wonder Girl, Wonder Woman's sister Drusilla?",
+      "generations": [
+        "Nicole Kidman.",
+        "Nicole Kidman.",
+        "Lucy Lawless.",
+        "Lynda Carter.",
+        "Nicole Kidman."
+      ],
+      "aliases": [
+        "Mary Debra Winger",
+        "Debra Winger",
+        "Deborah Winger"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 134,
+      "question": "Mickey Braddock in the 50s series Circus Boy found fame with which surname in which pop band?",
+      "generations": [
+        "None! Mickey Braddock was the title character in the TV series Circus Boy, and there is no evidence of him being in a pop band.",
+        "Mickey Braddock's later fame was with the surname \"Minnelli\" as a member of the pop band Toni and the Toledo Boys.",
+        "Davison, The Monkees.",
+        "Donnie Osmond.",
+        "Davy Jones."
+      ],
+      "aliases": [
+        "Mickey Dolenz (The Monkees)",
+        "Mickey Dolenz (The Monkees)"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 135,
+      "question": "Which war veteran was Director of News & Special Events for ABC before find fame as a TV cop?",
+      "generations": [
+        "Harry Morgan.",
+        "Edward R. Murrow",
+        "Harry Hamlin.",
+        "Burt Reynolds.",
+        "Harry Morgan (Colonel Sherman T. Potter in M*A*S*H and Detective Barney Miller in Barney Miller)"
+      ],
+      "aliases": [
+        "Thomas William %22Tom%22 Selleck",
+        "Thomas Selleck",
+        "Thomas William Selleck"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 136,
+      "question": "What US sitcom was the first exported to Britain?",
+      "generations": [
+        "I Love Lucy (1951-1957)",
+        "\"The Jeffersons\"",
+        "I Love Lucy (1951-1957)",
+        "\"I Love Lucy\" (1951-1957)",
+        "I Love Lucy (1951)"
+      ],
+      "aliases": [
+        "Amos n Andy",
+        "Amos And Andy",
+        "Amos and andy"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 137,
+      "question": "In Hanna and Barbera's TV cartoons base on The Addams Family who was the voice of Gomez?",
+      "generations": [
+        "John Astin",
+        "John Astin.",
+        "John Astin",
+        "John Astin",
+        "John Astin"
+      ],
+      "aliases": [
+        "John Astin",
+        "John Astin"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 138,
+      "question": "Who was the only female victim to be killed off in the opening credit sequence in Police Squad?",
+      "generations": [
+        "Juliette Lewis.",
+        "Eve (Lesley Warren)",
+        "Ellen.\n\n(The answer refers to Ellen, the only female character to be killed off in the opening credit sequence of the TV show Police Squad!)",
+        "Aglae Grosjean played the role of the female victim killed off in the opening credit sequence in Police Squad.",
+        "Lisa Edwards"
+      ],
+      "aliases": [
+        "Florence Agnes Henderson",
+        "Florence Henderson",
+        "Florence Hendersen"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 139,
+      "question": "Which US president won the Nobel Peace Prize in 1920?",
+      "generations": [
+        "Woodrow Wilson.",
+        "Woodrow Wilson.",
+        "Woodrow Wilson",
+        "Woodrow Wilson",
+        "Woodrow Wilson."
+      ],
+      "aliases": [
+        "Thomas W. Wilson",
+        "President wilson",
+        "Wilson, Woodrow"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 140,
+      "question": "Who beat Tim Henman in his first Wimbledon singles semifinal?",
+      "generations": [
+        "Sergi Bruguera",
+        "Goran Ivani\u0161evi\u0107 in 1998.",
+        "Sergi Bruguera",
+        "Goran Ivani\u0161evi\u0107.",
+        "Goran Ivani\u0161evi\u0107"
+      ],
+      "aliases": [
+        "Sampras",
+        "Sampras, Pete",
+        "Pete Sampras"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 141,
+      "question": "What relation was Flo Jo to Jackie Joyner Kersee?",
+      "generations": [
+        "Flo Jo was a rival of Jackie Joyner Kersee in the 1980s and 1990s, as they competed in the same events and were",
+        "Florence Griffith-Joyner (Flo Jo) was the wife of Olympic decathlete Al Joyner, who was the older brother of Jackie Joyner Kersee",
+        "Florence Griffith-Joyner (Flo Jo) was married to Al Joyner, Jackie Joyner Kersee's brother.",
+        "Florence Griffith-Joyner (Flo Jo) was the wife of Al Joyner, who is Jackie Joyner Kersee's brother.",
+        "Florence Griffith-Joyner (Flo Jo) was the wife of Olympic decathlete Robert Kerr, not Jackie Joyner Kersee."
+      ],
+      "aliases": [
+        "Brother in law",
+        "Wife's sister",
+        "Bro-law"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 142,
+      "question": "How long was swimmer Michelle Smith-de Bruin banned for attempting to manipulate a drugs test?",
+      "generations": [
+        "4 years",
+        "8 years (1990-1998)",
+        "4 years",
+        "6 years.",
+        "6 months"
+      ],
+      "aliases": [
+        "4 years",
+        "four  time",
+        "4 time"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 143,
+      "question": "Yuan Yuan was caught carrying drugs for which Chinese team?",
+      "generations": [
+        "Doping control officer for the Chinese national track and field team.",
+        "Chinese national table tennis team.",
+        "The Chinese anti-doping agency.\n\nYuan Yuan is a Chinese athlete who was caught carrying drugs, and she represented China in the...",
+        "The Chinese national biathlon team.",
+        "The Chinese national basketball team."
+      ],
+      "aliases": [
+        "Swam",
+        "Swimming (disambiguation)",
+        "To-suijutsu"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 144,
+      "question": "Which grand slam did Pete Sampras not win in the 20th century?",
+      "generations": [
+        "French Open",
+        "French Open",
+        "The French Open (Roland-Garros) - Pete Sampras never won the French Open in the 20th century.",
+        "French Open",
+        "French Open"
+      ],
+      "aliases": [
+        "Fran\u00e7ais",
+        "Francaise",
+        "The French"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 145,
+      "question": "In which events did Gert Fredriksson win six Olympic gold medals?",
+      "generations": [
+        "Canoeing",
+        "Canoeing",
+        "K-1 500m and K-1 1000m canoeing events.",
+        "K-1 1000m and C-1 1000m.",
+        "K-1 1000m and C-1 1000m canoeing events."
+      ],
+      "aliases": [
+        "Flatwater",
+        "Canoeing",
+        "Canoeist"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 146,
+      "question": "How many of his 45 races did Mike Hawthorn, a former Formula One motor racing world champion, win?",
+      "generations": [
+        "3",
+        "17",
+        "Mike Hawthorn, a former Formula One motor racing world champion, won 15 of his 45 races.",
+        "Mike Hawthorn won 14 of his 45 Formula One races.",
+        "Mike Hawthorn, a former Formula One world champion, won 14 of his 45 Grand Prix races."
+      ],
+      "aliases": [
+        "3",
+        "Three",
+        "three"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 147,
+      "question": "On the Internet what is Spam?",
+      "generations": [
+        "Spam on the Internet refers to unsolicited, unwanted, and often repetitive messages or posts (e.g. emails, comments, posts) sent to a large",
+        "On the Internet, \"Spam\" refers to unsolicited messages, usually commercial in nature, sent to large numbers of recipients, often considered junk mail or unwanted",
+        "Spam refers to unwanted or unsolicited messages, such as email, text messages, or online posts, that are sent to a large number of people, often",
+        "Unsolicited or unwanted messages or posts, often repetitive and annoying, that clog up online platforms such as email, discussion forums, and social media.",
+        "On the Internet, Spam refers to unsolicited, excessive, and unwanted messages or posts, typically in the form of emails, comments, or posts, usually sent"
+      ],
+      "aliases": [
+        "Junk mail (disambiguation)",
+        "Junkmail",
+        "Junkmailing"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 148,
+      "question": "In which country did the Internet start?",
+      "generations": [
+        "The United States.",
+        "The United States.",
+        "United States",
+        "United States",
+        "The United States."
+      ],
+      "aliases": [
+        "The United States of America",
+        "United States Of Amerca",
+        "Us of a"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 149,
+      "question": "In which year was the Juilliard School founded in New York?",
+      "generations": [
+        "1885",
+        "1905",
+        "1885",
+        "1905",
+        "The Juilliard School was founded in New York in 1905."
+      ],
+      "aliases": [
+        "1905",
+        "one thousand, nine hundred and five",
+        "1905"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 150,
+      "question": "Who wrote My Life and Loves in 1926, originally banned in the US?",
+      "generations": [
+        "Anais Nin wrote \"My Life and Loves\" in 1926, which was originally banned in the US.",
+        "Anita Loos.",
+        "Anais Nin.",
+        "Anita Loos.",
+        "Ana\u00efs Nin"
+      ],
+      "aliases": [
+        "Frank Harris",
+        "Frank Harris"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 151,
+      "question": "What was Blondie's last UK No 1 of the 80s?",
+      "generations": [
+        "\"Rapture\"",
+        "\"Rapped in Clover\" (1982)",
+        "\"Rapture\" (1982)",
+        "\"Rapture\"",
+        "\"The Tide is High\" (1980)"
+      ],
+      "aliases": [
+        "Midtribulation rapture",
+        "Midtribulationism",
+        "Pre-tribulation"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 152,
+      "question": "In baseball, where do the Royals come from?",
+      "generations": [
+        "Kansas City.",
+        "Kansas City",
+        "Kansas City.",
+        "Kansas City.",
+        "Kansas City."
+      ],
+      "aliases": [
+        "Kansas City Metro",
+        "Kansas city",
+        "Kansas City Metropolitan Area"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 153,
+      "question": "What is the largest city in Ohio?",
+      "generations": [
+        "Columbus.",
+        "Columbus",
+        "Columbus",
+        "Columbus.",
+        "Columbus"
+      ],
+      "aliases": [
+        "The Rock 'n' Roll Capital of the World",
+        "Cleveland, Cuyahoga, Ohio",
+        "Cleveland, Ohio"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 154,
+      "question": "In which decade of the 20th century was Anne Bancroft born?",
+      "generations": [
+        "1940s",
+        "The 1930s.",
+        "1930s",
+        "1931 (Anne Bancroft was born on September 17, 1931)",
+        "1940s"
+      ],
+      "aliases": [
+        "1930\u2019s",
+        "Thirties",
+        "1930s literature"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 155,
+      "question": "The Suez Canal connects the Mediterranean Sea to which other Sea?",
+      "generations": [
+        "Red Sea.",
+        "The Red Sea.",
+        "The Red Sea.",
+        "The Red Sea.",
+        "Red Sea"
+      ],
+      "aliases": [
+        "Arabicus Sinus",
+        "Sinus Arabicus",
+        "Red sea"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 156,
+      "question": "Which rock star did Cindy Crawford name her first son after?",
+      "generations": [
+        "Axl Rose (Axl Jack Oberkircher)",
+        "Axl Rose.",
+        "Axl Rosenbaum (after Axl Rose, the lead singer of Guns N' Roses)",
+        "Axl (Axl Rose, the lead singer of Guns N' Roses).",
+        "Axl"
+      ],
+      "aliases": [
+        "Presley",
+        "Pressley",
+        "Pressly"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 157,
+      "question": "Sun Yat Sen overthrew the emperor in which country establishing a republic after 2000 years of imperial rule?",
+      "generations": [
+        "China.",
+        "China",
+        "China",
+        "China.",
+        "China"
+      ],
+      "aliases": [
+        "Chinese People's Republic",
+        "China (Peking)",
+        "The prc"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 158,
+      "question": "Who designed the dress which made the most at Diana's dress auction?",
+      "generations": [
+        "David and Elizabeth Emanuel designed the wedding dress worn by Princess Diana at her 1981 wedding to Prince Charles. The dress sold for $4.6 million at",
+        "David Emmanuel, a British designer who co-founded the House of Victor Edelstein, designed the iconic dress worn by Princess Diana at the 1981 royal wedding",
+        "Elie Saab.",
+        "David Emanuel designed the dress, which sold for $3.2 million at auction in 2011.",
+        "Victor Edelstein"
+      ],
+      "aliases": [
+        "Victor Edelstein",
+        "Victor Edelstein"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 159,
+      "question": "Which Palestinian co-founded al Fatah in 1957?",
+      "generations": [
+        "Yasser Arafat.",
+        "Yasser Arafat",
+        "Yasser Arafat.",
+        "Yasser Arafat.",
+        "Yasser Arafat."
+      ],
+      "aliases": [
+        "Yasir Arafat",
+        "Yasir 'Arafat",
+        "Jassir Arafat"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 160,
+      "question": "In which country was Earl Spencer's acrimonious divorce settlement heard?",
+      "generations": [
+        "Ireland",
+        "Eritrea",
+        "Chile",
+        "Ireland",
+        "Scotland"
+      ],
+      "aliases": [
+        "South africa",
+        "South Africa's",
+        "Southafrica"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 161,
+      "question": "In which North African country was Mohammed Al-Fayed, owner of Harrods department store in London, born?",
+      "generations": [
+        "Egypt.",
+        "Egypt",
+        "Egypt",
+        "Egypt",
+        "Egypt"
+      ],
+      "aliases": [
+        "EGY",
+        "Arab Republic of Egypt",
+        "A .R . EGYPT"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 162,
+      "question": "Aung San Suu Kyi is a controversial leader in which country?",
+      "generations": [
+        "Myanmar",
+        "Myanmar (Burma)",
+        "Myanmar (Burma)",
+        "Myanmar (Burma)",
+        "Myanmar (Burma)"
+      ],
+      "aliases": [
+        "Economic sanctions against Myanmar",
+        "Economic sanctions against Burma",
+        "ISO 3166-1:MM"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 163,
+      "question": "Which of the founders of United Artists had the last name nearest the beginning of the alphabet?",
+      "generations": [
+        "Douglas Fairbanks.",
+        "The founder with the last name nearest the beginning of the alphabet is Charlie Chaplin.",
+        "Chaplin",
+        "Florian Henckel von Donnersmarck, also known as Charlie Chaplin.",
+        "D.W. Griffith. (UA founders: D.W. Griffith, Charlie Chaplin, Mary Pickford, and Douglas Fairbanks)"
+      ],
+      "aliases": [
+        "Chaplin",
+        "Chaplin (disambiguation)",
+        "Chaplin (musical)"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 164,
+      "question": "In La Cage Aux Folles, what was La Cage Aux Folles?",
+      "generations": [
+        "La Cage Aux Folles was a drag club in the French Riviera.",
+        "La Cage Aux Folles was a nightclub in Saint-Tropez, France, that catered to the city's drag queens and cross-dressers.",
+        "A classic musical!\n\nAnswer: La Cage Aux Folles was a renowned night club in St. Tropez, France, featured in the 1978 musical of",
+        "La Cage Aux Folles was a popular nightclub in Saint-Tropez, France, known for catering to the local gay community and hosting drag shows.",
+        "A French nightclub."
+      ],
+      "aliases": [
+        "Discotheque",
+        "Night clubs",
+        "Diskotek"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 165,
+      "question": "Where was the Fiddler in the musical's title?",
+      "generations": [
+        "Cricket on the Heath.",
+        "Crabapple Cove.",
+        "Crabapple Cove",
+        "Crunchy Pants! The answer is: On the Roof.",
+        "Krishna (in the Hindu epic, \"The Second Book of Acts of Ramanuja\" or \"Krishna Nee Begane Baaro\")."
+      ],
+      "aliases": [
+        "Sur les toits (cambrioleurs et gendarmes)",
+        "On the Roof",
+        "Sur les toits"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 166,
+      "question": "South Pacific was set during which war?",
+      "generations": [
+        "World War II.",
+        "World War II.",
+        "World War II.",
+        "Answer: World War II",
+        "World War II."
+      ],
+      "aliases": [
+        "The Second world war",
+        "WorldWar2",
+        "WW2"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 167,
+      "question": "What percentage of the earth's surface is covered by Europe?",
+      "generations": [
+        "10.1%",
+        "About 6.8%",
+        "About 6.8%",
+        "6.84%",
+        "About 6.8%"
+      ],
+      "aliases": [
+        "eight  %",
+        "8 %",
+        "8%"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 168,
+      "question": "Which European town gave its name to a Treaty which symbolizes closer economic links between European countries?",
+      "generations": [
+        "Maastricht.",
+        "Maastricht.",
+        "Maastricht.",
+        "Maastricht.",
+        "Maastricht."
+      ],
+      "aliases": [
+        "Maastricht, the Netherlands",
+        "Maasthrict",
+        "Mestreech"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 169,
+      "question": "Which home of champagne in France was also where the German High Command surrendered in WWII?",
+      "generations": [
+        "Reims.",
+        "Compi\u00e8gne.",
+        "Reims.",
+        "Rethondes.",
+        "Compi\u00e8gne."
+      ],
+      "aliases": [
+        "Reims",
+        "Reims, France",
+        "Saint Remi Basilica"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 170,
+      "question": "Which was the first European city this century to open an underground railway system?",
+      "generations": [
+        "Stockholm, Sweden (1950)",
+        "London (1960)",
+        "London (1908)",
+        "London. The City of London and South London Railway, also known as the London Underground, was opened in 1890.",
+        "London (1901)."
+      ],
+      "aliases": [
+        "Pa\u0159\u00ed\u017e",
+        "FRPAR",
+        "Paris"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 171,
+      "question": "Who first drew Mickey Mouse when ?Disney first supplied the voice?",
+      "generations": [
+        "Walt Disney himself drew the first Mickey Mouse in 1928. Mickey Mouse was originally silent, and his voice was first supplied by Walt Disney in the",
+        "Walt Disney drew Mickey Mouse in 1928. Mickey Mouse was created without a voice until 1947, when Walt Disney supplied the voice himself, singing",
+        "Walt Disney himself first drew Mickey Mouse on November 18, 1928. Mickey Mouse was initially silent, and the voice was added later.",
+        "Walt Disney himself drew Mickey Mouse for the first time in 1928. Disney did not supply the voice for Mickey Mouse, as Mickey is a silent character",
+        "Walt Disney himself first drew Mickey Mouse in 1928. Mickey Mouse was first supplied with a voice by James MacDonald in the 1930s, with"
+      ],
+      "aliases": [
+        "Iwerks, Ub",
+        "Ub Iwerks",
+        "Ub Iwerks Studio"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 172,
+      "question": "Which actress wrote the novel The Last of the Really Great Whangdoodles?",
+      "generations": [
+        "Audrey Hepburn.",
+        "Amy Vanderbilt.",
+        "Morgan Fairchild.",
+        "Ruth Gordon.",
+        "Carolyn Keene (Pseudonym)"
+      ],
+      "aliases": [
+        "Julia Elizabeth Wells",
+        "Julie Elizabeth Andrews, DBE",
+        "Julie Andrews Edwards"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 173,
+      "question": "Who was the star of the film based on the record Harper Valley PTA by Jeannie C Riley?",
+      "generations": [
+        "Olene Carter (played by Barbara Eden)",
+        "Olene Turley.",
+        "Oscar-winning actress Barbara Eden!",
+        "Olene Handy, played by Barbara Eden, was the star of the 1969 film \"Harper Valley PTA\" based on the record by Jeannie",
+        "Olene Kaye Handley in the 1968 film \"Harper Valley PTA\"."
+      ],
+      "aliases": [
+        "Barbara Morehead",
+        "Barbara Jean Morehead",
+        "Barbara Eden"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 174,
+      "question": "What color golf balls are used on the golf course in Antarctica?",
+      "generations": [
+        "Green",
+        "None! Golf is not played on the golf course in Antarctica. Antarctica has no permanent residents and no golf courses.",
+        "There are no golf courses in Antarctica, so golf balls of any color are not used on the golf course in Antarctica.",
+        "Green",
+        "There are no golf courses in Antarctica."
+      ],
+      "aliases": [
+        "Orange (album)",
+        "Orangeishness",
+        "Orange (film)"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 175,
+      "question": "Throughout the 80s and 90s Phil Collins recorded on which record label?",
+      "generations": [
+        "Atlantic Records",
+        "Atlantic Records",
+        "Geffen Records",
+        "CBS Records (later known as Sony Music Entertainment)",
+        "Geffen Records."
+      ],
+      "aliases": [
+        "Sea of Atlas",
+        "The Pond",
+        "Ethiopic Ocean"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.0549201679861442,
+      "n_clusters": 3,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 176,
+      "question": "On which label did Chuck Berry record in the 1950s and 1960s?",
+      "generations": [
+        "Chess Records.",
+        "Chess Records.",
+        "Chess Records",
+        "Chess Records.",
+        "Chess Records"
+      ],
+      "aliases": [
+        "Chess match",
+        "\u0160achmatai",
+        "Sjakk"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 177,
+      "question": "What was the name of Michael Jackson's second wife?",
+      "generations": [
+        "Michael Jackson was married twice. His wives were:\n\n1. Lisa Marie Presley (married from 1994 to 1996)\n2. Deborah Rowe (",
+        "He only had one wife, Lisa Marie Presley.",
+        "Michael Jackson was not married twice. He was married once, to Lisa Marie Presley from 1994 to 1996.",
+        "Michael Jackson was married to Lisa Marie Presley from 1994 to 1996 and to Deborah Rowe from 1996 to 1999. So,",
+        "Michael Jackson was not married twice. He was married to Lisa Marie Presley from 1994 to 1996."
+      ],
+      "aliases": [
+        "Deborah Jeanne Rowe",
+        "Deborah Rowe Jackson",
+        "Debbie Jackson"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 178,
+      "question": "Which US city was named after a British Prime Minister?",
+      "generations": [
+        "Pittsburgh.",
+        "Washington, D.C. (named after George Washington, who was also the first Prime Minister of the United States).",
+        "Washington D.C. was named after George Washington, the first President of the United States, not a British Prime Minister.",
+        "Pittsburgh",
+        "Pittsburgh"
+      ],
+      "aliases": [
+        "Smoky City",
+        "Pittsburgh (Pa.)",
+        "Pittsburgh, Pennsylvania."
+      ],
+      "correct": 1,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 179,
+      "question": "\"Who said, To err is human but it feels divine?\"\"\"",
+      "generations": [
+        "Alexander Pope.",
+        "Graham Parker (from his song \"Discovering Japan\"). However, it's worth noting that the phrase \"To err is human, to forgive is divine\"",
+        "I can't think of the person who said that.",
+        "Alexander Pope",
+        "I'm happy to help! However, I must correct you that the quote \"To err is human, but it feels divine\" is a slight modification of the"
+      ],
+      "aliases": [
+        "Mae West",
+        "Mae west",
+        "Is that a gun in your pocket, or are you just happy to see me%3F"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 180,
+      "question": "Which singer had a big 60s No 1 with Roses Are Red?",
+      "generations": [
+        "Bryan Hyland",
+        "Bobby Vinton",
+        "Bryan Hyland.",
+        "Bert Kaempfert.",
+        "Bryan Hyland"
+      ],
+      "aliases": [
+        "Bobby Vinton",
+        "Bobby Vinton"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 181,
+      "question": "What are the international registration letters of a vehicle from Iceland?",
+      "generations": [
+        "H",
+        "\u00cd",
+        "BJ",
+        "ICE",
+        "The international registration letters of a vehicle from Iceland are \"IS\"."
+      ],
+      "aliases": [
+        "I S",
+        "I.s.",
+        "IS"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 182,
+      "question": "Where was the American venue of the Live Aid concert?",
+      "generations": [
+        "Philadelphia, Pennsylvania, USA.",
+        "The American venue for the Live Aid concert was John F. Kennedy Stadium in Philadelphia, Pennsylvania.",
+        "Philadelphia, Pennsylvania.",
+        "The American venue of the Live Aid concert was Wembley Stadium in Philadelphia, Pennsylvania.",
+        "Wembley Stadium in Philadelphia, Pennsylvania."
+      ],
+      "aliases": [
+        "Philedelphia",
+        "City of brotherly love",
+        "City of Brotherly Love"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 183,
+      "question": "Which was the longest moon landing?",
+      "generations": [
+        "The longest moon landing was Apollo 17, which landed on December 11, 1972, and lasted for 75 hours and 48 minutes.",
+        "The longest moon landing was Apollo 17, which lasted from December 11 to December 19, 1972, lasting 75 hours and 48 minutes",
+        "The longest moon landing was Apollo 17, which lasted for 75 hours and 48 minutes (December 11-14, 1972).",
+        "Apollo 17. Duration: 75 hours, 48 minutes.",
+        "Apollo 17 - December 11-19, 1972 (8 days, 3 hours, and 1 minute)"
+      ],
+      "aliases": [
+        "Apollo 17",
+        "Apollo XVII",
+        "Apollo17"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 184,
+      "question": "Who had the most expensive presidential inauguration ceremony of the 20th century?",
+      "generations": [
+        "Bill Clinton's second inauguration in 1997, which cost $41.7 million.",
+        "Bill Clinton's 1993 inauguration had the most expensive presidential inauguration ceremony of the 20th century, costing an estimated $30 million.",
+        "Tommy Lee Jones (not a president, but a ceremony host). The answer is Ronald Reagan, whose 1981 inauguration cost around $9 million (approximately",
+        "Bill Clinton",
+        "Bill Clinton, at an estimated cost of $43 million."
+      ],
+      "aliases": [
+        "George Walker Bush",
+        "Dubya",
+        "Bush, George W."
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 185,
+      "question": "Who became Israel's head of state in 1993?",
+      "generations": [
+        "Ezer Weizman",
+        "Ezer Weizman",
+        "Ezer Weizman",
+        "Ezer Weizman",
+        "Ezer Weizman"
+      ],
+      "aliases": [
+        "\u05e2\u05d6\u05e8 \u05d5\u05d9\u05e6\u05de\u05df",
+        "Ezer Weizmann",
+        "Ezer Weizman"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 186,
+      "question": "In WWII, who was the head of the Nazi party's security service?",
+      "generations": [
+        "Heinrich Himmler.",
+        "Heinrich Himmler.",
+        "Heinrich Himmler",
+        "Reinhard Heydrich.",
+        "Heinrich Himmler"
+      ],
+      "aliases": [
+        "Reinhard Heidrich",
+        "Rinehardt Heydrich",
+        "Himmler's Evil Genius"
+      ],
+      "correct": 0,
+      "sem_entropy": 0.5004024235381879,
+      "n_clusters": 2,
+      "self_consistency": 0.19999999999999996
+    },
+    {
+      "idx": 187,
+      "question": "Which President of the Philippines was deposed in 1986?",
+      "generations": [
+        "Ferdinand Marcos",
+        "Ferdinand Marcos",
+        "Ferdinand Marcos",
+        "Ferdinand Marcos",
+        "Ferdinand Marcos"
+      ],
+      "aliases": [
+        "Marcos",
+        "Marcos (disambiguation)",
+        "Markos"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 188,
+      "question": "What kind of disaster claimed some 100,000 lives in Armenia in 1988?",
+      "generations": [
+        "Earthquake",
+        "Earthquake",
+        "Earthquake.",
+        "Earthquake.",
+        "Earthquake"
+      ],
+      "aliases": [
+        "Seism",
+        "Earthquake",
+        "Seismic event"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 189,
+      "question": "Which state on the Gulf of Mexico is nearest the end of the alphabet?",
+      "generations": [
+        "Texas",
+        "Texas.",
+        "Texas",
+        "Texas",
+        "Texas."
+      ],
+      "aliases": [
+        "Texas (U.S. State)",
+        "US-TX",
+        "Texos"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 190,
+      "question": "Truax Field international airport is in which US state?",
+      "generations": [
+        "South Dakota",
+        "Indiana.",
+        "Indiana",
+        "Indiana",
+        "Massachusetts"
+      ],
+      "aliases": [
+        "Badger State",
+        "State of Wisconsin",
+        "Wis."
+      ],
+      "correct": 0,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 191,
+      "question": "In what month was the attack on Pearl Harbor?",
+      "generations": [
+        "December",
+        "December.",
+        "December 7",
+        "December 7, 1941.",
+        "December."
+      ],
+      "aliases": [
+        "December",
+        "\u32cb",
+        "Xber"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.9502705392332347,
+      "n_clusters": 3,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 192,
+      "question": "Who did Dr. Crippen murder?",
+      "generations": [
+        "Dr. Crippen's wife, Belle Elmore.",
+        "Dr. Crippen murdered his wife, Belle Elmore.",
+        "His wife, Belle Elmore.",
+        "His wife, Belle Elmore, in 1910.",
+        "Corrine Crippen, his wife."
+      ],
+      "aliases": [
+        "His wife",
+        "His wife"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 193,
+      "question": "In the 1904 Olympics, how many of the 23 track and field titles were won by Americans?",
+      "generations": [
+        "None.",
+        "None. The United States did not win any track and field titles at the 1904 Olympics.",
+        "None, as the 1904 Summer Olympics were held in St. Louis, Missouri, which was also the home base of the American athletes, and hence there",
+        "11",
+        "11"
+      ],
+      "aliases": [
+        "21",
+        "twenty-one",
+        "21"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 194,
+      "question": "The Black Hills lie between which two rivers?",
+      "generations": [
+        "The Black Hills lie between the North and South Forks of the Cheyenne River.",
+        "The Black Hills lie between the Belle Fourche River and the Cheyenne River.",
+        "The Black Hills lie between the Missouri River and the Cheyenne River.",
+        "The Black Hills lie between the Belle Fourche River and the Cheyenne River.",
+        "The Black Hills lie between the Cheyenne River and the Belle Fourche River."
+      ],
+      "aliases": [
+        "Belle Fourche and Cheyenne",
+        "Belle Fourche and Cheyenne"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 195,
+      "question": "In what year was the first in-flight movie shown on an internal flight in the USA.",
+      "generations": [
+        "1979",
+        "1955",
+        "1983",
+        "1979",
+        "1951"
+      ],
+      "aliases": [
+        "1929",
+        "one thousand, nine hundred and twenty-nine",
+        "1929"
+      ],
+      "correct": 0,
+      "sem_entropy": 1.3321790402101223,
+      "n_clusters": 4,
+      "self_consistency": 0.6
+    },
+    {
+      "idx": 196,
+      "question": "In which city was John Lennon murdered?",
+      "generations": [
+        "New York City",
+        "New York City (specifically, the Dakota apartment building in Manhattan)",
+        "New York City (specifically, the Dakota apartment building in Manhattan)",
+        "New York City",
+        "New York City"
+      ],
+      "aliases": [
+        "New Yourk State",
+        "State of N.Y.",
+        "US-NY"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.6730116670092565,
+      "n_clusters": 2,
+      "self_consistency": 0.4
+    },
+    {
+      "idx": 197,
+      "question": "How was President Kennedy assassinated?",
+      "generations": [
+        "President Kennedy was assassinated by Lee Harvey Oswald, who shot him from the sixth floor of the Texas School Book Depository building in Dallas, Texas, on November",
+        "President Kennedy was assassinated by Lee Harvey Oswald on November 22, 1963, in Dallas, Texas, when Oswald shot him from the sixth floor of",
+        "President John F. Kennedy was assassinated by Lee Harvey Oswald while riding in an open-top car in a motorcade through Dealey Plaza in Dallas, Texas,",
+        "President Kennedy was assassinated on November 22, 1963, by Lee Harvey Oswald, who shot him from the sixth floor of the Texas School Book Depos",
+        "President Kennedy was assassinated by Lee Harvey Oswald on November 22, 1963, in Dallas, Texas, while riding in an open-top car in a"
+      ],
+      "aliases": [
+        "Shot (unit)",
+        "Shot",
+        "Shot (drink)"
+      ],
+      "correct": 1,
+      "sem_entropy": 1.6094379124341005,
+      "n_clusters": 5,
+      "self_consistency": 0.8
+    },
+    {
+      "idx": 198,
+      "question": "Which caped crusader operated in Gotham City?",
+      "generations": [
+        "Batman",
+        "Batman",
+        "Batman.",
+        "Batman",
+        "Batman."
+      ],
+      "aliases": [
+        "BatMan",
+        "Batman: War on Crime",
+        "Bat-man"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    },
+    {
+      "idx": 199,
+      "question": "Who did Jack Ruby shoot in November 1963?",
+      "generations": [
+        "Lee Harvey Oswald",
+        "Lee Harvey Oswald",
+        "Lee Harvey Oswald",
+        "Lee Harvey Oswald.",
+        "Lee Harvey Oswald"
+      ],
+      "aliases": [
+        "Oswald the Lone Assassin",
+        "Lone Nut Theory",
+        "Lone gunman"
+      ],
+      "correct": 1,
+      "sem_entropy": 0.0,
+      "n_clusters": 1,
+      "self_consistency": 0.0
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+\documentclass{article}
+\usepackage{neurips_2025}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{multirow}
+
+\title{Uncertainty Quantification for Diffusion and Autoregressive LLMs:\\
+A Unified 200-Sample Benchmark on TriviaQA}
+
+\author{Anonymous Authors}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present a compact but comprehensive experimental report for uncertainty quantification (UQ) in large language models on open-domain question answering. We benchmark seven UQ methods under one unified setup on TriviaQA (validation, rc split): Mean Denoising Entropy, Final-Step Entropy, Trajectory Variance, Semantic Entropy, Self-Consistency, P(True) elicitation, and Verbalized Confidence. We evaluate three models with 200 examples per experiment: LLaDA-8B-Instruct (diffusion LM), Meta-Llama-3-8B-Instruct (autoregressive LM), and Dream-v0-Instruct-7B (custom autoregressive model with remote code). We report AUROC for error detection and ECE for calibration. The report includes method definitions, implementation details, compatibility fixes, complete tables, and reproducibility information in one NeurIPS \LaTeX{} file.
+\end{abstract}
+
+\section{Introduction}
+Reliable confidence estimation is critical for deploying LLMs in retrieval, assistants, and decision support. Prior UQ work mainly targets autoregressive (AR) models, while diffusion language models (DLMs) expose richer intermediate trajectories that may carry additional uncertainty signals.
+
+This report unifies UQ evaluation across DLM and AR models using one pipeline and one dataset slice. Unlike a polished final paper, the goal here is to include all current project content in publishable structure: problem statement, method taxonomy, protocol, results, observations, limitations, and reproducibility artifacts.
+
+\paragraph{Scope.}
+We focus on short-answer TriviaQA and model-level uncertainty for answer correctness (not token-level calibration on next-token prediction).
+
+\section{Problem Setup}
+Given a question $x$, model output $\hat{y}$, and binary correctness label $c \in \{0,1\}$ from answer matching, each UQ method outputs a scalar score $u$ (uncertainty) or confidence $q \in [0,1]$.
+
+\paragraph{Evaluation.}
+\begin{itemize}
+\item \textbf{AUROC}: ranking quality for detecting errors. For uncertainty scores, larger should indicate wrong answers.
+\item \textbf{ECE}: expected calibration error using 10 bins on confidence in $[0,1]$.
+\end{itemize}
+For uncertainty-only methods, confidence is mapped as $q = 1/(1+u)$ in our implementation.
+
+\section{Methods}
+We evaluate seven methods from three experiment scripts.
+
+\subsection{Trajectory UQ (single pass family)}
+\paragraph{Mean Denoising Entropy.}
+For DLM trajectory steps $t$ and generated positions $i$, token entropy is
+\begin{equation}
+H_t^i = -\sum_v p(x_0^i=v\mid x_t)\log p(x_0^i=v\mid x_t).
+\end{equation}
+Mean Denoising Entropy averages over masked positions and steps.
+
+\paragraph{Final-Step Entropy.}
+Entropy computed only at the last denoising step (or final AR step proxy).
+
+\paragraph{Trajectory Variance.}
+Fraction of positions whose argmax token changes across trajectory steps.
+
+\subsection{Multi-sample semantic methods}
+\paragraph{Semantic Entropy.}
+Generate $K=5$ answers; cluster by bidirectional NLI entailment; compute cluster entropy:
+\begin{equation}
+H_{\text{sem}} = -\sum_c P(c)\log P(c).
+\end{equation}
+
+\paragraph{Self-Consistency.}
+Uncertainty is $1 - f_{\max}$, where $f_{\max}$ is normalized frequency of the most common normalized answer.
+
+\subsection{Verbal confidence methods}
+\paragraph{P(True) elicitation.}
+Ask whether proposed answer is correct (Yes/No); use normalized probability of Yes.
+
+\paragraph{Verbalized \% Confidence.}
+Ask model to output ``Confidence: X\%'' and parse $X/100$.
+
+\section{Experimental Protocol}
+\subsection{Dataset and matching}
+TriviaQA validation (rc). Correctness uses normalized string matching with aliases and value fields.
+
+\subsection{Models}
+\begin{itemize}
+\item \textbf{LLaDA-8B-Instruct} (GSAI-ML/LLaDA-8B-Instruct)
+\item \textbf{Meta-Llama-3-8B-Instruct} (meta-llama/Meta-Llama-3-8B-Instruct)
+\item \textbf{Dream-v0-Instruct-7B} (Dream-org/Dream-v0-Instruct-7B)
+\end{itemize}
+All reported runs below use \textbf{200 samples} per experiment.
+
+\subsection{Key hyperparameters}
+\begin{itemize}
+\item Trajectory UQ: steps=64, gen\_length=32
+\item Semantic experiment: $K=5$, steps=32, gen\_length=32, temperature=1.0
+\item Verbal experiment: steps=64, gen\_length=32, vc\_gen\_length=64
+\item NLI model: cross-encoder/nli-deberta-v3-small
+\end{itemize}
+
+\subsection{Implementation compatibility notes}
+To run all models in one codepath, we added AR/DLM branching and compatibility fixes:
+\begin{itemize}
+\item Support both DLM generation and AR autoregressive rollout in all scripts.
+\item Force boolean attention masks for Dream compatibility.
+\item Enable optional \texttt{trust\_remote\_code} for custom model repos.
+\item For Dream remote module, patched a \texttt{weights\_only} incompatibility in downloaded module code.
+\item Replaced reliance on \texttt{model.generate()} with manual AR loop where class lacks generation head support.
+\end{itemize}
+
+\section{Main Results}
+
+\subsection{Accuracy overview}
+\begin{table}[h]
+\centering
+\caption{Task accuracy by experiment (all with 200 samples).}
+\label{tab:acc}
+\begin{tabular}{lccc}
+\toprule
+Model & Trajectory Exp. & Semantic Exp. & Verbal Exp. \\
+\midrule
+LLaDA-8B-Instruct & 0.280 & 0.280 & 0.255 \\
+Llama3-8B-Instruct & 0.610 & 0.525 & 0.585 \\
+Dream-v0-Instruct-7B & 0.250 & 0.150 & 0.295 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{UQ comparison table (AUROC / ECE)}
+\begin{table*}[t]
+\centering
+\caption{Unified UQ comparison. Each cell is AUROC / ECE (higher AUROC is better, lower ECE is better).}
+\label{tab:main}
+\begin{tabular}{lccc}
+\toprule
+Method & LLaDA-8B-Instruct & Llama3-8B-Instruct & Dream-v0-Instruct-7B \\
+\midrule
+Semantic Entropy & 0.7667 / 0.2253 & 0.8222 / 0.1002 & \textbf{0.8875} / 0.3022 \\
+P(True) elicitation & 0.7675 / 0.4237 & 0.7811 / 0.3400 & \textbf{0.8527} / 0.5364 \\
+Mean Denoising Entropy & \textbf{0.7910} / \textbf{0.1057} & 0.7224 / 0.1622 & 0.7907 / 0.5258 \\
+Self-Consistency & 0.7589 / 0.3592 & 0.8054 / 0.1867 & \textbf{0.8860} / 0.4643 \\
+Trajectory Variance & \textbf{0.6290} / 0.4292 & 0.4936 / \textbf{0.1100} & 0.3815 / 0.4406 \\
+Verbalized \% Confidence & 0.5381 / \textbf{0.0617} & \textbf{0.6784} / 0.2318 & 0.5121 / 0.2153 \\
+Final-Step Entropy & 0.5123 / 0.6857 & 0.5470 / \textbf{0.2859} & \textbf{0.6021} / 0.7453 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Observations}
+\paragraph{LLaDA.}
+In this 200-sample run, Mean Denoising Entropy is strongest by AUROC among LLaDA methods and also best calibrated among non-verbal methods. Semantic Entropy drops versus earlier 100-sample run, indicating sample-size sensitivity and potential variance from generation/NLI clustering.
+
+\paragraph{Llama3.}
+Semantic and Self-Consistency are strongest discriminators. Verbalized confidence becomes more useful than in LLaDA (AUROC 0.6784), suggesting model-dependent verbal calibration behavior.
+
+\paragraph{Dream.}
+Semantic and Self-Consistency are highest AUROC, but ECE remains high across most methods. Verbalized-confidence parse rate is only 0.09, limiting practical use of that signal.
+
+\section{Analysis and Discussion}
+\subsection{Cost-performance trade-off}
+\begin{itemize}
+\item Single-pass family (trajectory metrics) is cheaper but may underperform semantic methods on AR models.
+\item Multi-sample semantic family ($K\times T$ passes + NLI) gives strongest AUROC for Llama3 and Dream.
+\item P(True) often competitive but can be poorly calibrated depending on model.
+\end{itemize}
+
+\subsection{Model-specific behavior}
+Different UQ families dominate different models. This suggests uncertainty should be treated as a \emph{model-algorithm pair}, not a one-size-fits-all metric.
+
+\subsection{Calibration caveat}
+Low ECE for verbalized confidence does not always imply high utility: if confidence range collapses or parse fails, discrimination can be weak despite favorable ECE.
+
+\section{Limitations}
+\begin{itemize}
+\item Single dataset slice (TriviaQA rc validation) and small-to-moderate sample size (200).
+\item Exact-match style correctness can undercount semantically correct paraphrases.
+\item Semantic clustering quality depends on NLI threshold and model.
+\item Dream required remote-code compatibility patches; portability may vary with library versions.
+\end{itemize}
+
+\section{Reproducibility}
+\paragraph{Core scripts.}
+\begin{itemize}
+\item \texttt{experiments/run\_trajectory\_uq.py}
+\item \texttt{experiments/run\_semantic\_entropy.py}
+\item \texttt{experiments/run\_verbal\_confidence.py}
+\item \texttt{run\_experiment.sh}
+\end{itemize}
+
+\paragraph{Result files used in this paper.}
+\begin{itemize}
+\item LLaDA: \texttt{results/triviaqa\_traj\_uq.json}, \texttt{results/triviaqa\_sem\_entropy\_200.json}, \texttt{results/triviaqa\_verbal\_conf\_200.json}
+\item Llama3: \texttt{results/meta-llama\_Meta-Llama-3-8B-Instruct\_triviaqa\_traj\_uq.json}, \texttt{...\_sem\_entropy.json}, \texttt{...\_verbal\_conf.json}
+\item Dream: \texttt{results/Dream-org\_Dream-v0-Instruct-7B\_triviaqa\_traj\_uq.json}, \texttt{...\_sem\_entropy.json}, \texttt{...\_verbal\_conf.json}
+\end{itemize}
+
+\section{Conclusion}
+This report consolidates all current UQ experiments into a unified NeurIPS-style artifact. Under consistent 200-sample evaluation, semantic-family methods dominate AUROC for Llama3 and Dream, while Mean Denoising Entropy remains particularly effective and efficient for LLaDA. Future work should extend to broader datasets, stronger semantic matching, and calibration transfer across model families.
+
+\end{document}
