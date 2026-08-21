@@ -40,21 +40,30 @@ def get_num_transfer_tokens(mask_index, steps):
     return num_transfer_tokens
 
 
-def contains_token_sequence(tokens, sequence):
-    if sequence.numel() == 0 or tokens.numel() < sequence.numel():
-        return False
-    for start in range(tokens.numel() - sequence.numel() + 1):
-        if torch.equal(tokens[start:start + sequence.numel()], sequence):
-            return True
-    return False
+def rows_contain_token_sequence(tokens, sequence):
+    """Return a boolean flag for each row that contains ``sequence``."""
+    sequence_length = sequence.numel()
+    if sequence_length == 0 or tokens.shape[1] < sequence_length:
+        return torch.zeros(tokens.shape[0], dtype=torch.bool, device=tokens.device)
+    return (tokens.unfold(1, sequence_length, 1) == sequence).all(-1).any(-1)
 
 
-def get_next_sequence_token_id(tokens, position, sequence, context_start):
-    max_prefix_length = min(sequence.numel() - 1, position - context_start)
-    for prefix_length in range(max_prefix_length, 0, -1):
-        if torch.equal(tokens[position - prefix_length:position], sequence[:prefix_length]):
-            return sequence[prefix_length].item()
-    return sequence[0].item()
+def get_next_sequence_token_ids(tokens, positions, sequence, context_start):
+    """Return the next sequence token for every row at ``positions``."""
+    token_ids = sequence[0].expand(tokens.shape[0]).clone()
+    matched = torch.zeros(tokens.shape[0], dtype=torch.bool, device=tokens.device)
+
+    for prefix_length in range(sequence.numel() - 1, 0, -1):
+        offsets = torch.arange(-prefix_length, 0, device=tokens.device)
+        window = (positions.unsqueeze(1) + offsets).clamp_(min=0)
+        fits = (positions - context_start >= prefix_length) & (
+            tokens.gather(1, window) == sequence[:prefix_length]
+        ).all(dim=1)
+        newly_matched = fits & ~matched
+        token_ids = torch.where(newly_matched, sequence[prefix_length], token_ids)
+        matched |= newly_matched
+
+    return token_ids
 
 
 def apply_end_think_logit_boost(logits, tokens, candidate_mask_index, context_start,
@@ -67,28 +76,28 @@ def apply_end_think_logit_boost(logits, tokens, candidate_mask_index, context_st
         return logits
 
     sequence = torch.tensor(end_think_token_ids, dtype=torch.long, device=logits.device)
-    logits = logits.clone()
+    has_candidate = candidate_mask_index.any(dim=1)
+    has_end_think = rows_contain_token_sequence(tokens[:, context_start:], sequence)
+    active = has_candidate & ~has_end_think
+    if not bool(active.any()):
+        return logits
 
-    for batch_index in range(tokens.shape[0]):
-        if contains_token_sequence(tokens[batch_index, context_start:], sequence):
-            continue
+    positions = candidate_mask_index.int().argmax(dim=1)
+    token_ids = get_next_sequence_token_ids(
+        tokens, positions, sequence, context_start
+    )
+    progress = (
+        ((positions - context_start + 1).to(torch.float64) / float(total_gen_length))
+        .clamp_(0.0, 1.0)
+    )
+    boost = end_think_logit_boost * progress.pow(end_think_boost_power)
 
-        candidate_positions = torch.nonzero(
-            candidate_mask_index[batch_index], as_tuple=False
-        ).flatten()
-        if candidate_positions.numel() == 0:
-            continue
-
-        position = candidate_positions[0].item()
-        generated_length = position - context_start + 1
-        progress = min(max(generated_length / float(total_gen_length), 0.), 1.)
-        boost = end_think_logit_boost * (progress ** end_think_boost_power)
-        token_id = get_next_sequence_token_id(
-            tokens[batch_index], position, sequence, context_start
-        )
-        logits[batch_index, position, token_id] += boost
-
-    return logits
+    active_rows = torch.nonzero(active, as_tuple=True)[0]
+    boosted_logits = logits.clone()
+    boosted_logits[
+        active_rows, positions[active_rows], token_ids[active_rows]
+    ] += boost[active_rows].to(boosted_logits.dtype)
+    return boosted_logits
 
 
 @ torch.no_grad()
